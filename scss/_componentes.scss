@@ -63,13 +63,14 @@
     box-shadow: 0 8px 24px rgba(180, 100, 40, 0.08);
 }
 
+// --- CONTENEDOR VERTICAL ESTRICTO ---
 .menu-buttons-container {
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; // Forzamos columna para que vayan uno debajo del otro
-    align-items: center;    // Centramos los elementos
+    flex-direction: column; // Forzamos columna estricta
+    align-items: stretch;   // Hacemos que los hijos ocupen el ancho completo disponible
     gap: 16px;              // Espacio vertical prolijo entre botones
 }
 
@@ -80,13 +81,13 @@
     font-family: $font-botones;
     font-size: 0.98rem;
     font-weight: 700;
-    width: 100%;            // Ocupa el ancho completo del contenedor (320px)
-    max-width: 280px;       // Ancho ideal centrado
+    display: block;         // Forzamos comportamiento de bloque
+    width: 100%;            // Ocupa todo el ancho del contenedor (320px)
     white-space: nowrap;
     padding: 14px 22px;
     border: none;
-    border-bottom: 5px solid $boton-borde;
-    border-radius: 6px;
+    border-bottom: 3px solid $boton-borde;
+    border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -103,7 +104,6 @@
 
     &.btn-generate {
         width: 100%;
-        max-width: 100%;
         margin-top: 10px;
         font-size: 1.05rem;
     }

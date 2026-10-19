@@ -1,0 +1,29 @@
+// Paleta exacta extraída de la imagen de CAAITBA
+$azul-institucional: #425d78;
+$naranja-logo: #d17522;
+$boton-bg: #c97539;
+$boton-hover: #d68042;
+$boton-borde: #8f4f20;
+
+// Degradado difuminado suave idéntico al fondo original
+$bg-gradiente: linear-gradient(
+    180deg,
+    #f09c52 0%,
+    #f3af73 30%,
+    #f7cba1 62%,
+    #f9e2cc 82%,
+    #fcf7f2 100%
+);
+
+
+
+// Tipografías
+$font-principal: 'Roboto', sans-serif;
+$font-botones: 'Merriweather', serif;
+
+@mixin flex-center($direction: column) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}

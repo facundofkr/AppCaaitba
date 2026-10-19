@@ -1,0 +1,129 @@
+.boleta-render-zone {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+}
+
+.boleta-ticket {
+    width: 750px;
+    background: #ffffff;
+    padding: 40px;
+    border: 2px solid $azul-institucional;
+    color: #222;
+    font-family: $font-principal;
+
+    .boleta-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .boleta-logo {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .boleta-org {
+            font-size: 0.8rem;
+            color: #555;
+            max-width: 360px;
+        }
+
+        .boleta-meta {
+            text-align: right;
+            font-size: 0.85rem;
+
+            .boleta-badge {
+                display: inline-block;
+                background: $boton-bg;
+                color: #fff;
+                font-weight: 700;
+                padding: 4px 10px;
+                border-radius: 4px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .boleta-divider {
+        border: none;
+        border-top: 2px solid #e0e0e0;
+        margin: 22px 0;
+    }
+
+    .boleta-body {
+        h3 {
+            color: $azul-institucional;
+            margin-bottom: 16px;
+            font-size: 1.15rem;
+        }
+
+        .boleta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 28px;
+
+            th,
+            td {
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                font-size: 1rem;
+            }
+
+            th {
+                text-align: left;
+                background-color: #f8f9fa;
+                color: #444;
+                width: 60%;
+            }
+
+            td {
+                text-align: right;
+                font-weight: 500;
+            }
+
+            .row-total {
+                th,
+                td {
+                    background-color: #fdf2e9;
+                    color: $boton-borde;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    border-top: 2px solid $boton-bg;
+                }
+            }
+        }
+    }
+
+    .boleta-footer {
+        text-align: center;
+        margin-top: 20px;
+
+        .barcode-lines {
+            height: 48px;
+            width: 85%;
+            margin: 0 auto 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                #111 0px, #111 3px,
+                transparent 3px, transparent 6px,
+                #111 6px, #111 7px,
+                transparent 7px, transparent 11px,
+                #111 11px, #111 15px,
+                transparent 15px, transparent 18px
+            );
+        }
+
+        .barcode-numbers {
+            font-family: monospace;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .boleta-legal {
+            font-size: 0.75rem;
+            color: #777;
+        }
+    }
+}

@@ -1,0 +1,190 @@
+// --- ENCABEZADO Y LOGO SVG ---
+.main-header {
+    text-align: center;
+    margin-bottom: 35px;
+
+    .logo-svg-container {
+        width: 310px;
+        margin: 0 auto 8px;
+
+        .caaitba-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .subtitle {
+        color: #ffffff;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        text-shadow: 0px 2px 5px rgba(120, 60, 15, 0.55);
+    }
+}
+
+.logo-caait {
+    color: $azul-institucional;
+    font-weight: 700;
+}
+
+.logo-ba {
+    color: $naranja-logo;
+    font-weight: 400;
+}
+
+// --- MENÚ PRINCIPAL ---
+.menu-top-row {
+    @include flex-center(row);
+    gap: 75px;
+    width: 100%;
+    margin-bottom: 24px;
+
+    .placeholder-box {
+        width: 195px;
+        height: 56px;
+        background: $caja-lateral-bg;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(160, 85, 25, 0.12);
+
+        @media (max-width: 700px) {
+            display: none;
+        }
+    }
+}
+
+.menu-panel {
+    background: $panel-bg;
+    width: 100%;
+    max-width: 830px;
+    padding: 32px 20px 55px;
+    @include flex-center(column);
+    gap: 28px;
+    box-shadow: 0 8px 24px rgba(180, 100, 40, 0.08);
+}
+
+.menu-buttons-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; // Forzamos columna para que vayan uno debajo del otro
+    align-items: center;    // Centramos los elementos
+    gap: 16px;              // Espacio vertical prolijo entre botones
+}
+
+// --- BOTONES ESTILO CAAITBA ---
+.btn-caaitba {
+    background-color: $boton-bg;
+    color: #ffffff;
+    font-family: $font-botones;
+    font-size: 0.98rem;
+    font-weight: 700;
+    width: 100%;            // Ocupa el ancho completo del contenedor (320px)
+    max-width: 280px;       // Ancho ideal centrado
+    white-space: nowrap;
+    padding: 14px 22px;
+    border: none;
+    border-bottom: 5px solid $boton-borde;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+
+    &:hover {
+        background-color: $boton-hover;
+    }
+
+    &:active {
+        transform: translateY(3px);
+        border-bottom-width: 2px;
+    }
+
+    &.btn-generate {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 1.05rem;
+    }
+}
+
+
+
+// --- FORMULARIO C.M.A.O. ---
+.form-card {
+    background: rgba(255, 248, 242, 0.92);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
+    border-top: 5px solid $boton-bg;
+
+    .form-header {
+        margin-bottom: 22px;
+
+        h2 {
+            color: $azul-institucional;
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+    }
+
+    .btn-back {
+        background: none;
+        border: none;
+        outline: none; // Elimina el recuadro negro de foco
+        color: $boton-borde;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 4px 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: $azul-institucional;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select {
+            padding: 11px 12px;
+            border: 1px solid #d4b295;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+
+            &:focus {
+                border-color: $boton-bg;
+                box-shadow: 0 0 0 3px rgba(201, 117, 57, 0.2);
+            }
+        }
+
+        .helper-text {
+            font-size: 0.78rem;
+            color: #777;
+            margin-top: 4px;
+        }
+    }
+}

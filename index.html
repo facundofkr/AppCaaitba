@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAAITBA - Gestión de Boletas C.M.A.O.</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- ATENCIÓN ACÁ: Si Watch Sass te crea el CSS adentro de /scss, dejá esta primera línea. Si lo crea en /css, usa la segunda -->
+    <link rel="stylesheet" href="scss/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Librerías para generar PNG y PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- ENCABEZADO INSTITUCIONAL FIEL A LA IMAGEN -->
+        <header class="main-header">
+            <div class="logo-svg-container">
+                <svg viewBox="0 0 380 110" class="caaitba-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+                            <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.22"/>
+                        </filter>
+                    </defs>
+                    <!-- Líneas de cota arquitectónicas alrededor de la C -->
+                    <g stroke="#b86b28" stroke-width="1.2" opacity="0.75">
+                        <line x1="18" y1="26" x2="92" y2="26" />
+                        <line x1="18" y1="90" x2="92" y2="90" />
+                        <line x1="25" y1="18" x2="25" y2="98" />
+                        <!-- Ticks de arquitectura en las esquinas -->
+                        <line x1="21" y1="30" x2="29" y2="22" stroke-width="1.5" />
+                        <line x1="21" y1="94" x2="29" y2="86" stroke-width="1.5" />
+                        <line x1="82" y1="30" x2="90" y2="22" stroke-width="1.5" />
+                    </g>
+
+                    <!-- Medialuna interna naranja de la C -->
+                    <path d="M 55 27 C 32 27, 26 43, 26 58 C 26 73, 32 89, 55 89 C 47 79, 45 69, 45 58 C 45 47, 47 37, 55 27 Z" fill="#cf7624" filter="url(#drop-shadow)"/>
+
+                    <!-- Arco exterior azul de la C -->
+                    <path d="M 83 39 C 75 29, 64 26, 52 26 C 33 26, 25 41, 25 58 C 25 75, 33 90, 52 90 C 65 90, 76 86, 84 77 L 81 73 C 74 81, 65 85, 55 85 C 40 85, 35 72, 35 58 C 35 44, 40 31, 55 31 C 65 31, 73 35, 79 43 Z" fill="#425d78" filter="url(#drop-shadow)"/>
+
+                    <!-- Texto "aait" en azul institucional -->
+                    <text x="86" y="88" font-family="'Trebuchet MS', 'Roboto', sans-serif" font-size="86" font-weight="bold" fill="#425d78" letter-spacing="-3" filter="url(#drop-shadow)">aait</text>
+
+                    <!-- Texto "BA" en naranja institucional -->
+                    <text x="235" y="88" font-family="'Trebuchet MS', 'Roboto', sans-serif" font-size="76" font-weight="normal" fill="#d17522" letter-spacing="-2" filter="url(#drop-shadow)">BA</text>
+                </svg>
+            </div>
+
+            <p class="subtitle">
+                Caja de Previsión para Arquitectos, Agrimensores, Ingenieros y Técnicos de la Provincia de Buenos Aires
+            </p>
+        </header>
+
+        <!-- PANTALLA 1: MENÚ PRINCIPAL (4 BOTONES) -->
+        <main id="screen-home" class="screen active">
+            <div class="menu-buttons-container">
+                <button id="btn-cmao" class="btn-caaitba">C.M.A.O.</button>
+                <button class="btn-caaitba" data-section="Empresas">Empresas</button>
+                <button class="btn-caaitba" data-section="Formularios Obra">Formularios Obra</button>
+                <button class="btn-caaitba" data-section="Turnos Online">Turnos Online</button>
+            </div>
+        </main>
+
+        <!-- PANTALLA 2: FORMULARIO C.M.A.O. -->
+        <section id="screen-cmao" class="screen">
+            <div class="form-card">
+                <div class="form-header">
+                    <button id="btn-back" class="btn-back" type="button">← Volver al menú</button>
+                    <h2>Liquidación C.M.A.O.</h2>
+                    <p>Ingresá los valores para generar la boleta digital</p>
+                </div>
+
+                <form id="cmao-form">
+                    <div class="form-group">
+                        <label for="input-anio">Año (1998 - 2026)</label>
+                        <select id="input-anio" required></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-importe">Importe ($)</label>
+                        <input type="number" id="input-importe" placeholder="Ej: 150000" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-interes">Interés ($)</label>
+                        <input type="number" id="input-interes" placeholder="Ej: 25000" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-valor-final">Valor Final ($)</label>
+                        <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" min="0" required>
+                        <small class="helper-text">* Se calcula automáticamente al ingresar Importe e Interés.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-formato">Formato de descarga</label>
+                        <select id="input-formato">
+                            <option value="pdf">Documento PDF (.pdf)</option>
+                            <option value="png">Imagen PNG (.png)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">GENERAR BOLETA</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- PLANTILLA OCULTA PARA EXPORTAR BOLETA -->
+    <div class="boleta-render-zone">
+        <div id="boleta-template" class="boleta-ticket">
+            <div class="boleta-header">
+                <div>
+                    <div class="boleta-logo">
+                        <span class="logo-caait">caait</span><span class="logo-ba">BA</span>
+                    </div>
+                    <p class="boleta-org">Caja de Previsión Social para Agrimensores, Arquitectos, Ingenieros y Técnicos de la Prov. de Bs. As.</p>
+                </div>
+                <div class="boleta-meta">
+                    <span class="boleta-badge">BOLETA DIGITAL</span>
+                    <p><strong>Fecha de emisión:</strong> <span id="boleta-fecha">-</span></p>
+                    <p><strong>Comprobante N°:</strong> <span id="boleta-nro">-</span></p>
+                </div>
+            </div>
+
+            <hr class="boleta-divider">
+
+            <div class="boleta-body">
+                <h3>Concepto: Cuota Mínima Anual Obligatoria (C.M.A.O.)</h3>
+                <table class="boleta-table">
+                    <tbody>
+                        <tr>
+                            <th>Período / Año imputado:</th>
+                            <td id="boleta-anio">-</td>
+                        </tr>
+                        <tr>
+                            <th>Importe Original:</th>
+                            <td id="boleta-importe">$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <th>Intereses / Recargos:</th>
+                            <td id="boleta-interes">$ 0,00</td>
+                        </tr>
+                        <tr class="row-total">
+                            <th>VALOR FINAL A ABONAR:</th>
+                            <td id="boleta-total">$ 0,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="boleta-footer">
+                <div class="barcode-lines"></div>
+                <p id="boleta-codigo-barras" class="barcode-numbers">0000000000000000000000000000</p>
+                <p class="boleta-legal">Comprobante generado digitalmente para pago de C.M.A.O. - CAAITBA</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

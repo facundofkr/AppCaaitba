@@ -24,7 +24,6 @@ body {
 // Manejo de pantallas con SASS puro (sin parches)
 .screen {
     width: 100%;
-    @include flex-center(column);
     animation: fadeIn 0.25s ease-in-out;
 
     // Si la pantalla NO contiene la clase .active, se oculta

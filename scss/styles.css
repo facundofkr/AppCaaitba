@@ -113,21 +113,23 @@ body {
 }
 
 .btn-caaitba {
-  background-color: #c97539;
-  color: #ffffff;
-  font-family: "Merriweather", serif;
-  font-size: 0.98rem;
-  font-weight: 700;
-  min-width: 195px;
-  white-space: nowrap;
-  padding: 14px 22px;
-  border: none;
-  border-bottom: 5px solid #8f4f20;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  transition: transform 0.1s ease, background-color 0.2s ease;
+    background-color: #c97539;
+    color: #ffffff;
+    font-family: "Merriweather", serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    display: block !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    padding: 14px 22px;
+    border: none;
+    border-bottom: 5px solid #8f4f20;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
 }
 .btn-caaitba:hover {
   background-color: #d68042;
@@ -311,3 +313,13 @@ body {
   font-size: 0.75rem;
   color: #777;
 }/*# sourceMappingURL=styles.css.map */
+
+.menu-buttons-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}

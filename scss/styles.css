@@ -210,7 +210,9 @@ body {
 
 .form-card.turno-card {
   background: #ffecb5;
-  max-width: 580px;
+  width: 90%;
+  max-width: 480px;
+  margin: 0 auto;
   border-top: none;
   border: 1px solid #d4b295;
 }
@@ -223,33 +225,36 @@ body {
   font-size: 1.1rem;
   margin: 12px 0 15px 0;
   border-radius: 4px;
+  width: 100%;
 }
-.form-card.turno-card .turno-legajo {
+
+.turno-legajo {
   color: #333;
   font-size: 0.95rem;
   margin-bottom: 15px;
 }
-.form-card.turno-card .turno-legajo .legajo-link {
+.turno-legajo .legajo-link {
   color: #0056b3;
   text-decoration: underline;
   font-weight: 500;
 }
-.form-card.turno-card .form-group {
+
+.form-group {
   margin-bottom: 12px;
 }
-.form-card.turno-card .form-group label {
+.form-group label {
   font-size: 0.85rem;
   color: #222;
   font-weight: normal;
   margin-bottom: 4px;
 }
-.form-card.turno-card .form-group label.label-block {
+.form-group label.label-block {
   display: block;
   margin-bottom: 4px;
 }
-.form-card.turno-card .form-group input[type=text],
-.form-card.turno-card .form-group select,
-.form-card.turno-card .form-group textarea {
+.form-group input[type=text],
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #999;
@@ -257,25 +262,26 @@ body {
   border-radius: 2px;
   font-size: 0.95rem;
 }
-.form-card.turno-card .form-group input[type=text]:focus,
-.form-card.turno-card .form-group select:focus,
-.form-card.turno-card .form-group textarea:focus {
+.form-group input[type=text]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   border-color: #f28c2e;
   box-shadow: none;
 }
-.form-card.turno-card .form-group textarea {
+.form-group textarea {
   resize: vertical;
 }
-.form-card.turno-card .form-group.checkbox-group {
+.form-group.checkbox-group {
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
-.form-card.turno-card .form-group.checkbox-group input[type=checkbox] {
+.form-group.checkbox-group input[type=checkbox] {
   width: 18px;
   height: 18px;
 }
-.form-card.turno-card .btn-aceptar-turno {
+
+.btn-aceptar-turno {
   display: block;
   margin: 20px auto 0 auto;
   background-color: #e0e0e0;
@@ -290,10 +296,10 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   transition: background-color 0.15s ease;
 }
-.form-card.turno-card .btn-aceptar-turno:hover {
+.btn-aceptar-turno:hover {
   background-color: #d0d0d0;
 }
-.form-card.turno-card .btn-aceptar-turno:active {
+.btn-aceptar-turno:active {
   background-color: #c0c0c0;
 }
 

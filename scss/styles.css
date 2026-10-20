@@ -210,9 +210,11 @@ body {
 
 .form-card.turno-card {
   background: #ffecb5;
-  width: 90%;
-  max-width: 480px;
+  width: 92%;
+  max-width: 450px;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px 15px;
   border-top: none;
   border: 1px solid #d4b295;
 }
@@ -223,38 +225,46 @@ body {
   text-align: center;
   padding: 10px;
   font-size: 1.1rem;
-  margin: 12px 0 15px 0;
+  margin: 8px 0 15px 0;
   border-radius: 4px;
   width: 100%;
+  box-sizing: border-box;
 }
-
-.turno-legajo {
+.form-card.turno-card .turno-legajo {
   color: #333;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 15px;
+  word-break: break-word;
 }
-.turno-legajo .legajo-link {
+.form-card.turno-card .turno-legajo .legajo-link {
   color: #0056b3;
   text-decoration: underline;
   font-weight: 500;
 }
-
-.form-group {
+.form-card.turno-card .form-group {
   margin-bottom: 12px;
+  width: 100%;
 }
-.form-group label {
-  font-size: 0.85rem;
-  color: #222;
-  font-weight: normal;
-  margin-bottom: 4px;
+.form-card.turno-card .form-group input[type=text],
+.form-card.turno-card .form-group select,
+.form-card.turno-card .form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #999;
+  background-color: #ffffff;
+  border-radius: 2px;
+  font-size: 0.95rem;
 }
-.form-group label.label-block {
-  display: block;
-  margin-bottom: 4px;
+.form-card.turno-card .form-group input[type=text]:focus,
+.form-card.turno-card .form-group select:focus,
+.form-card.turno-card .form-group textarea:focus {
+  border-color: #f28c2e;
+  box-shadow: none;
 }
-.form-group input[type=text],
-.form-group select,
-.form-group textarea {
+.form-card.turno-card input[type=text],
+.form-card.turno-card select,
+.form-card.turno-card textarea {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #999;
@@ -262,21 +272,21 @@ body {
   border-radius: 2px;
   font-size: 0.95rem;
 }
-.form-group input[type=text]:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-card.turno-card input[type=text]:focus,
+.form-card.turno-card select:focus,
+.form-card.turno-card textarea:focus {
   border-color: #f28c2e;
   box-shadow: none;
 }
-.form-group textarea {
+.form-card.turno-card textarea {
   resize: vertical;
 }
-.form-group.checkbox-group {
+.form-card.turno-card.checkbox-group {
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
-.form-group.checkbox-group input[type=checkbox] {
+.form-card.turno-card.checkbox-group input[type=checkbox] {
   width: 18px;
   height: 18px;
 }

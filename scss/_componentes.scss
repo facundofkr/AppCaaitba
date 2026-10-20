@@ -182,14 +182,17 @@
 
 
 // --- ESTILOS ESPECÍFICOS PANTALLA TURNOS ONLINE ---
+// --- ESTILOS RESPONSIVE PARA LA PANTALLA DE TURNOS ---
 .form-card.turno-card {
     background: #ffecb5;
-    width: 90%;          // Ocupa el 90% de la pantalla en celulares
-    max-width: 480px;    // Y no pasa de este ancho en pantallas grandes
-    margin: 0 auto;      // Centrado automático perfecto
+    width: 92%;          // Ocupa el 92% del ancho de la pantalla del celu
+    max-width: 450px;    // Límite para cuando se abra en tablets o PC
+    margin: 0 auto;      // Centrado absoluto horizontal
+    box-sizing: border-box; // Evita que los paddings rompan el ancho
+    padding: 20px 15px;  // Padding interno más cómodo para celular
     border-top: none;
     border: 1px solid #d4b295;
-    
+
     .turno-title-bar {
         background-color: #f28c2e;
         color: #ffffff;
@@ -197,16 +200,17 @@
         text-align: center;
         padding: 10px;
         font-size: 1.1rem;
-        margin: 12px 0 15px 0;
+        margin: 8px 0 15px 0;
         border-radius: 4px;
-        width: 100%;     // Asegura que ocupe todo el ancho de la tarjeta
+        width: 100%;     // Se asegura de no salirse del contenedor
+        box-sizing: border-box;
     }
-}
 
     .turno-legajo {
         color: #333;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-bottom: 15px;
+        word-break: break-word; // Evita que un legajo largo rompa el diseño
         
         .legajo-link {
             color: #0056b3;
@@ -217,18 +221,25 @@
 
     .form-group {
         margin-bottom: 12px;
+        width: 100%;
 
-        label {
-            font-size: 0.85rem;
-            color: #222;
-            font-weight: normal;
-            margin-bottom: 4px;
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;         // Obliga a los inputs a ajustarse al ancho de la tarjeta
+            box-sizing: border-box;
+            padding: 8px 10px;
+            border: 1px solid #999;
+            background-color: #ffffff;
+            border-radius: 2px;
+            font-size: 0.95rem;
 
-            &.label-block {
-                display: block;
-                margin-bottom: 4px;
+            &:focus {
+                border-color: #f28c2e;
+                box-shadow: none;
             }
         }
+    }
 
         input[type="text"],
         select,

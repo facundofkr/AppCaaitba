@@ -99,3 +99,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Referencias para Turnos Online
+    const screenTurno = document.getElementById('screen-turno');
+    const btnTurnosOnline = document.querySelector('.btn-caaitba[data-section="Turnos Online"]');
+    const btnBackTurno = document.getElementById('btn-back-turno');
+    const turnoForm = document.getElementById('turno-form');
+
+    if (btnTurnosOnline) {
+        btnTurnosOnline.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenTurno.classList.add('active');
+        });
+    }
+
+    if (btnBackTurno) {
+        btnBackTurno.addEventListener('click', () => {
+            screenTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (turnoForm) {
+        turnoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Turno solicitado con éxito!');
+            turnoForm.reset();
+            screenTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }

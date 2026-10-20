@@ -75,6 +75,64 @@
         </section>
     </div>
 
+    <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
+        <section id="screen-turno" class="screen">
+            <div class="form-card turno-card">
+                <div class="form-header">
+                    <button id="btn-back-turno" class="btn-back" type="button">← Volver al menú</button>
+                    <div class="turno-title-bar">Solicitud de Turno</div>
+                    <p class="turno-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA ANAHID</span></p>
+                </div>
+
+                <form id="turno-form">
+                    <div class="form-group row-group">
+                        <label>Tipo de atención:</label>
+                        <select id="tipo-atencion" required>
+                            <option value="Atención al Público">Atención al Público</option>
+                            <option value="Legales / Matrícula">Legales / Matrícula</option>
+                            <option value="Tesorería">Tesorería</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row-group">
+                        <label>Seleccione Fecha:</label>
+                        <select id="seleccione-fecha" required>
+                            <option value="2026-10-21">Miércoles - 21/10/2026</option>
+                            <option value="2026-10-22">Jueves - 22/10/2026</option>
+                            <option value="2026-10-23">Viernes - 23/10/2026</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row-group">
+                        <label>Horarios Disponibles</label>
+                        <select id="horarios-disponibles" required>
+                            <option value="08:30">08:30</option>
+                            <option value="09:00">09:00</option>
+                            <option value="09:30">09:30</option>
+                            <option value="10:00">10:00</option>
+                             <option value="08:30">10:30</option>
+                            <option value="09:00">11:00</option>
+                            <option value="09:30">11:30</option>
+                            <option value="10:00">12:00</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="label-block">Tercero, indique Apellido / Nombre / DNI:</label>
+                        <input type="text" id="tercero-autorizado" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-block">Motivo del turno:*</label>
+                        <textarea id="motivo-turno" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-aceptar-turno">Aceptar</button>
+                </form>
+            </div>
+        </section>
+
     <!-- PLANTILLA OCULTA PARA EXPORTAR BOLETA -->
     <div class="boleta-render-zone">
         <div id="boleta-template" class="boleta-ticket">

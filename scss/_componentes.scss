@@ -179,3 +179,109 @@
         }
     }
 }
+
+
+// --- ESTILOS ESPECÍFICOS PANTALLA TURNOS ONLINE ---
+.form-card.turno-card {
+    background: #ffecb5; // Fondo amarillo cálido característico del sistema interno
+    max-width: 580px;
+    border-top: none;
+    border: 1px solid #d4b295;
+
+    .turno-title-bar {
+        background-color: #f28c2e; // Franja superior naranja
+        color: #ffffff;
+        font-weight: 700;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.1rem;
+        margin: 12px 0 15px 0;
+        border-radius: 4px;
+    }
+
+    .turno-legajo {
+        color: #333;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        
+        .legajo-link {
+            color: #0056b3;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+
+        label {
+            font-size: 0.85rem;
+            color: #222;
+            font-weight: normal;
+            margin-bottom: 4px;
+
+            &.label-block {
+                display: block;
+                margin-bottom: 4px;
+            }
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #999;
+            background-color: #ffffff;
+            border-radius: 2px;
+            font-size: 0.95rem;
+
+            &:focus {
+                border-color: #f28c2e;
+                box-shadow: none;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        &.checkbox-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    // Botón estilo clásico "Aceptar" de formularios internos
+    .btn-aceptar-turno {
+        display: block;
+        margin: 20px auto 0 auto;
+        background-color: #e0e0e0;
+        color: #000000;
+        font-family: $font-principal;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 6px 28px;
+        border: 1px solid #777;
+        border-radius: 3px;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: #d0d0d0;
+        }
+        
+        &:active {
+            background-color: #c0c0c0;
+        }
+    }
+}
+
+

@@ -228,4 +228,18 @@
     }
 
 
+// --- PIE DE PÁGINA / AUTORÍA ---
+.app-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    padding-bottom: 5px;
 
+    h3 {
+        font-family: $font-principal;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #5c3a21;
+        letter-spacing: 0.5px;
+    }
+}

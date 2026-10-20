@@ -254,6 +254,20 @@ body {
   background-color: #c0c0c0;
 }
 
+.app-footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  padding-bottom: 5px;
+}
+.app-footer h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5c3a21;
+  letter-spacing: 0.5px;
+}
+
 .boleta-render-zone {
   position: fixed;
   left: -9999px;

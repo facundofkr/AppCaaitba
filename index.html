@@ -14,7 +14,7 @@
 <body>
 
     <div class="app-container">
-        <!-- ENCABEZADO INSTITUCIONAL FIEL A LA IMAGEN -->
+        <!-- ENCABEZADO INSTITUCIONAL -->
         <header class="main-header">
             <div class="logo-img-container">
                 <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
@@ -23,13 +23,13 @@
 
         <!-- PANTALLA 1: MENÚ PRINCIPAL (4 BOTONES) -->
         <main id="screen-home" class="screen active">
-    <div class="menu-buttons-container">
-        <button id="btn-cmao" class="btn-caaitba">C.M.A.O.</button>
-        <button class="btn-caaitba" data-section="Empresas">Empresas</button>
-        <button class="btn-caaitba" data-section="Formularios Obra">Formularios Obra</button>
-        <button id="btn-turnos" class="btn-caaitba">Turnos Online</button>
-    </div>
-</main>
+            <div class="menu-buttons-container">
+                <button id="btn-cmao" class="btn-caaitba">C.M.A.O.</button>
+                <button class="btn-caaitba" data-section="Empresas">Empresas</button>
+                <button class="btn-caaitba" data-section="Formularios Obra">Formularios Obra</button>
+                <button id="btn-turnos" class="btn-caaitba">Turnos Online</button>
+            </div>
+        </main>
 
         <!-- PANTALLA 2: FORMULARIO C.M.A.O. -->
         <section id="screen-cmao" class="screen">
@@ -37,7 +37,7 @@
                 <div class="form-header">
                     <button id="btn-back" class="btn-back" type="button">← Volver al menú</button>
                     <h2>Boleta Digital C.M.A.O.</h2>
-                    </div>
+                </div>
 
                 <form id="cmao-form">
                     <div class="form-group">
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label for="input-valor-final">Valor Final ($)</label>
                         <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" min="0" required>
-                        <small class="helper-text">* Se calcula automáticamente al ingresar Importe e Interés.</small>
+                        <small class="helper-text">Se calcula automáticamente al ingresar Importe e Interés.</small>
                     </div>
 
                     <div class="form-group">
@@ -73,11 +73,8 @@
                 </form>
             </div>
         </section>
-    </div>
 
-      <h3>Creado por F. Delgado Di Stasio</h4>
-
-    <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
+        <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
         <section id="screen-turno" class="screen">
             <div class="form-card turno-card">
                 <div class="form-header">
@@ -112,13 +109,12 @@
                             <option value="09:00">09:00</option>
                             <option value="09:30">09:30</option>
                             <option value="10:00">10:00</option>
-                             <option value="08:30">10:30</option>
-                            <option value="09:00">11:00</option>
-                            <option value="09:30">11:30</option>
-                            <option value="10:00">12:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
                         </select>
                     </div>
-
 
                     <div class="form-group">
                         <label class="label-block">Tercero, indique Apellido / Nombre / DNI:</label>
@@ -134,6 +130,12 @@
                 </form>
             </div>
         </section>
+
+        <!-- FIRMA DE AUTORÍA CENTRADA ABAJO -->
+        <footer class="app-footer">
+            <h3>Creado por F. Delgado Di Stasio</h3>
+        </footer>
+    </div>
 
     <!-- PLANTILLA OCULTA PARA EXPORTAR BOLETA -->
     <div class="boleta-render-zone">
@@ -187,11 +189,10 @@
     </div>
 
     <script src="js/app.js"></script>
-<script>
+    <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./sw.js');
         }
     </script>
-  
 </body>
 </html>

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -55,13 +54,6 @@ body {
   width: 100%;
   height: auto;
   display: block;
-}
-.main-header .subtitle {
-  color: #ffffff;
-  font-size: 0.95rem; /* Modificalo acá a un tamaño visible */
-  font-weight: 700; /* Peso correcto para que se lea bien */
-  letter-spacing: 0.2px;
-  text-shadow: 0px 2px 5px rgba(120, 60, 15, 0.55);
 }
 
 .logo-caait {

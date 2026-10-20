@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,10 +27,6 @@ body {
 
 .screen {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   animation: fadeIn 0.25s ease-in-out;
 }
 .screen:not(.active) {
@@ -48,10 +45,10 @@ body {
 }
 .main-header {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 }
 .main-header .logo-svg-container {
-  width: 310px;
+  width: 210px;
   margin: 0 auto 8px;
 }
 .main-header .logo-svg-container .caaitba-svg {
@@ -61,14 +58,14 @@ body {
 }
 .main-header .subtitle {
   color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.95rem; /* Modificalo acá a un tamaño visible */
+  font-weight: 700; /* Peso correcto para que se lea bien */
   letter-spacing: 0.2px;
   text-shadow: 0px 2px 5px rgba(120, 60, 15, 0.55);
 }
 
 .logo-caait {
-  color: #425d78;
+  color: #a63402;
   font-weight: 700;
 }
 
@@ -79,17 +76,16 @@ body {
 
 .menu-top-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 75px;
+  gap: 25px;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 4px;
 }
 .menu-top-row .placeholder-box {
-  width: 195px;
-  height: 56px;
-  background: rgba(246, 195, 150, 0.55);
+  width: 115px;
+  height: 36px;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(160, 85, 25, 0.12);
 }
@@ -100,7 +96,6 @@ body {
 }
 
 .menu-panel {
-  background: rgba(238, 179, 128, 0.55);
   width: 100%;
   max-width: 830px;
   padding: 32px 20px 55px;
@@ -112,24 +107,33 @@ body {
   box-shadow: 0 8px 24px rgba(180, 100, 40, 0.08);
 }
 
+.menu-buttons-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .btn-caaitba {
-    background-color: #c97539;
-    color: #ffffff;
-    font-family: "Merriweather", serif;
-    font-size: 0.98rem;
-    font-weight: 700;
-    display: block !important;
-    width: 100% !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
-    padding: 14px 22px;
-    border: none;
-    border-bottom: 5px solid #8f4f20;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    white-space: nowrap;
+  background-color: #c97539;
+  color: #ffffff;
+  font-family: "Merriweather", serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-bottom: 3px solid #8f4f20;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease, background-color 0.2s ease;
 }
 .btn-caaitba:hover {
   background-color: #d68042;
@@ -158,7 +162,7 @@ body {
   margin-bottom: 22px;
 }
 .form-card .form-header h2 {
-  color: #425d78;
+  color: #a63402;
   margin-top: 10px;
   font-size: 1.5rem;
 }
@@ -188,7 +192,7 @@ body {
 .form-card .form-group label {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #425d78;
+  color: #a63402;
   margin-bottom: 6px;
 }
 .form-card .form-group input,
@@ -222,7 +226,7 @@ body {
   width: 750px;
   background: #ffffff;
   padding: 40px;
-  border: 2px solid #425d78;
+  border: 2px solid #a63402;
   color: #222;
   font-family: "Roboto", sans-serif;
 }
@@ -260,7 +264,7 @@ body {
   margin: 22px 0;
 }
 .boleta-ticket .boleta-body h3 {
-  color: #425d78;
+  color: #a63402;
   margin-bottom: 16px;
   font-size: 1.15rem;
 }
@@ -313,13 +317,3 @@ body {
   font-size: 0.75rem;
   color: #777;
 }/*# sourceMappingURL=styles.css.map */
-
-.menu-buttons-container {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}

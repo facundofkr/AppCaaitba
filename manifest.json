@@ -1,22 +1,26 @@
 {
+  "id": "/AppCaaitba/",
   "name": "CAAITBA - Boletas Digitales",
   "short_name": "CAAITBA",
   "description": "Generador de boletas digitales C.M.A.O. - CAAITBA",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f09c52",
   "theme_color": "#c97539",
   "icons": [
     {
-      "src": "assets/images/icon-192.png",
+      "src": "https://placehold.co/192x192/c97539/ffffff.png?text=CAAITBA",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/images/icon-512.png",
+      "src": "https://placehold.co/512x512/c97539/ffffff.png?text=CAAITBA",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

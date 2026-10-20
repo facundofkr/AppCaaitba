@@ -183,13 +183,15 @@
 
 // --- ESTILOS ESPECÍFICOS PANTALLA TURNOS ONLINE ---
 .form-card.turno-card {
-    background: #ffecb5; // Fondo amarillo cálido característico del sistema interno
-    max-width: 580px;
+    background: #ffecb5;
+    width: 90%;          // Ocupa el 90% de la pantalla en celulares
+    max-width: 480px;    // Y no pasa de este ancho en pantallas grandes
+    margin: 0 auto;      // Centrado automático perfecto
     border-top: none;
     border: 1px solid #d4b295;
-
+    
     .turno-title-bar {
-        background-color: #f28c2e; // Franja superior naranja
+        background-color: #f28c2e;
         color: #ffffff;
         font-weight: 700;
         text-align: center;
@@ -197,7 +199,9 @@
         font-size: 1.1rem;
         margin: 12px 0 15px 0;
         border-radius: 4px;
+        width: 100%;     // Asegura que ocupe todo el ancho de la tarjeta
     }
+}
 
     .turno-legajo {
         color: #333;

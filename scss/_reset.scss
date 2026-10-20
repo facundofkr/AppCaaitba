@@ -16,17 +16,21 @@ body {
 .app-container {
     width: 100%;
     max-width: 960px;
+    margin: 0 auto;
     padding: 40px 20px;
-    @include flex-center(column);
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* <-- Esto centra perfectamente todo en horizontal */
     justify-content: flex-start;
 }
 
-// Manejo de pantallas con SASS puro (sin parches)
 .screen {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* <-- Esto asegura que las tarjetas estén alineadas abajo del logo */
     animation: fadeIn 0.25s ease-in-out;
 
-    // Si la pantalla NO contiene la clase .active, se oculta
     &:not(.active) {
         display: none;
     }

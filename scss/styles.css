@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,16 +17,19 @@ body {
 .app-container {
   width: 100%;
   max-width: 960px;
+  margin: 0 auto;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: center; /* <-- Esto centra perfectamente todo en horizontal */
   justify-content: flex-start;
 }
 
 .screen {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* <-- Esto asegura que las tarjetas estén alineadas abajo del logo */
   animation: fadeIn 0.25s ease-in-out;
 }
 .screen:not(.active) {
@@ -56,14 +60,8 @@ body {
   display: block;
 }
 
-.logo-caait {
-  color: #a63402;
-  font-weight: 700;
-}
-
-.logo-ba {
-  color: #d17522;
-  font-weight: 400;
+.logo-caaitba-img {
+  margin-bottom: 30px;
 }
 
 .menu-top-row {
@@ -143,9 +141,11 @@ body {
 .form-card {
   background: rgba(255, 248, 242, 0.92);
   backdrop-filter: blur(8px);
-  width: 100%;
-  max-width: 480px;
-  padding: 30px;
+  width: 100%; /* Ocupa el 100% del contenedor disponible */
+  max-width: 420px; /* Un poco más angosto para que respire en celulares */
+  margin: 0 auto; /* Centrado automático obligatorio */
+  box-sizing: border-box; /* CLAVE: Evita que el padding sume ancho extra y rompa la pantalla */
+  padding: 25px 20px; /* Padding interno prolijo */
   border-radius: 10px;
   box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
   border-top: 5px solid #c97539;
@@ -208,87 +208,28 @@ body {
   margin-top: 4px;
 }
 
+.form-card,
 .form-card.turno-card {
-  background: #ffecb5;
-  width: 92%;
-  max-width: 450px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 20px 15px;
-  border-top: none;
-  border: 1px solid #d4b295;
-}
-.form-card.turno-card .turno-title-bar {
-  background-color: #f28c2e;
-  color: #ffffff;
-  font-weight: 700;
-  text-align: center;
-  padding: 10px;
-  font-size: 1.1rem;
-  margin: 8px 0 15px 0;
-  border-radius: 4px;
   width: 100%;
+  max-width: 480px;
+  margin: 0 auto; /* <-- Obliga a centrarse simétricamente */
   box-sizing: border-box;
 }
-.form-card.turno-card .turno-legajo {
-  color: #333;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-  word-break: break-word;
-}
-.form-card.turno-card .turno-legajo .legajo-link {
-  color: #0056b3;
-  text-decoration: underline;
-  font-weight: 500;
-}
+.form-card .form-group,
 .form-card.turno-card .form-group {
-  margin-bottom: 12px;
   width: 100%;
+  box-sizing: border-box;
 }
+.form-card .form-group input[type=text],
+.form-card .form-group input[type=number],
+.form-card .form-group select,
+.form-card .form-group textarea,
 .form-card.turno-card .form-group input[type=text],
+.form-card.turno-card .form-group input[type=number],
 .form-card.turno-card .form-group select,
 .form-card.turno-card .form-group textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 8px 10px;
-  border: 1px solid #999;
-  background-color: #ffffff;
-  border-radius: 2px;
-  font-size: 0.95rem;
-}
-.form-card.turno-card .form-group input[type=text]:focus,
-.form-card.turno-card .form-group select:focus,
-.form-card.turno-card .form-group textarea:focus {
-  border-color: #f28c2e;
-  box-shadow: none;
-}
-.form-card.turno-card input[type=text],
-.form-card.turno-card select,
-.form-card.turno-card textarea {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #999;
-  background-color: #ffffff;
-  border-radius: 2px;
-  font-size: 0.95rem;
-}
-.form-card.turno-card input[type=text]:focus,
-.form-card.turno-card select:focus,
-.form-card.turno-card textarea:focus {
-  border-color: #f28c2e;
-  box-shadow: none;
-}
-.form-card.turno-card textarea {
-  resize: vertical;
-}
-.form-card.turno-card.checkbox-group {
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-.form-card.turno-card.checkbox-group input[type=checkbox] {
-  width: 18px;
-  height: 18px;
 }
 
 .btn-aceptar-turno {

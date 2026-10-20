@@ -16,14 +16,8 @@
 
 }
 
-.logo-caait {
-    color: $azul-institucional;
-    font-weight: 700;
-}
-
-.logo-ba {
-    color: $naranja-logo;
-    font-weight: 400;
+.logo-caaitba-img {
+    margin-bottom: 30px;
 }
 
 // --- MENÚ PRINCIPAL ---
@@ -106,9 +100,11 @@
 .form-card {
     background: rgba(255, 248, 242, 0.92);
     backdrop-filter: blur(8px);
-    width: 100%;
-    max-width: 480px;
-    padding: 30px;
+    width: 100%;            /* Ocupa el 100% del contenedor disponible */
+    max-width: 420px;       /* Un poco más angosto para que respire en celulares */
+    margin: 0 auto;         /* Centrado automático obligatorio */
+    box-sizing: border-box; /* CLAVE: Evita que el padding sume ancho extra y rompa la pantalla */
+    padding: 25px 20px;     /* Padding interno prolijo */
     border-radius: 10px;
     box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
     border-top: 5px solid $boton-bg;
@@ -181,97 +177,30 @@
 }
 
 
-// --- ESTILOS ESPECÍFICOS PANTALLA TURNOS ONLINE ---
-// --- ESTILOS RESPONSIVE PARA LA PANTALLA DE TURNOS ---
+
+// --- ALINEACIÓN VERTICAL PERFECTA PARA MÓVIL Y WEB ---
+// --- TARJETA DE TURNOS ONLINE (RESPONSIVE SIN IMPORTANT) ---
+// --- TARJETAS DE FORMULARIO CENTRADAS ---
+.form-card, 
 .form-card.turno-card {
-    background: #ffecb5;
-    width: 92%;          // Ocupa el 92% del ancho de la pantalla del celu
-    max-width: 450px;    // Límite para cuando se abra en tablets o PC
-    margin: 0 auto;      // Centrado absoluto horizontal
-    box-sizing: border-box; // Evita que los paddings rompan el ancho
-    padding: 20px 15px;  // Padding interno más cómodo para celular
-    border-top: none;
-    border: 1px solid #d4b295;
-
-    .turno-title-bar {
-        background-color: #f28c2e;
-        color: #ffffff;
-        font-weight: 700;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.1rem;
-        margin: 8px 0 15px 0;
-        border-radius: 4px;
-        width: 100%;     // Se asegura de no salirse del contenedor
-        box-sizing: border-box;
-    }
-
-    .turno-legajo {
-        color: #333;
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-        word-break: break-word; // Evita que un legajo largo rompa el diseño
-        
-        .legajo-link {
-            color: #0056b3;
-            text-decoration: underline;
-            font-weight: 500;
-        }
-    }
-
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;         /* <-- Obliga a centrarse simétricamente */
+    box-sizing: border-box;
+    
     .form-group {
-        margin-bottom: 12px;
         width: 100%;
+        box-sizing: border-box;
 
         input[type="text"],
-        select,
-        textarea {
-            width: 100%;         // Obliga a los inputs a ajustarse al ancho de la tarjeta
-            box-sizing: border-box;
-            padding: 8px 10px;
-            border: 1px solid #999;
-            background-color: #ffffff;
-            border-radius: 2px;
-            font-size: 0.95rem;
-
-            &:focus {
-                border-color: #f28c2e;
-                box-shadow: none;
-            }
-        }
-    }
-
-        input[type="text"],
+        input[type="number"],
         select,
         textarea {
             width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #999;
-            background-color: #ffffff;
-            border-radius: 2px;
-            font-size: 0.95rem;
-
-            &:focus {
-                border-color: #f28c2e;
-                box-shadow: none;
-            }
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        &.checkbox-group {
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-
-            input[type="checkbox"] {
-                width: 18px;
-                height: 18px;
-            }
+            box-sizing: border-box;
         }
     }
+}
 
     // Botón estilo clásico "Aceptar" de formularios internos
     .btn-aceptar-turno {

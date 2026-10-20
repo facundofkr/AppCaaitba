@@ -34,6 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
         screenHome.classList.add('active');
     });
 
+    // Referencias para Turnos Online
+    const screenTurno = document.getElementById('screen-turno');
+    const btnTurnos = document.getElementById('btn-turnos');
+    const btnBackTurno = document.getElementById('btn-back-turno');
+    const turnoForm = document.getElementById('turno-form');
+
+    if (btnTurnos) {
+        btnTurnos.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenTurno.classList.add('active');
+        });
+    }
+
+    if (btnBackTurno) {
+        btnBackTurno.addEventListener('click', () => {
+            screenTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (turnoForm) {
+        turnoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Turno solicitado con éxito!');
+            turnoForm.reset();
+            screenTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
     // Aviso en los otros 3 botones
     document.querySelectorAll('.btn-caaitba[data-section]').forEach(btn => {
         btn.addEventListener('click', () => {

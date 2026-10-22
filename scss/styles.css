@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,17 +10,19 @@ body {
   background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   color: #333;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-container {
   width: 100%;
   max-width: 960px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 35px 15px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* <-- Esto centra perfectamente todo en horizontal */
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -29,7 +30,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* <-- Esto asegura que las tarjetas estén alineadas abajo del logo */
+  align-items: center;
   animation: fadeIn 0.25s ease-in-out;
 }
 .screen:not(.active) {
@@ -47,54 +48,28 @@ body {
   }
 }
 .main-header {
+  width: 100%;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
 }
-.main-header .logo-svg-container {
-  width: 210px;
-  margin: 0 auto 8px;
+.main-header .logo-img-container {
+  width: 240px;
+  margin: 0 auto;
 }
-.main-header .logo-svg-container .caaitba-svg {
+.main-header .logo-img-container .logo-caaitba-img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.logo-caaitba-img {
-  margin-bottom: 30px;
+.logo-caait {
+  color: #425d78;
+  font-weight: 700;
 }
 
-.menu-top-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  width: 100%;
-  margin-bottom: 4px;
-}
-.menu-top-row .placeholder-box {
-  width: 115px;
-  height: 36px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(160, 85, 25, 0.12);
-}
-@media (max-width: 700px) {
-  .menu-top-row .placeholder-box {
-    display: none;
-  }
-}
-
-.menu-panel {
-  width: 100%;
-  max-width: 830px;
-  padding: 32px 20px 55px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-  box-shadow: 0 8px 24px rgba(180, 100, 40, 0.08);
+.logo-ba {
+  color: #d17522;
+  font-weight: 400;
 }
 
 .menu-buttons-container {
@@ -113,13 +88,12 @@ body {
   font-family: "Merriweather", serif;
   font-size: 0.98rem;
   font-weight: 700;
-  display: block !important;
+  display: block;
   width: 100%;
-  max-width: 100%;
   padding: 14px 18px;
   border: none;
-  border-bottom: 3px solid #8f4f20;
-  border-radius: 4px;
+  border-bottom: 4px solid #8f4f20;
+  border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -139,24 +113,23 @@ body {
 }
 
 .form-card {
-  background: rgba(255, 248, 242, 0.92);
+  background: rgba(255, 248, 242, 0.94);
   backdrop-filter: blur(8px);
-  width: 100%; /* Ocupa el 100% del contenedor disponible */
-  max-width: 420px; /* Un poco más angosto para que respire en celulares */
-  margin: 0 auto; /* Centrado automático obligatorio */
-  box-sizing: border-box; /* CLAVE: Evita que el padding sume ancho extra y rompa la pantalla */
-  padding: 25px 20px; /* Padding interno prolijo */
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 25px 20px;
   border-radius: 10px;
   box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
   border-top: 5px solid #c97539;
 }
 .form-card .form-header {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 .form-card .form-header h2 {
   color: #a63402;
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
 }
 .form-card .form-header p {
   color: #666;
@@ -177,7 +150,8 @@ body {
   text-decoration: underline;
 }
 .form-card .form-group {
-  margin-bottom: 18px;
+  width: 100%;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -188,61 +162,71 @@ body {
   margin-bottom: 6px;
 }
 .form-card .form-group input,
-.form-card .form-group select {
-  padding: 11px 12px;
+.form-card .form-group select,
+.form-card .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid #d4b295;
   border-radius: 6px;
   font-size: 1rem;
+  font-family: "Roboto", sans-serif;
   background: #fff;
   outline: none;
   transition: border-color 0.2s;
 }
 .form-card .form-group input:focus,
-.form-card .form-group select:focus {
+.form-card .form-group select:focus,
+.form-card .form-group textarea:focus {
   border-color: #c97539;
   box-shadow: 0 0 0 3px rgba(201, 117, 57, 0.2);
+}
+.form-card .form-group textarea {
+  resize: vertical;
 }
 .form-card .form-group .helper-text {
   font-size: 0.78rem;
   color: #777;
   margin-top: 4px;
 }
-
-.form-card,
 .form-card.turno-card {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto; /* <-- Obliga a centrarse simétricamente */
-  box-sizing: border-box;
+  background: #ffecb5;
+  border-top: none;
+  border: 1px solid #d4b295;
 }
-.form-card .form-group,
-.form-card.turno-card .form-group {
+.form-card.turno-card .turno-title-bar {
+  background-color: #f28c2e;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1rem;
+  margin: 10px 0 14px;
+  border-radius: 4px;
   width: 100%;
-  box-sizing: border-box;
 }
-.form-card .form-group input[type=text],
-.form-card .form-group input[type=number],
-.form-card .form-group select,
-.form-card .form-group textarea,
-.form-card.turno-card .form-group input[type=text],
-.form-card.turno-card .form-group input[type=number],
-.form-card.turno-card .form-group select,
-.form-card.turno-card .form-group textarea {
-  width: 100%;
-  box-sizing: border-box;
+.form-card.turno-card .turno-legajo {
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+.form-card.turno-card .turno-legajo .legajo-link {
+  color: #0056b3;
+  text-decoration: underline;
+  font-weight: 500;
 }
 
 .btn-aceptar-turno {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 0;
   background-color: #e0e0e0;
   color: #000000;
   font-family: "Roboto", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
-  padding: 6px 28px;
+  padding: 8px 32px;
   border: 1px solid #777;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   transition: background-color 0.15s ease;
@@ -257,8 +241,8 @@ body {
 .app-footer {
   width: 100%;
   text-align: center;
-  margin-top: 25px;
-  padding-bottom: 5px;
+  margin-top: auto;
+  padding: 30px 0 10px;
 }
 .app-footer h3 {
   font-family: "Roboto", sans-serif;

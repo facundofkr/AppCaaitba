@@ -84,8 +84,8 @@
                 </div>
 
                 <form id="turno-form">
-                    <div class="form-group row-group">
-                        <label>Tipo de atención:</label>
+                    <div class="form-group">
+                        <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
                             <option value="Atención al Público">Atención al Público</option>
                             <option value="Legales / Matrícula">Legales / Matrícula</option>
@@ -93,8 +93,8 @@
                         </select>
                     </div>
 
-                    <div class="form-group row-group">
-                        <label>Seleccione Fecha:</label>
+                    <div class="form-group">
+                        <label for="seleccione-fecha">Seleccione Fecha:</label>
                         <select id="seleccione-fecha" required>
                             <option value="2026-10-21">Miércoles - 21/10/2026</option>
                             <option value="2026-10-22">Jueves - 22/10/2026</option>
@@ -102,8 +102,8 @@
                         </select>
                     </div>
 
-                    <div class="form-group row-group">
-                        <label>Horarios Disponibles</label>
+                    <div class="form-group">
+                        <label for="horarios-disponibles">Horarios Disponibles:</label>
                         <select id="horarios-disponibles" required>
                             <option value="08:30">08:30</option>
                             <option value="09:00">09:00</option>
@@ -117,12 +117,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label-block">Tercero, indique Apellido / Nombre / DNI:</label>
-                        <input type="text" id="tercero-autorizado" placeholder="">
+                        <label for="tercero-autorizado">Tercero, indique Apellido / Nombre / DNI:</label>
+                        <input type="text" id="tercero-autorizado">
                     </div>
 
                     <div class="form-group">
-                        <label class="label-block">Motivo del turno:*</label>
+                        <label for="motivo-turno">Motivo del turno:*</label>
                         <textarea id="motivo-turno" rows="3" required></textarea>
                     </div>
 
@@ -131,7 +131,7 @@
             </div>
         </section>
 
-        <!-- FIRMA DE AUTORÍA CENTRADA ABAJO -->
+        <!-- FIRMA DE AUTORÍA CENTRADA ABAJO DE TODO -->
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>
@@ -161,12 +161,16 @@
                 <table class="boleta-table">
                     <tbody>
                         <tr>
-                            <th>Año imputado:</th>
+                            <th>Período / Año imputado:</th>
                             <td id="boleta-anio">-</td>
                         </tr>
                         <tr>
                             <th>Importe Original:</th>
                             <td id="boleta-importe">$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <th>Intereses / Recargos:</th>
+                            <td id="boleta-interes">$ 0,00</td>
                         </tr>
                         <tr class="row-total">
                             <th>VALOR FINAL A ABONAR:</th>
@@ -178,7 +182,7 @@
 
             <div class="boleta-footer">
                 <div class="barcode-lines"></div>
-                <p id="boleta-codigo-barras" class="barcode-numbers">7777777777777777777777777</p>
+                <p id="boleta-codigo-barras" class="barcode-numbers">0000000000000000000000000000</p>
                 <p class="boleta-legal">Comprobante generado digitalmente para pago de C.M.A.O. - CAAITBA</p>
             </div>
         </div>

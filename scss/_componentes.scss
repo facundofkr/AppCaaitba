@@ -1,78 +1,55 @@
-// --- ENCABEZADO Y LOGO SVG ---
+// --- ENCABEZADO Y LOGO ---
 .main-header {
+    width: 100%;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 
-    .logo-svg-container {
-        width: 210px;
-        margin: 0 auto 8px;
+    .logo-img-container {
+        width: 240px;
+        margin: 0 auto;
 
-        .caaitba-svg {
+        .logo-caaitba-img {
             width: 100%;
             height: auto;
             display: block;
         }
     }
-
 }
 
-.logo-caaitba-img {
-    margin-bottom: 30px;
+.logo-caait {
+    color: #425d78;
+    font-weight: 700;
 }
 
-// --- MENÚ PRINCIPAL ---
-.menu-top-row {
-    @include flex-center(column);
-    gap: 25px;
-    width: 100%;
-    margin-bottom: 4px;
-
-    .placeholder-box {
-        width: 115px;
-        height: 36px;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(160, 85, 25, 0.12);
-
-        @media (max-width: 700px) {
-            display: none;
-        }
-    }
+.logo-ba {
+    color: $naranja-logo;
+    font-weight: 400;
 }
 
-.menu-panel {
-    width: 100%;
-    max-width: 830px;
-    padding: 32px 20px 55px;
-    @include flex-center(column);
-    gap: 28px;
-    box-shadow: 0 8px 24px rgba(180, 100, 40, 0.08);
-}
-
-// --- CONTENEDOR VERTICAL ESTRICTO ---
+// --- CONTENEDOR DE BOTONES EN VERTICAL ---
 .menu-buttons-container {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; // Columna obligatoria
-    align-items: center;    // Centrado perfecto
-    gap: 16px;              // Espacio vertical prolijo
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
-// --- BOTONES EN BLOQUE VERTICAL ---
+// --- BOTONES ESTILO CAAITBA ---
 .btn-caaitba {
     background-color: $boton-bg;
     color: #ffffff;
     font-family: $font-botones;
     font-size: 0.98rem;
     font-weight: 700;
-    display: block !important; // FUERZA BRUTA: Evita que cualquier otro archivo los ponga en fila
-    width: 100%;               // Ocupa el 100% de los 300px del contenedor
-    max-width: 100%;
+    display: block;
+    width: 100%;
     padding: 14px 18px;
     border: none;
-    border-bottom: 3px solid $boton-borde;
-    border-radius: 4px;
+    border-bottom: 4px solid $boton-borde;
+    border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -94,28 +71,25 @@
     }
 }
 
-
-
-// --- FORMULARIO C.M.A.O. ---
+// --- TARJETAS DE FORMULARIO (C.M.A.O. Y TURNOS) ---
 .form-card {
-    background: rgba(255, 248, 242, 0.92);
+    background: rgba(255, 248, 242, 0.94);
     backdrop-filter: blur(8px);
-    width: 100%;            /* Ocupa el 100% del contenedor disponible */
-    max-width: 420px;       /* Un poco más angosto para que respire en celulares */
-    margin: 0 auto;         /* Centrado automático obligatorio */
-    box-sizing: border-box; /* CLAVE: Evita que el padding sume ancho extra y rompa la pantalla */
-    padding: 25px 20px;     /* Padding interno prolijo */
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 25px 20px;
     border-radius: 10px;
     box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
     border-top: 5px solid $boton-bg;
 
     .form-header {
-        margin-bottom: 22px;
+        margin-bottom: 18px;
 
         h2 {
             color: $azul-institucional;
             margin-top: 10px;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
         }
 
         p {
@@ -128,7 +102,7 @@
     .btn-back {
         background: none;
         border: none;
-        outline: none; // Elimina el recuadro negro de foco
+        outline: none;
         color: $boton-borde;
         font-weight: 700;
         cursor: pointer;
@@ -141,7 +115,8 @@
     }
 
     .form-group {
-        margin-bottom: 18px;
+        width: 100%;
+        margin-bottom: 16px;
         display: flex;
         flex-direction: column;
 
@@ -153,11 +128,14 @@
         }
 
         input,
-        select {
-            padding: 11px 12px;
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
             border: 1px solid #d4b295;
             border-radius: 6px;
             font-size: 1rem;
+            font-family: $font-principal;
             background: #fff;
             outline: none;
             transition: border-color 0.2s;
@@ -168,72 +146,80 @@
             }
         }
 
+        textarea {
+            resize: vertical;
+        }
+
         .helper-text {
             font-size: 0.78rem;
             color: #777;
             margin-top: 4px;
         }
     }
-}
 
+    // Variación específica para Turnos Online
+    &.turno-card {
+        background: #ffecb5;
+        border-top: none;
+        border: 1px solid #d4b295;
 
-
-// --- ALINEACIÓN VERTICAL PERFECTA PARA MÓVIL Y WEB ---
-// --- TARJETA DE TURNOS ONLINE (RESPONSIVE SIN IMPORTANT) ---
-// --- TARJETAS DE FORMULARIO CENTRADAS ---
-.form-card, 
-.form-card.turno-card {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;         /* <-- Obliga a centrarse simétricamente */
-    box-sizing: border-box;
-    
-    .form-group {
-        width: 100%;
-        box-sizing: border-box;
-
-        input[type="text"],
-        input[type="number"],
-        select,
-        textarea {
+        .turno-title-bar {
+            background-color: #f28c2e;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1rem;
+            margin: 10px 0 14px;
+            border-radius: 4px;
             width: 100%;
-            box-sizing: border-box;
+        }
+
+        .turno-legajo {
+            color: #333;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            word-break: break-word;
+
+            .legajo-link {
+                color: #0056b3;
+                text-decoration: underline;
+                font-weight: 500;
+            }
         }
     }
 }
 
-    // Botón estilo clásico "Aceptar" de formularios internos
-    .btn-aceptar-turno {
-        display: block;
-        margin: 20px auto 0 auto;
-        background-color: #e0e0e0;
-        color: #000000;
-        font-family: $font-principal;
-        font-size: 0.95rem;
-        font-weight: 500;
-        padding: 6px 28px;
-        border: 1px solid #777;
-        border-radius: 3px;
-        cursor: pointer;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-        transition: background-color 0.15s ease;
+.btn-aceptar-turno {
+    display: block;
+    margin: 20px auto 0;
+    background-color: #e0e0e0;
+    color: #000000;
+    font-family: $font-principal;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 32px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.15s ease;
 
-        &:hover {
-            background-color: #d0d0d0;
-        }
-        
-        &:active {
-            background-color: #c0c0c0;
-        }
+    &:hover {
+        background-color: #d0d0d0;
     }
 
+    &:active {
+        background-color: #c0c0c0;
+    }
+}
 
-// --- PIE DE PÁGINA / AUTORÍA ---
+// --- PIE DE PÁGINA / AUTORÍA CENTRADO ABAJO ---
 .app-footer {
     width: 100%;
     text-align: center;
-    margin-top: 25px;
-    padding-bottom: 5px;
+    margin-top: auto;
+    padding: 30px 0 10px;
 
     h3 {
         font-family: $font-principal;

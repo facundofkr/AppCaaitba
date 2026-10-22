@@ -1,10 +1,11 @@
-const CACHE_NAME = 'caaitba-app-v7';
+const CACHE_NAME = 'caaitba-app-v8';
 const ASSETS = [
     './',
     './index.html',
     './scss/styles.css',
     './js/app.js',
-    './manifest.json'
+    './manifest.json',
+    './assets/images/icon-192.png'
 ];
 
 self.addEventListener('install', (e) => {
@@ -22,6 +23,15 @@ self.addEventListener('activate', (e) => {
     );
 });
 
+// Network-First: Busca siempre la última versión en internet y actualiza la caché
 self.addEventListener('fetch', (e) => {
-    e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
+    e.respondWith(
+        fetch(e.request)
+            .then((res) => {
+                const resClone = res.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put(e.request, resClone));
+                return res;
+            })
+            .catch(() => caches.match(e.request))
+    );
 });

@@ -46,6 +46,197 @@ body {
     transform: translateY(0);
   }
 }
+.main-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.main-header .logo-img-container {
+  width: 240px;
+  margin: 0 auto;
+}
+.main-header .logo-img-container .logo-caaitba-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo-caait {
+  color: #425d78;
+  font-weight: 700;
+}
+
+.logo-ba {
+  color: #d17522;
+  font-weight: 400;
+}
+
+.menu-buttons-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-caaitba {
+  background-color: #c97539;
+  color: #ffffff;
+  font-family: "Merriweather", serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-bottom: 4px solid #8f4f20;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.btn-caaitba:hover {
+  background-color: #d68042;
+}
+.btn-caaitba:active {
+  transform: translateY(3px);
+  border-bottom-width: 2px;
+}
+.btn-caaitba.btn-generate {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1.05rem;
+}
+
+.form-card {
+  background: rgba(255, 248, 242, 0.94);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
+  border-top: 5px solid #c97539;
+}
+.form-card .form-header {
+  margin-bottom: 18px;
+}
+.form-card .form-header h2 {
+  color: #a63402;
+  margin-top: 10px;
+  font-size: 1.45rem;
+}
+.form-card .form-header p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.form-card .btn-back {
+  background: none;
+  border: none;
+  outline: none;
+  color: #8f4f20;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+.form-card .btn-back:hover {
+  text-decoration: underline;
+}
+.form-card .form-group {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.form-card .form-group label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #a63402;
+  margin-bottom: 6px;
+}
+.form-card .form-group input,
+.form-card .form-group select,
+.form-card .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d4b295;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-card .form-group input:focus,
+.form-card .form-group select:focus,
+.form-card .form-group textarea:focus {
+  border-color: #c97539;
+  box-shadow: 0 0 0 3px rgba(201, 117, 57, 0.2);
+}
+.form-card .form-group textarea {
+  resize: vertical;
+}
+.form-card .form-group .helper-text {
+  font-size: 0.78rem;
+  color: #777;
+  margin-top: 4px;
+}
+.form-card.turno-card {
+  background: #ffecb5;
+  border-top: none;
+  border: 1px solid #d4b295;
+}
+.form-card.turno-card .turno-title-bar {
+  background-color: #f28c2e;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1rem;
+  margin: 10px 0 14px;
+  border-radius: 4px;
+  width: 100%;
+}
+.form-card.turno-card .turno-legajo {
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+.form-card.turno-card .turno-legajo .legajo-link {
+  color: #0056b3;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.btn-aceptar-turno {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #e0e0e0;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 32px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.15s ease;
+}
+.btn-aceptar-turno:hover {
+  background-color: #d0d0d0;
+}
+.btn-aceptar-turno:active {
+  background-color: #c0c0c0;
+}
+
 .app-footer {
   width: 100%;
   text-align: center;

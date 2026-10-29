@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Lógica de Inicio de Sesión (Login)
+    const screenLogin = document.getElementById('screen-login');
+    const loginForm = document.getElementById('login-form');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            screenLogin.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    document.querySelectorAll('.login-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const opcion = link.getAttribute('data-link');
+            alert(`Opción "${opcion}" próximamente disponible.`);
+        });
+    });
     const screenHome = document.getElementById('screen-home');
     const screenCmao = document.getElementById('screen-cmao');
     const screenTurno = document.getElementById('screen-turno');

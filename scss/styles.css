@@ -251,6 +251,32 @@ body {
   letter-spacing: 0.5px;
 }
 
+.form-card.login-card {
+  max-width: 360px;
+  padding: 24px 20px;
+}
+.form-card.login-card .login-links {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e6d2c0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.form-card.login-card .login-links .login-link {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a63402;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.form-card.login-card .login-links .login-link:hover {
+  color: #8f4f20;
+  text-decoration: underline;
+}
+
 .boleta-render-zone {
   position: fixed;
   left: -9999px;

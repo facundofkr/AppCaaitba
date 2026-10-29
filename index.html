@@ -57,7 +57,7 @@
             <div class="menu-buttons-container">
                 <button id="btn-cmao" class="btn-caaitba">Boleta C.M.A.O.</button>
                 <button id="btn-turnos" class="btn-caaitba">Turnos Online</button>
-                <button class="btn-caaitba" data-section="Estado de Deuda">Estado de Deuda</button>
+                <button id="btn-deuda" class="btn-caaitba">Estado de Deuda</button>
                 <button id="btn-consultas" class="btn-caaitba">Consultas Online</button>
             </div>
         </main>
@@ -256,6 +256,44 @@
                                     <td>consulta</td>
                                     <td></td>
                                     <td>01/09/2026 13:59:38</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PANTALLA 6: ESTADO DE DEUDA (NOVEDADES DE AUTOGESTIÓN) -->
+        <section id="screen-deuda" class="screen">
+            <div class="form-card deuda-card">
+                <div class="form-header">
+                    <button id="btn-back-deuda" class="btn-back" type="button">← Volver al menú</button>
+                    <div class="deuda-title-bar">Novedades de Autogestión Internet</div>
+                    <p class="deuda-legajo">Legajo: <span class="legajo-link">124200/9 PERROTTA VICENTE</span></p>
+                </div>
+
+                <div class="deuda-marco">
+                    <p class="deuda-aviso">Estimado afiliado, si Ud. registra deudas con CaaitBA, regularice su situación.</p>
+
+                    <div class="tabla-deuda-responsive">
+                        <table class="tabla-deuda">
+                            <tbody>
+                                <tr class="fila-vencida">
+                                    <td>Deuda vencida NO reclamada de C.M.A.O</td>
+                                    <td class="col-periodo">C.M.A.O. 2024 - 2025</td>
+                                    <td class="col-monto">$ 1.553.841,50</td>
+                                </tr>
+                                <tr class="fila-reclamo">
+                                    <td>Deuda CMAO con reclamo iniciado.</td>
+                                    <td class="col-periodo">C.M.A.O. (FORMAL): 2021</td>
+                                    <td class="col-accion">
+                                        <a href="#" id="link-saldar-deuda" class="link-saldar">Quiero Saldar<br>Deuda</a>
+                                    </td>
+                                </tr>
+                                <tr class="fila-vencer">
+                                    <td>Ud. Tiene Deuda de CMAO a vencer</td>
+                                    <td class="col-periodo">C.M.A.O. 2026</td>
+                                    <td class="col-monto">$ 1.301.701,20</td>
                                 </tr>
                             </tbody>
                         </table>

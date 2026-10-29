@@ -411,3 +411,114 @@
         }
     }
 }
+
+// --- ESTILOS PANTALLA ESTADO DE DEUDA ---
+.form-card.deuda-card {
+    background: #ffffff;
+    max-width: 720px;
+    border-top: none;
+    border: 1px solid #d4b295;
+    padding: 20px 16px;
+
+    .deuda-title-bar {
+        background-color: #f39334;
+        color: #900c27;
+        font-weight: 700;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 1.15rem;
+        margin: 8px 0 12px;
+        border-radius: 2px;
+    }
+
+    .deuda-legajo {
+        text-align: center;
+        color: #8c5828;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+
+        .legajo-link {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+
+    .deuda-marco {
+        border-top: 2px solid #eeeeee;
+        border-left: 2px solid #eeeeee;
+        border-right: 2px solid #888888;
+        border-bottom: 2px solid #888888;
+        padding: 16px 12px;
+        background-color: #ffffff;
+    }
+
+    .deuda-aviso {
+        color: #2f4f4f;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    .tabla-deuda-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .tabla-deuda {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 4px;
+        min-width: 480px;
+
+        td {
+            border: 1px solid #cccccc;
+            padding: 12px 10px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            vertical-align: middle;
+            background-color: #ffffff;
+        }
+
+        .col-periodo {
+            font-family: $font-botones;
+            text-align: center;
+        }
+
+        .col-monto {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .col-accion {
+            text-align: center;
+            font-weight: 400;
+
+            .link-saldar {
+                color: #0056b3;
+                text-decoration: underline;
+                font-size: 0.9rem;
+                line-height: 1.25;
+                display: inline-block;
+
+                &:hover {
+                    color: #003d82;
+                }
+            }
+        }
+
+        .fila-vencida,
+        .fila-reclamo {
+            td {
+                color: #ff0000;
+            }
+        }
+
+        .fila-vencer {
+            td {
+                color: #008000;
+            }
+        }
+    }
+}

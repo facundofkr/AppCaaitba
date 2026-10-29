@@ -218,3 +218,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// 5. Navegación y Funcionalidad de Estado de Deuda
+    const screenDeuda = document.getElementById('screen-deuda');
+    const btnDeuda = document.getElementById('btn-deuda');
+    const btnBackDeuda = document.getElementById('btn-back-deuda');
+    const linkSaldarDeuda = document.getElementById('link-saldar-deuda');
+
+    if (btnDeuda) {
+        btnDeuda.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenDeuda.classList.add('active');
+        });
+    }
+
+    if (btnBackDeuda) {
+        btnBackDeuda.addEventListener('click', () => {
+            screenDeuda.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (linkSaldarDeuda) {
+        linkSaldarDeuda.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenDeuda.classList.remove('active');
+            screenCmao.classList.add('active');
+            if (selectAnio) {
+                selectAnio.value = '2021';
+            }
+        });
+    }

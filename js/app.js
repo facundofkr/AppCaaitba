@@ -1,5 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Lógica de Inicio de Sesión (Login)
+    // 4. Navegación y Funcionalidad de Consultas Online
+    const screenConsultas = document.getElementById('screen-consultas');
+    const btnConsultas = document.getElementById('btn-consultas');
+    const btnBackConsultas = document.getElementById('btn-back-consultas');
+    const consultaForm = document.getElementById('consulta-form');
+    const inputFile = document.getElementById('consulta-file');
+    const archivoNombre = document.getElementById('archivo-nombre');
+    const tablaConsultasBody = document.getElementById('tabla-consultas-body');
+    const linkGuia = document.getElementById('link-guia-tramites');
+
+    if (btnConsultas) {
+        btnConsultas.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenConsultas.classList.add('active');
+        });
+    }
+
+    if (btnBackConsultas) {
+        btnBackConsultas.addEventListener('click', () => {
+            screenConsultas.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (linkGuia) {
+        linkGuia.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Guía de Trámites próximamente disponible.');
+        });
+    }
+
+    if (inputFile) {
+        inputFile.addEventListener('change', () => {
+            archivoNombre.textContent = inputFile.files.length > 0 ? inputFile.files[0].name : '';
+        });
+    }
+
+    if (consultaForm) {
+        consultaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const tema = document.getElementById('consulta-tema').value;
+            const texto = document.getElementById('consulta-texto').value;
+            const adjunto = inputFile && inputFile.files.length > 0 ? inputFile.files[0].name : '';
+
+            const nroRandom = Math.floor(2986000 + Math.random() * 9000);
+            const ahora = new Date();
+            const fechaFormateada = `${ahora.toLocaleDateString('es-AR')} ${ahora.toLocaleTimeString('es-AR', { hour12: false })}`;
+
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td>${nroRandom}</td>
+                <td>Consulta On Line</td>
+                <td><strong>[${tema}]</strong> ${texto}</td>
+                <td>${adjunto}</td>
+                <td>${fechaFormateada}</td>
+            `;
+
+            tablaConsultasBody.prepend(nuevaFila);
+            alert('Su consulta fue enviada correctamente.');
+            consultaForm.reset();
+            archivoNombre.textContent = '';
+        });
+    }
     const screenLogin = document.getElementById('screen-login');
     const loginForm = document.getElementById('login-form');
 

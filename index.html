@@ -57,9 +57,9 @@
             <div class="menu-buttons-container">
                 <button id="btn-cmao" class="btn-caaitba">Boleta C.M.A.O.</button>
                 <button id="btn-turnos" class="btn-caaitba">Turnos Online</button>
-                <button class="btn-caaitba" data-section="Empresas">Empresas</button>
-                <button class="btn-caaitba" data-section="Formularios Obra">Formularios Obra</button>
-                </div>
+                <button class="btn-caaitba" data-section="Estado de Deuda">Estado de Deuda</button>
+                <button id="btn-consultas" class="btn-caaitba">Consultas Online</button>
+            </div>
         </main>
 
         <!-- PANTALLA 2: FORMULARIO C.M.A.O. (SIN LOGO PARA APROVECHAR PANTALLA COMPLETA) -->
@@ -162,7 +162,109 @@
             </div>
         </section>
 
-        <!-- FIRMA DE AUTORÍA JUSTO DEBAJO CON ESPACIO DE RESPIRO -->
+        <!-- PANTALLA 5: CONSULTAS ONLINE -->
+        <section id="screen-consultas" class="screen">
+            <div class="form-card consulta-card">
+                <div class="form-header">
+                    <button id="btn-back-consultas" class="btn-back" type="button">← Volver al menú</button>
+                    <div class="consulta-title-bar">Consulta Online</div>
+                </div>
+
+                <div class="consulta-intro">
+                    <p>Las consultas se responderán a la brevedad, los días hábiles de 9 a 14 hs.</p>
+                    <p>A fin de agilizar la respuesta, deberá realizar <span class="underline-text">una pregunta por cada tema a consultar</span></p>
+                    <p class="guia-text">Verifique previamente si su consulta se encuentra en <a href="#" id="link-guia-tramites">Guía de Trámites</a></p>
+                </div>
+
+                <form id="consulta-form">
+                    <div class="consulta-box">
+                        <div class="consulta-row">
+                            <label for="consulta-tema">Elija un Tema:</label>
+                            <select id="consulta-tema" required>
+                                <option value="">-SELECCIONE UN TEMA-</option>
+                                <option value="C.M.A.O. / Aportes">C.M.A.O. / Aportes</option>
+                                <option value="Formularios de Obra / Contratos">Formularios de Obra / Contratos</option>
+                                <option value="Matrícula / Legajo">Matrícula / Legajo</option>
+                                <option value="Jubilaciones y Prestaciones">Jubilaciones y Prestaciones</option>
+                                <option value="Otras Consultas">Otras Consultas</option>
+                            </select>
+                        </div>
+
+                        <div class="consulta-row">
+                            <label for="consulta-texto">Escriba su consulta:</label>
+                            <textarea id="consulta-texto" rows="4" required></textarea>
+                        </div>
+
+                        <div class="consulta-archivos">
+                            <label for="consulta-file" class="link-adjuntar">ADJUNTAR<br>ARCHIVOS</label>
+                            <input type="file" id="consulta-file" class="input-file-hidden">
+                            <span id="archivo-nombre" class="archivo-seleccionado"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-aceptar-turno">Agregar</button>
+                </form>
+
+                <div class="consulta-historial">
+                    <h4>Consultas y comunicaciones al afiliado</h4>
+                    <div class="tabla-responsive">
+                        <table class="tabla-consultas">
+                            <thead>
+                                <tr>
+                                    <th>NRO</th>
+                                    <th>TIPO</th>
+                                    <th>COMENTARIO</th>
+                                    <th>ARCHIVOS</th>
+                                    <th>FECHA</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-consultas-body">
+                                <tr>
+                                    <td>2985309</td>
+                                    <td>Comunicación al Afiliado</td>
+                                    <td>
+                                        Ref: Aviso Deuda C.M.A.O. Trámite: 721324<br>
+                                        Se envió aviso de deuda de <strong>CUOTA MÍNIMA ANUAL OBLIGATORIA</strong>, correspondiente a los años <strong>2021, 2022, 2023 y 2024</strong>, según liquidación N°443843 con vencimiento el 16/10/2026.<br>
+                                        Para mayor detalle ingrese a <span class="link-tabla">Reclamos/ Liq. de CMAO.</span>
+                                    </td>
+                                    <td></td>
+                                    <td>01/10/2026 09:29:11</td>
+                                </tr>
+                                <tr>
+                                    <td>2982482</td>
+                                    <td>Comunicación al Afiliado</td>
+                                    <td>
+                                        Sr./a. Afiliado/a: El formulario de obra N° 6653684 se encuentra verificado.<br>
+                                        Podrá ingresar en su Sitio Autogestión, Menú Formularios de Obra, Formularios/Boleta y generar las boletas de pago correspondiente.<br>
+                                        <strong>CaaitBA</strong>
+                                    </td>
+                                    <td></td>
+                                    <td>26/09/2026 20:51:03</td>
+                                </tr>
+                                <tr>
+                                    <td>2982480</td>
+                                    <td>Comunicación al Afiliado</td>
+                                    <td>
+                                        Sr./a. Afiliado/a: El formulario de obra N° 6653685 se encuentra verificado.<br>
+                                        Podrá ingresar en su Sitio Autogestión, Menú Formularios de Obra, Formularios/Boleta y generar las boletas de pago correspondiente.<br>
+                                        <strong>CaaitBA</strong>
+                                    </td>
+                                    <td></td>
+                                    <td>26/09/2026 20:39:32</td>
+                                </tr>
+                                <tr>
+                                    <td>2956774</td>
+                                    <td>Consulta On Line</td>
+                                    <td>consulta</td>
+                                    <td></td>
+                                    <td>01/09/2026 13:59:38</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>

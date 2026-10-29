@@ -277,6 +277,134 @@ body {
   text-decoration: underline;
 }
 
+.form-card.consulta-card {
+  background: #ffffff;
+  max-width: 780px;
+  border-top: none;
+  border: 1px solid #b5c9d6;
+  padding: 18px 15px;
+}
+.form-card.consulta-card .consulta-title-bar {
+  background-color: #b0dbe8;
+  color: #001a66;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.15rem;
+  margin: 8px 0 14px;
+  border-radius: 3px;
+}
+.form-card.consulta-card .consulta-intro {
+  color: #000066;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.form-card.consulta-card .consulta-intro .underline-text {
+  text-decoration: underline;
+}
+.form-card.consulta-card .consulta-intro .guia-text {
+  margin-top: 8px;
+}
+.form-card.consulta-card .consulta-intro .guia-text a {
+  color: #800060;
+  text-decoration: underline;
+}
+.form-card.consulta-card .consulta-box {
+  background-color: #a8d5e5;
+  padding: 14px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.form-card.consulta-card .consulta-box .consulta-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.form-card.consulta-card .consulta-box .consulta-row label {
+  color: #000066;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.form-card.consulta-card .consulta-box .consulta-row select,
+.form-card.consulta-card .consulta-box .consulta-row textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #7f9db9;
+  border-radius: 2px;
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  color: #222;
+}
+.form-card.consulta-card .consulta-box .consulta-row textarea {
+  resize: vertical;
+}
+.form-card.consulta-card .consulta-box .consulta-archivos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-card.consulta-card .consulta-box .consulta-archivos .link-adjuntar {
+  color: #0000ee;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.form-card.consulta-card .consulta-box .consulta-archivos .input-file-hidden {
+  display: none;
+}
+.form-card.consulta-card .consulta-box .consulta-archivos .archivo-seleccionado {
+  font-size: 0.8rem;
+  color: #001a66;
+  font-weight: 500;
+}
+.form-card.consulta-card .consulta-historial {
+  margin-top: 22px;
+}
+.form-card.consulta-card .consulta-historial h4 {
+  color: #000066;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.form-card.consulta-card .consulta-historial .tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.form-card.consulta-card .consulta-historial .tabla-consultas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  color: #000066;
+  min-width: 520px;
+}
+.form-card.consulta-card .consulta-historial .tabla-consultas th,
+.form-card.consulta-card .consulta-historial .tabla-consultas td {
+  border: 1px solid #99c2d6;
+  padding: 6px 8px;
+  vertical-align: top;
+  text-align: left;
+}
+.form-card.consulta-card .consulta-historial .tabla-consultas th {
+  background-color: #b0cde2;
+  font-weight: 700;
+  text-align: center;
+}
+.form-card.consulta-card .consulta-historial .tabla-consultas td {
+  background-color: #dfeff5;
+  line-height: 1.35;
+}
+.form-card.consulta-card .consulta-historial .tabla-consultas .link-tabla {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .boleta-render-zone {
   position: fixed;
   left: -9999px;

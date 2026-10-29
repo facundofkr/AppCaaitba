@@ -1,69 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 4. Navegación y Funcionalidad de Consultas Online
-    const screenConsultas = document.getElementById('screen-consultas');
-    const btnConsultas = document.getElementById('btn-consultas');
-    const btnBackConsultas = document.getElementById('btn-back-consultas');
-    const consultaForm = document.getElementById('consulta-form');
-    const inputFile = document.getElementById('consulta-file');
-    const archivoNombre = document.getElementById('archivo-nombre');
-    const tablaConsultasBody = document.getElementById('tabla-consultas-body');
-    const linkGuia = document.getElementById('link-guia-tramites');
-
-    if (btnConsultas) {
-        btnConsultas.addEventListener('click', () => {
-            screenHome.classList.remove('active');
-            screenConsultas.classList.add('active');
-        });
-    }
-
-    if (btnBackConsultas) {
-        btnBackConsultas.addEventListener('click', () => {
-            screenConsultas.classList.remove('active');
-            screenHome.classList.add('active');
-        });
-    }
-
-    if (linkGuia) {
-        linkGuia.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Guía de Trámites próximamente disponible.');
-        });
-    }
-
-    if (inputFile) {
-        inputFile.addEventListener('change', () => {
-            archivoNombre.textContent = inputFile.files.length > 0 ? inputFile.files[0].name : '';
-        });
-    }
-
-    if (consultaForm) {
-        consultaForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const tema = document.getElementById('consulta-tema').value;
-            const texto = document.getElementById('consulta-texto').value;
-            const adjunto = inputFile && inputFile.files.length > 0 ? inputFile.files[0].name : '';
-
-            const nroRandom = Math.floor(2986000 + Math.random() * 9000);
-            const ahora = new Date();
-            const fechaFormateada = `${ahora.toLocaleDateString('es-AR')} ${ahora.toLocaleTimeString('es-AR', { hour12: false })}`;
-
-            const nuevaFila = document.createElement('tr');
-            nuevaFila.innerHTML = `
-                <td>${nroRandom}</td>
-                <td>Consulta On Line</td>
-                <td><strong>[${tema}]</strong> ${texto}</td>
-                <td>${adjunto}</td>
-                <td>${fechaFormateada}</td>
-            `;
-
-            tablaConsultasBody.prepend(nuevaFila);
-            alert('Su consulta fue enviada correctamente.');
-            consultaForm.reset();
-            archivoNombre.textContent = '';
-        });
-    }
+    // Referencias de todas las pantallas
     const screenLogin = document.getElementById('screen-login');
+    const screenHome = document.getElementById('screen-home');
+    const screenCmao = document.getElementById('screen-cmao');
+    const screenTurno = document.getElementById('screen-turno');
+    const screenComprobanteTurno = document.getElementById('screen-comprobante-turno');
+    const screenConsultas = document.getElementById('screen-consultas');
+    const screenDeuda = document.getElementById('screen-deuda');
+
+    // 0. Lógica de Inicio de Sesión (Login)
     const loginForm = document.getElementById('login-form');
 
     if (loginForm) {
@@ -81,24 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Opción "${opcion}" próximamente disponible.`);
         });
     });
-    const screenHome = document.getElementById('screen-home');
-    const screenCmao = document.getElementById('screen-cmao');
-    const screenTurno = document.getElementById('screen-turno');
 
-    const btnCmao = document.getElementById('btn-cmao');
-    const btnBack = document.getElementById('btn-back');
-    const btnTurnos = document.getElementById('btn-turnos');
-    const btnBackTurno = document.getElementById('btn-back-turno');
-
-    const formCmao = document.getElementById('cmao-form');
-    const turnoForm = document.getElementById('turno-form');
+    // 1. Cargar años de 1998 a 2026 en C.M.A.O.
     const selectAnio = document.getElementById('input-anio');
-    const inputImporte = document.getElementById('input-importe');
-    const inputInteres = document.getElementById('input-interes');
-    const inputValorFinal = document.getElementById('input-valor-final');
-    const selectFormato = document.getElementById('input-formato');
-
-    // 1. Cargar años de 1998 a 2026
     if (selectAnio) {
         selectAnio.innerHTML = '';
         for (let anio = 2026; anio >= 1998; anio--) {
@@ -109,7 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Navegación C.M.A.O.
+    // 2. Navegación y Lógica de Boleta C.M.A.O.
+    const btnCmao = document.getElementById('btn-cmao');
+    const btnBack = document.getElementById('btn-back');
+    const formCmao = document.getElementById('cmao-form');
+    const inputImporte = document.getElementById('input-importe');
+    const inputInteres = document.getElementById('input-interes');
+    const inputValorFinal = document.getElementById('input-valor-final');
+    const selectFormato = document.getElementById('input-formato');
+
     if (btnCmao) {
         btnCmao.addEventListener('click', () => {
             screenHome.classList.remove('active');
@@ -124,40 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Navegación Turnos Online
-    if (btnTurnos) {
-        btnTurnos.addEventListener('click', () => {
-            screenHome.classList.remove('active');
-            screenTurno.classList.add('active');
-        });
-    }
-
-    if (btnBackTurno) {
-        btnBackTurno.addEventListener('click', () => {
-            screenTurno.classList.remove('active');
-            screenHome.classList.add('active');
-        });
-    }
-
-    if (turnoForm) {
-        turnoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Turno solicitado con éxito!');
-            turnoForm.reset();
-            screenTurno.classList.remove('active');
-            screenHome.classList.add('active');
-        });
-    }
-
-    // Aviso en los botones en construcción (Empresas y Formularios Obra)
-    document.querySelectorAll('.btn-caaitba[data-section]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const seccion = btn.getAttribute('data-section');
-            alert(`Sección "${seccion}" próximamente disponible.`);
-        });
-    });
-
-    // 4. Suma automática de Importe + Interés = Valor Final
     const calcularTotal = () => {
         const importe = parseFloat(inputImporte.value) || 0;
         const interes = parseFloat(inputInteres.value) || 0;
@@ -178,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }).format(valor);
     };
 
-    // 5. Generar Boleta en PDF o PNG
     if (formCmao) {
         formCmao.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -217,29 +120,147 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
 
-// 5. Navegación y Funcionalidad de Estado de Deuda
-    const screenDeuda = document.getElementById('screen-deuda');
+    // 3. Navegación Turnos Online y Comprobante
+    const btnTurnos = document.getElementById('btn-turnos');
+    const btnBackTurno = document.getElementById('btn-back-turno');
+    const turnoForm = document.getElementById('turno-form');
+    const btnVolverInicioTurno = document.getElementById('btn-volver-inicio-turno');
+    const btnDescargarTurno = document.getElementById('btn-descargar-turno');
+
+    if (btnTurnos) {
+        btnTurnos.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenTurno.classList.add('active');
+        });
+    }
+
+    if (btnBackTurno) {
+        btnBackTurno.addEventListener('click', () => {
+            screenTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (turnoForm) {
+        turnoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const selectTipo = document.getElementById('tipo-atencion');
+            const selectFecha = document.getElementById('seleccione-fecha');
+            const selectHora = document.getElementById('horarios-disponibles');
+
+            const tema = selectTipo.options[selectTipo.selectedIndex].text;
+            const fechaTexto = selectFecha.options[selectFecha.selectedIndex].text;
+            const hora = selectHora.value;
+
+            document.getElementById('comp-dia-hora').textContent = `${fechaTexto} - ${hora} hs`;
+            document.getElementById('comp-tema').textContent = tema;
+
+            screenTurno.classList.remove('active');
+            screenComprobanteTurno.classList.add('active');
+        });
+    }
+
+    if (btnVolverInicioTurno) {
+        btnVolverInicioTurno.addEventListener('click', () => {
+            turnoForm.reset();
+            screenComprobanteTurno.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (btnDescargarTurno) {
+        btnDescargarTurno.addEventListener('click', async () => {
+            const comprobanteElement = document.getElementById('comprobante-turno-print');
+            const canvas = await html2canvas(comprobanteElement, { scale: 2, backgroundColor: '#ffecb5' });
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgData = canvas.toDataURL('image/png');
+            const pdfWidth = 140;
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            pdf.addImage(imgData, 'PNG', 35, 20, pdfWidth, pdfHeight);
+            pdf.save('Comprobante_Turno_CAAITBA.pdf');
+        });
+    }
+
+    // 4. Navegación y Funcionalidad de Consultas Online
+    const btnConsultas = document.getElementById('btn-consultas');
+    const btnBackConsultas = document.getElementById('btn-back-consultas');
+    const consultaForm = document.getElementById('consulta-form');
+    const inputFile = document.getElementById('consulta-file');
+    const archivoNombre = document.getElementById('archivo-nombre');
+    const tablaConsultasBody = document.getElementById('tabla-consultas-body');
+
+    if (btnConsultas) {
+        btnConsultas.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenConsultas.classList.add('active');
+        });
+    }
+
+    if (btnBackConsultas) {
+        btnBackConsultas.addEventListener('click', () => {
+            screenConsultas.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (inputFile) {
+        inputFile.addEventListener('change', () => {
+            archivoNombre.textContent = inputFile.files.length > 0 ? inputFile.files[0].name : '';
+        });
+    }
+
+    if (consultaForm) {
+        consultaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const selectTema = document.getElementById('consulta-tema');
+            const tema = selectTema.options[selectTema.selectedIndex].text;
+            const texto = document.getElementById('consulta-texto').value;
+            const adjunto = inputFile && inputFile.files.length > 0 ? inputFile.files[0].name : '';
+
+            const nroRandom = Math.floor(2986000 + Math.random() * 9000);
+            const ahora = new Date();
+            const fechaFormateada = `${ahora.toLocaleDateString('es-AR')} ${ahora.toLocaleTimeString('es-AR', { hour12: false })}`;
+
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td>${nroRandom}</td>
+                <td>Consulta On Line</td>
+                <td><strong>[${tema}]</strong> ${texto}</td>
+                <td>${adjunto}</td>
+                <td>${fechaFormateada}</td>
+            `;
+
+            tablaConsultasBody.prepend(nuevaFila);
+            alert('Su consulta fue enviada correctamente.');
+            consultaForm.reset();
+            archivoNombre.textContent = '';
+        });
+    }
+
+    // 5. Navegación y Funcionalidad de Estado de Deuda
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
     const linkSaldarDeuda = document.getElementById('link-saldar-deuda');
 
-    if (btnDeuda) {
+    if (btnDeuda && screenDeuda) {
         btnDeuda.addEventListener('click', () => {
             screenHome.classList.remove('active');
             screenDeuda.classList.add('active');
         });
     }
 
-    if (btnBackDeuda) {
+    if (btnBackDeuda && screenDeuda) {
         btnBackDeuda.addEventListener('click', () => {
             screenDeuda.classList.remove('active');
             screenHome.classList.add('active');
         });
     }
 
-    if (linkSaldarDeuda) {
+    if (linkSaldarDeuda && screenDeuda) {
         linkSaldarDeuda.addEventListener('click', (e) => {
             e.preventDefault();
             screenDeuda.classList.remove('active');
@@ -249,3 +270,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+});

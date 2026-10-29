@@ -14,7 +14,6 @@
 <body>
 
     <div class="app-container">
-        <div class="app-container">
         <!-- PANTALLA 0: LOGIN (INICIO DE SESIÓN) -->
         <section id="screen-login" class="screen active">
             <header class="main-header">
@@ -46,7 +45,7 @@
             </div>
         </section>
 
-        <!-- PANTALLA 1: MENÚ PRINCIPAL (Nota: sacale la clase "active" acá) -->
+        <!-- PANTALLA 1: MENÚ PRINCIPAL -->
         <main id="screen-home" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -62,7 +61,7 @@
             </div>
         </main>
 
-        <!-- PANTALLA 2: FORMULARIO C.M.A.O. (SIN LOGO PARA APROVECHAR PANTALLA COMPLETA) -->
+        <!-- PANTALLA 2: FORMULARIO C.M.A.O. -->
         <section id="screen-cmao" class="screen">
             <div class="form-card">
                 <div class="form-header">
@@ -105,7 +104,7 @@
             </div>
         </section>
 
-        <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE (SIN LOGO PARA APROVECHAR PANTALLA COMPLETA) -->
+        <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
         <section id="screen-turno" class="screen">
             <div class="form-card turno-card">
                 <div class="form-header">
@@ -118,9 +117,9 @@
                     <div class="form-group">
                         <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
-                            <option value="Atención al Público">CMAO/Eximiciones</option>
-                            <option value="Legales / Matrícula">Obra Pública/Privada</option>
-                            <option value="Tesorería">Jubilaciones y Beneficios</option>
+                            <option value="CMAO/Eximiciones">CMAO/Eximiciones</option>
+                            <option value="Obra Pública/Privada">Obra Pública/Privada</option>
+                            <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
                         </select>
                     </div>
 
@@ -162,6 +161,30 @@
             </div>
         </section>
 
+        <!-- PANTALLA 4: COMPROBANTE DE TURNO GENERADO -->
+        <section id="screen-comprobante-turno" class="screen">
+            <div class="form-card turno-card comprobante-card">
+                <div id="comprobante-turno-print" class="comprobante-box">
+                    <div class="turno-title-bar">Comprobante de Turno</div>
+                    
+                    <div class="comprobante-datos">
+                        <p><strong>Nombre y Apellido:</strong> <span id="comp-nombre">REVOLERO TATIANA ANAHID</span></p>
+                        <p><strong>Legajo:</strong> <span id="comp-legajo">118198/0</span></p>
+                        <p><strong>Día y Hora:</strong> <span id="comp-dia-hora">-</span></p>
+                        <p><strong>Tema:</strong> <span id="comp-tema">-</span></p>
+                        <hr class="comprobante-divider">
+                        <p><strong>Dirección:</strong> Calle 56 Nº 684, La Plata</p>
+                        <p><strong>Teléfono:</strong> 0810-333-2224 / (0221) 427-2526</p>
+                    </div>
+                </div>
+
+                <div class="comprobante-actions">
+                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
+                    <button id="btn-volver-inicio-turno" class="btn-aceptar-turno" type="button">Volver al menú</button>
+                </div>
+            </div>
+        </section>
+
         <!-- PANTALLA 5: CONSULTAS ONLINE -->
         <section id="screen-consultas" class="screen">
             <div class="form-card consulta-card">
@@ -170,21 +193,19 @@
                     <div class="consulta-title-bar">Consulta Online</div>
                 </div>
 
-                
-
                 <form id="consulta-form">
                     <div class="consulta-box">
                         <div class="consulta-row">
                             <label for="consulta-tema">Elija un Tema:</label>
                             <select id="consulta-tema" required>
                                 <option value="">-SELECCIONE UN TEMA-</option>
-                                <option value="C.M.A.O. / Aportes">C.M.A.O. / Eximiciones</option>
-                                <option value="Formularios de Obra / Contratos">Deuda de Contratos</option>
-                                <option value="Matrícula / Legajo">Eximición Vivienda Propia</option>
+                                <option value="C.M.A.O. / Eximiciones">C.M.A.O. / Eximiciones</option>
+                                <option value="Deuda de Contratos">Deuda de Contratos</option>
+                                <option value="Eximición Vivienda Propia">Eximición Vivienda Propia</option>
                                 <option value="Jubilaciones y Prestaciones">Jubilaciones y Prestaciones</option>
-                                <option value="Otras Consultas">Formas y Medios de Pago Habilitados</option>
-                                <option value="Otras Consultas">Plan de Financiación (CMAO y Contratos)</option>
-                                <option value="Otras Consultas">Rehabilitación FO con tarea 05</option>
+                                <option value="Formas y Medios de Pago Habilitados">Formas y Medios de Pago Habilitados</option>
+                                <option value="Plan de Financiación (CMAO y Contratos)">Plan de Financiación (CMAO y Contratos)</option>
+                                <option value="Rehabilitación FO con tarea 05">Rehabilitación FO con tarea 05</option>
                             </select>
                         </div>
 
@@ -263,6 +284,7 @@
                 </div>
             </div>
         </section>
+
         <!-- PANTALLA 6: ESTADO DE DEUDA (NOVEDADES DE AUTOGESTIÓN) -->
         <section id="screen-deuda" class="screen">
             <div class="form-card deuda-card">
@@ -301,6 +323,7 @@
                 </div>
             </div>
         </section>
+
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>

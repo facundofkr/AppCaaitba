@@ -49,7 +49,7 @@ body {
 .main-header {
   width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .main-header .logo-img-container {
   width: 240px;
@@ -59,6 +59,8 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  filter: drop-shadow(0 4px 6px rgba(128, 48, 8, 0.5)) drop-shadow(0 1px 2px rgba(95, 32, 0, 0.35));
+  transition: filter 0.25s ease, transform 0.25s ease;
 }
 
 .logo-caait {
@@ -117,18 +119,18 @@ body {
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
-  padding: 25px 20px;
+  padding: 20px 18px;
   border-radius: 10px;
   box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
   border-top: 5px solid #c97539;
 }
 .form-card .form-header {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .form-card .form-header h2 {
   color: #a63402;
-  margin-top: 10px;
-  font-size: 1.45rem;
+  margin-top: 8px;
+  font-size: 1.4rem;
 }
 .form-card .form-header p {
   color: #666;
@@ -150,7 +152,7 @@ body {
 }
 .form-card .form-group {
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: flex;
   flex-direction: column;
 }
@@ -158,13 +160,13 @@ body {
   font-weight: 700;
   font-size: 0.9rem;
   color: #a63402;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 .form-card .form-group input,
 .form-card .form-group select,
 .form-card .form-group textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 9px 12px;
   border: 1px solid #d4b295;
   border-radius: 6px;
   font-size: 1rem;
@@ -197,9 +199,9 @@ body {
   color: #ffffff;
   font-weight: 700;
   text-align: center;
-  padding: 10px;
+  padding: 9px;
   font-size: 1.1rem;
-  margin: 10px 0 14px;
+  margin: 8px 0 12px;
   border-radius: 4px;
   width: 100%;
 }
@@ -217,7 +219,7 @@ body {
 
 .btn-aceptar-turno {
   display: block;
-  margin: 20px auto 0;
+  margin: 16px auto 0;
   background-color: #e0e0e0;
   color: #000000;
   font-family: "Roboto", sans-serif;
@@ -235,20 +237,6 @@ body {
 }
 .btn-aceptar-turno:active {
   background-color: #c0c0c0;
-}
-
-.app-footer {
-  width: 100%;
-  text-align: center;
-  margin-top: 28px;
-  padding-bottom: 10px;
-}
-.app-footer h3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #5c3a21;
-  letter-spacing: 0.5px;
 }
 
 .form-card.login-card {
@@ -275,6 +263,42 @@ body {
 .form-card.login-card .login-links .login-link:hover {
   color: #8f4f20;
   text-decoration: underline;
+}
+
+.comprobante-card .comprobante-box {
+  background-color: #ffecb5;
+  padding: 10px;
+  border-radius: 6px;
+}
+.comprobante-card .comprobante-datos {
+  background-color: #ffffff;
+  border: 1px solid #d4b295;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 10px;
+}
+.comprobante-card .comprobante-datos p {
+  font-size: 0.95rem;
+  color: #222;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.comprobante-card .comprobante-datos p:last-child {
+  margin-bottom: 0;
+}
+.comprobante-card .comprobante-datos p strong {
+  color: #a63402;
+}
+.comprobante-card .comprobante-divider {
+  border: none;
+  border-top: 1px dashed #d4b295;
+  margin: 14px 0;
+}
+.comprobante-card .comprobante-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .form-card.consulta-card {
@@ -474,6 +498,9 @@ body {
   text-align: right;
   white-space: nowrap;
 }
+.form-card.deuda-card .tabla-deuda .col-monto.col-centro {
+  text-align: center;
+}
 .form-card.deuda-card .tabla-deuda .col-accion {
   text-align: center;
   font-weight: 400;
@@ -488,12 +515,187 @@ body {
 .form-card.deuda-card .tabla-deuda .col-accion .link-saldar:hover {
   color: #003d82;
 }
+.form-card.deuda-card .tabla-deuda .col-accion .link-ver-detalle {
+  color: #7a007a;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+.form-card.deuda-card .tabla-deuda .col-accion .link-ver-detalle:hover {
+  color: #4d004d;
+}
 .form-card.deuda-card .tabla-deuda .fila-vencida td,
 .form-card.deuda-card .tabla-deuda .fila-reclamo td {
   color: #ff0000;
 }
 .form-card.deuda-card .tabla-deuda .fila-vencer td {
   color: #008000;
+}
+
+.form-card.legacy-card {
+  background: #ffffff;
+  max-width: 940px;
+  border-top: none;
+  border: 1px solid #d4b295;
+  padding: 18px 14px;
+}
+.form-card.legacy-card .titulo-contratos-underline {
+  font-family: "Merriweather", serif;
+  color: #ff7f27;
+  text-align: center;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  margin: 10px 0 18px;
+}
+.form-card.legacy-card .subtitulo-marron {
+  color: #8c5828;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.form-card.legacy-card .tabla-legacy-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+.form-card.legacy-card .tabla-resumen-legacy {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.form-card.legacy-card .tabla-resumen-legacy th {
+  background-color: #f39334;
+  color: #000000;
+  font-weight: 700;
+  padding: 5px 8px;
+  border: 1px solid #ffffff;
+  text-align: center;
+}
+.form-card.legacy-card .tabla-resumen-legacy td {
+  background-color: #fce4b8;
+  color: #000000;
+  padding: 5px 8px;
+  border: 1px solid #ffffff;
+}
+.form-card.legacy-card .tabla-resumen-legacy .col-num {
+  text-align: right;
+  white-space: nowrap;
+}
+.form-card.legacy-card .tabla-resumen-legacy .fila-verde-resumen td {
+  color: #008000;
+  font-weight: 700;
+}
+.form-card.legacy-card .bloque-saldar-centro {
+  text-align: center;
+  margin: 14px 0;
+}
+.form-card.legacy-card .bloque-saldar-centro .link-saldar-grande {
+  color: #0056b3;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.form-card.legacy-card .filtros-legacy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 14px 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #8c3800;
+}
+.form-card.legacy-card .filtros-legacy .input-anio-corto {
+  width: 58px;
+  padding: 3px 5px;
+  border: 1px solid #777777;
+  font-size: 0.82rem;
+  text-align: center;
+}
+.form-card.legacy-card .filtros-legacy .btn-gris-legacy {
+  background-color: #e0e0e0;
+  color: #000000;
+  border: 1px solid #777777;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.form-card.legacy-card .filtros-legacy .btn-gris-legacy:hover {
+  background-color: #d0d0d0;
+}
+.form-card.legacy-card .checks-legacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #8c3800;
+}
+.form-card.legacy-card .checks-legacy label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.form-card.legacy-card .subtitulo-periodo {
+  text-align: center;
+  color: #8c3800;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.form-card.legacy-card .tabla-detalle-legacy {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  min-width: 780px;
+}
+.form-card.legacy-card .tabla-detalle-legacy th {
+  background-color: #f39334;
+  color: #000000;
+  font-weight: 700;
+  padding: 6px 5px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+.form-card.legacy-card .tabla-detalle-legacy td {
+  background-color: #fbd07c;
+  color: #0000cc;
+  padding: 6px 5px;
+  border: 1px solid #ffffff;
+  vertical-align: middle;
+}
+.form-card.legacy-card .tabla-detalle-legacy .col-centro {
+  text-align: center;
+}
+.form-card.legacy-card .tabla-detalle-legacy .col-num {
+  text-align: right;
+  white-space: nowrap;
+}
+.form-card.legacy-card .tabla-detalle-legacy .link-azul {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.app-footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 28px;
+  padding-bottom: 10px;
+}
+.app-footer h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5c3a21;
+  letter-spacing: 0.5px;
 }
 
 .boleta-render-zone {

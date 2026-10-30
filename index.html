@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAAITBA - Boletas Digitales</title>
+    <title>CAAITBA - Autogestión y Boletas Digitales</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/styles.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#c97539">
+    <meta name="theme-color" content="#f09c52">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -54,10 +56,10 @@
             </header>
 
             <div class="menu-buttons-container">
-                <button id="btn-cmao" class="btn-caaitba">Boleta C.M.A.O.</button>
-                <button id="btn-turnos" class="btn-caaitba">Turnos Online</button>
-                <button id="btn-deuda" class="btn-caaitba">Estado de Deuda</button>
-                <button id="btn-consultas" class="btn-caaitba">Consultas Online</button>
+                <button id="btn-cmao" class="btn-caaitba" type="button">Boleta C.M.A.O.</button>
+                <button id="btn-turnos" class="btn-caaitba" type="button">Turnos Online</button>
+                <button id="btn-deuda" class="btn-caaitba" type="button">Estado de Deuda</button>
+                <button id="btn-consultas" class="btn-caaitba" type="button">Consultas Online</button>
             </div>
         </main>
 
@@ -65,7 +67,7 @@
         <section id="screen-cmao" class="screen">
             <div class="form-card">
                 <div class="form-header">
-                    <button id="btn-back" class="btn-back" type="button">←←INICIO</button>
+                    <button id="btn-back" class="btn-back" type="button">← Volver al menú</button>
                     <h2>Boleta Digital C.M.A.O.</h2>
                 </div>
 
@@ -94,8 +96,8 @@
                     <div class="form-group">
                         <label for="input-formato">Formato de descarga</label>
                         <select id="input-formato">
-                            <option value="pdf">Documento (.pdf)</option>
-                            <option value="png">Imagen (.png)</option>
+                            <option value="pdf">Documento PDF (.pdf)</option>
+                            <option value="png">Imagen PNG (.png)</option>
                         </select>
                     </div>
 
@@ -117,9 +119,12 @@
                     <div class="form-group">
                         <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
-                            <option value="CMAO/Eximiciones">CMAO/Eximiciones</option>
-                            <option value="Obra Pública/Privada">Obra Pública/Privada</option>
+                            <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
+                            <option value="Obra Pública / Privada">Obra Pública / Privada</option>
                             <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
+                            <option value="Atención al Público">Atención al Público</option>
+                            <option value="Tesorería">Tesorería</option>
+                            <option value="Legales">Legales</option>
                         </select>
                     </div>
 
@@ -166,7 +171,7 @@
             <div class="form-card turno-card comprobante-card">
                 <div id="comprobante-turno-print" class="comprobante-box">
                     <div class="turno-title-bar">Comprobante de Turno</div>
-                    
+
                     <div class="comprobante-datos">
                         <p><strong>Nombre y Apellido:</strong> <span id="comp-nombre">REVOLERO TATIANA ANAHID</span></p>
                         <p><strong>Legajo:</strong> <span id="comp-legajo">118198/0</span></p>
@@ -191,6 +196,12 @@
                 <div class="form-header">
                     <button id="btn-back-consultas" class="btn-back" type="button">← Volver al menú</button>
                     <div class="consulta-title-bar">Consulta Online</div>
+                </div>
+
+                <div class="consulta-intro">
+                    <p>Las consultas se responderán a la brevedad, los días hábiles de 9 a 14 hs.</p>
+                    <p>A fin de agilizar la respuesta, deberá realizar <span class="underline-text">una pregunta por cada tema a consultar</span></p>
+                    <p class="guia-text">Verifique previamente si su consulta se encuentra en <a href="#" id="link-guia-tramites">Guía de Trámites</a></p>
                 </div>
 
                 <form id="consulta-form">
@@ -285,7 +296,7 @@
             </div>
         </section>
 
-        <!-- PANTALLA 6: ESTADO DE DEUDA (NOVEDADES DE AUTOGESTIÓN) -->
+        <!-- PANTALLA 6: ESTADO DE DEUDA -->
         <section id="screen-deuda" class="screen">
             <div class="form-card deuda-card">
                 <div class="form-header">
@@ -317,6 +328,20 @@
                                     <td class="col-periodo">C.M.A.O. 2026</td>
                                     <td class="col-monto">$ 1.301.701,20</td>
                                 </tr>
+                                <tr class="fila-vencida">
+                                    <td>Deuda vencida NO reclamada de CONTRATOS</td>
+                                    <td class="col-monto col-centro">$ 41.137,80</td>
+                                    <td class="col-accion">
+                                        <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
+                                    </td>
+                                </tr>
+                                <tr class="fila-vencida">
+                                    <td>Deuda vencida NO reclamada de FORMULARIOS (FO)</td>
+                                    <td class="col-monto col-centro">$ 6.924.964,20</td>
+                                    <td class="col-accion">
+                                        <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver Formularios</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -324,6 +349,356 @@
             </div>
         </section>
 
+        <!-- PANTALLA 7: CONSULTA CONTRATOS -->
+        <section id="screen-contratos" class="screen">
+            <div class="form-card legacy-card">
+                <div class="form-header">
+                    <button id="btn-back-contratos" class="btn-back" type="button">← Volver a Estado de Deuda</button>
+                    <h2 class="titulo-contratos-underline">CONSULTA CONTRATOS</h2>
+                </div>
+
+                <div class="tabla-legacy-responsive">
+                    <table class="tabla-resumen-legacy">
+                        <thead>
+                            <tr>
+                                <th>CONTRATOS</th>
+                                <th>CANTIDAD</th>
+                                <th>DEUDA</th>
+                                <th>DEUDA ACTUALIZADA</th>
+                                <th>REFERENCIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Contratos con deuda</td>
+                                <td class="col-num">1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Contratos con deuda de aportes con fecha posterior al 01/01/2015 y anterior al 01/09/2023 según resolución 790</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">$ 195,00</td>
+                                <td class="col-num">$ 41.137,80</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Contratos Totales</td>
+                                <td class="col-num">270</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bloque-saldar-centro">
+                    <a href="#" class="link-saldar-grande btn-ir-cmao">Quiero Saldar Deuda</a>
+                </div>
+
+                <div class="filtros-legacy">
+                    <span>Contratos desde:</span>
+                    <input type="number" value="1959" class="input-anio-corto">
+                    <span>hasta:</span>
+                    <input type="number" value="2026" class="input-anio-corto">
+                    <button type="button" class="btn-gris-legacy">Consultar Todos</button>
+                    <button type="button" class="btn-gris-legacy">Sólo con Deuda</button>
+                </div>
+
+                <p class="subtitulo-periodo">Contratos registrados en el período 1959-2026</p>
+
+                <div class="tabla-legacy-responsive">
+                    <table class="tabla-detalle-legacy">
+                        <thead>
+                            <tr>
+                                <th>CONTROL</th>
+                                <th>BOLETA</th>
+                                <th>VISADO AÑO</th>
+                                <th>VISADO ORIGINAL</th>
+                                <th>FECHA CONTRATO</th>
+                                <th>VENCIMIENTO</th>
+                                <th>COMITENTE</th>
+                                <th>BLOQUEO/ ESTADO</th>
+                                <th>MONTO TOTAL</th>
+                                <th>MONTO APORTADO</th>
+                                <th>SALDO</th>
+                                <th>DEUDA APORTES</th>
+                                <th>DEUDA APORTES ACTUALIZADA(*)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5971412</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul">056917/15</a></td>
+                                <td class="col-centro">2020150056917</td>
+                                <td class="col-centro">08/01/2015</td>
+                                <td class="col-centro">08/03/2015</td>
+                                <td>ADRIAL GABRIEL MAGGIO BARLOQUI</td>
+                                <td></td>
+                                <td class="col-num">195,00</td>
+                                <td class="col-num">0,00</td>
+                                <td class="col-num">195,00</td>
+                                <td class="col-num">195,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">41.137,80</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANTALLA 8: CONSULTA DE FORMULARIOS (FO) -->
+        <section id="screen-formularios" class="screen">
+            <div class="form-card legacy-card">
+                <div class="form-header">
+                    <button id="btn-back-formularios" class="btn-back" type="button">← Volver a Estado de Deuda</button>
+                    <div class="deuda-title-bar">Consulta de formularios no vinculados con boleta pagada por legajo</div>
+                    <p class="deuda-legajo">Legajo: <span class="legajo-link">64251/4 MINOTTO LUIS ALBERTO</span></p>
+                </div>
+
+                <p class="subtitulo-marron">Formularios registrados y no vinculados con boleta pagada desde su matriculación hasta la fecha</p>
+
+                <div class="tabla-legacy-responsive">
+                    <table class="tabla-resumen-legacy">
+                        <thead>
+                            <tr>
+                                <th>FORMULARIOS</th>
+                                <th>CANTIDAD</th>
+                                <th>DEUDA</th>
+                                <th>DEUDA ACTUALIZADA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Formularios con deuda</td>
+                                <td class="col-num">11</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Formularios con deuda de aportes con fecha posterior al 01/01/2015 y anterior al 01/09/2023 según resolución 790</td>
+                                <td class="col-num">4</td>
+                                <td class="col-num">$ 373.713,10</td>
+                                <td class="col-num">$ 2.517.603,00</td>
+                            </tr>
+                            <tr>
+                                <td>Formularios con deuda de aportes con fecha posterior al 01/09/2023 según resolución 998</td>
+                                <td class="col-num">7</td>
+                                <td class="col-num">$ 1.244.261,60</td>
+                                <td class="col-num">$ 4.407.361,20</td>
+                            </tr>
+                            <tr class="fila-verde-resumen">
+                                <td>Formularios no vencidos con aportes pendientes</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">$ 488.575,00</td>
+                                <td class="col-num">$ 488.575,00</td>
+                            </tr>
+                            <tr>
+                                <td>Formularios totales</td>
+                                <td class="col-num">129</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="filtros-legacy">
+                    <span>Formularios desde:</span>
+                    <input type="number" value="2015" class="input-anio-corto">
+                    <span>hasta:</span>
+                    <input type="number" value="2026" class="input-anio-corto">
+                    <button type="button" class="btn-gris-legacy">Consultar Todos</button>
+                    <button type="button" class="btn-gris-legacy">Sólo con Deuda</button>
+                </div>
+
+                <div class="checks-legacy">
+                    <label><input type="checkbox"> Incluir tope de vencimiento - 30 días</label>
+                    <label><input type="checkbox"> No vencidos con aportes pendientes</label>
+                </div>
+
+                <p class="subtitulo-periodo">Formularios registrados en el período 2015-2026</p>
+
+                <div class="tabla-legacy-responsive">
+                    <table class="tabla-detalle-legacy">
+                        <thead>
+                            <tr>
+                                <th>NRO</th>
+                                <th>BOLETA</th>
+                                <th>TIPO</th>
+                                <th>FECHA FORMULARIO</th>
+                                <th>VENCIMIENTO</th>
+                                <th>COMITENTE</th>
+                                <th>BLOQUEO/ ESTADO</th>
+                                <th>MONTO OBRA</th>
+                                <th>APORTE 10%</th>
+                                <th>PAGADO</th>
+                                <th>BOLETAS</th>
+                                <th>DEUDA APORTES</th>
+                                <th>DEUDA APORTES ACTUALIZADA(*)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5164206</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">01/05/2022</td>
+                                <td class="col-centro">30/04/2023</td>
+                                <td>PLASTIGAS MAR DEL PLATA S.A.</td>
+                                <td></td>
+                                <td class="col-num">420.778,00</td>
+                                <td class="col-num">42.077,80</td>
+                                <td class="col-num">7.013,00</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">35.064,80</td>
+                                <td class="col-num"><a href="#" class="link-azul">328.495,20</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5479103</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">24/03/2023</td>
+                                <td class="col-centro">24/03/2024</td>
+                                <td>SUPERMERCADOS TOLEDO S.A</td>
+                                <td></td>
+                                <td class="col-num">6.700.000,00</td>
+                                <td class="col-num">670.000,00</td>
+                                <td class="col-num">446.667,70</td>
+                                <td class="col-num">4</td>
+                                <td class="col-num">223.332,30</td>
+                                <td class="col-num"><a href="#" class="link-azul">1.210.756,80</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5479127</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">24/03/2023</td>
+                                <td class="col-centro">24/03/2024</td>
+                                <td>EXTRA S.A.</td>
+                                <td></td>
+                                <td class="col-num">1.555.000,00</td>
+                                <td class="col-num">155.500,00</td>
+                                <td class="col-num">129.585,00</td>
+                                <td class="col-num">5</td>
+                                <td class="col-num">25.915,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">140.566,80</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5608484</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">16/06/2022</td>
+                                <td class="col-centro">16/06/2023</td>
+                                <td>MATAFUEGOS MAR DEL PLATA S.A.</td>
+                                <td></td>
+                                <td class="col-num">1.822.500,00</td>
+                                <td class="col-num">182.250,00</td>
+                                <td class="col-num">92.849,00</td>
+                                <td class="col-num">2</td>
+                                <td class="col-num">89.401,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">837.784,20</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5781691</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">15/01/2024</td>
+                                <td class="col-centro">14/03/2024</td>
+                                <td>SUPERMERCADOS TOLEDO S.A</td>
+                                <td></td>
+                                <td class="col-num">70.000,00</td>
+                                <td class="col-num">7.000,00</td>
+                                <td class="col-num">3.500,00</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">3.500,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">18.975,00</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5781697</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">15/01/2024</td>
+                                <td class="col-centro">14/03/2024</td>
+                                <td>sSAMEL S.R.L.</td>
+                                <td></td>
+                                <td class="col-num">70.000,00</td>
+                                <td class="col-num">7.000,00</td>
+                                <td class="col-num">3.500,00</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">3.500,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">18.975,00</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5787649</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">01/10/2023</td>
+                                <td class="col-centro">01/10/2024</td>
+                                <td>MATAFUEGOS MAR DEL PLATA S.A.</td>
+                                <td></td>
+                                <td class="col-num">3.780.000,00</td>
+                                <td class="col-num">378.000,00</td>
+                                <td class="col-num">328.000,00</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">50.000,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">271.114,80</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5858485</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">24/03/2024</td>
+                                <td class="col-centro">24/03/2025</td>
+                                <td>SUPERMERCADOS TOLEDO S.A</td>
+                                <td></td>
+                                <td class="col-num">18.300.000,00</td>
+                                <td class="col-num">1.830.000,00</td>
+                                <td class="col-num">1.525.000,00</td>
+                                <td class="col-num">5</td>
+                                <td class="col-num">305.000,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">1.653.557,40</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5858503</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">24/03/2024</td>
+                                <td class="col-centro">24/03/2025</td>
+                                <td>EXTRA S.A.</td>
+                                <td></td>
+                                <td class="col-num">4.300.000,00</td>
+                                <td class="col-num">430.000,00</td>
+                                <td class="col-num">358.333,40</td>
+                                <td class="col-num">5</td>
+                                <td class="col-num">71.666,60</td>
+                                <td class="col-num"><a href="#" class="link-azul">388.608,00</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-centro"><a href="#" class="link-azul">5923331</a></td>
+                                <td class="col-centro"><a href="#" class="link-azul btn-ir-cmao">Generar Boleta de Aportes</a></td>
+                                <td class="col-centro">PRIVADA</td>
+                                <td class="col-centro">03/06/2024</td>
+                                <td class="col-centro">03/06/2025</td>
+                                <td>CF SEG. INDUST. CIUDAD FELIZ MATATAFUEGO</td>
+                                <td></td>
+                                <td class="col-num">5.625.000,00</td>
+                                <td class="col-num">562.500,00</td>
+                                <td class="col-num">51.875,00</td>
+                                <td class="col-num">1</td>
+                                <td class="col-num">510.625,00</td>
+                                <td class="col-num"><a href="#" class="link-azul">1.550.181,60</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIRMA DE AUTORÍA -->
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>

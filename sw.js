@@ -1,11 +1,12 @@
-const CACHE_NAME = 'caaitba-app-v9';
+const CACHE_NAME = 'caaitba-app-v12';
 const ASSETS = [
     './',
     './index.html',
     './scss/styles.css',
     './js/app.js',
     './manifest.json',
-    './assets/images/icon-192.png'
+    './assets/images/icon-192.png',
+    './assets/images/icon-512.png'
 ];
 
 self.addEventListener('install', (e) => {
@@ -23,7 +24,6 @@ self.addEventListener('activate', (e) => {
     );
 });
 
-// Network-First: Busca siempre la última versión en internet y actualiza la caché
 self.addEventListener('fetch', (e) => {
     e.respondWith(
         fetch(e.request)

@@ -1,8 +1,8 @@
-// --- ENCABEZADO Y LOGO ---
+// --- ENCABEZADO Y LOGO CON SOMBREADO ELEGANTE ---
 .main-header {
     width: 100%;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     .logo-img-container {
         width: 240px;
@@ -12,6 +12,8 @@
             width: 100%;
             height: auto;
             display: block;
+            filter: drop-shadow(0 4px 6px rgba(128, 48, 8, 0.5)) drop-shadow(0 1px 2px rgba(95, 32, 0, 0.35));
+            transition: filter 0.25s ease, transform 0.25s ease;
         }
     }
 }
@@ -71,25 +73,25 @@
     }
 }
 
-// --- TARJETAS DE FORMULARIO (C.M.A.O. Y TURNOS) ---
+// --- TARJETAS DE FORMULARIO GENERALES ---
 .form-card {
     background: rgba(255, 248, 242, 0.94);
     backdrop-filter: blur(8px);
     width: 100%;
     max-width: 440px;
     margin: 0 auto;
-    padding: 25px 20px;
+    padding: 20px 18px;
     border-radius: 10px;
     box-shadow: 0 12px 28px rgba(140, 76, 30, 0.18);
     border-top: 5px solid $boton-bg;
 
     .form-header {
-        margin-bottom: 18px;
+        margin-bottom: 14px;
 
         h2 {
             color: $azul-institucional;
-            margin-top: 10px;
-            font-size: 1.45rem;
+            margin-top: 8px;
+            font-size: 1.4rem;
         }
 
         p {
@@ -116,7 +118,7 @@
 
     .form-group {
         width: 100%;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
         display: flex;
         flex-direction: column;
 
@@ -124,14 +126,14 @@
             font-weight: 700;
             font-size: 0.9rem;
             color: $azul-institucional;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         input,
         select,
         textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 9px 12px;
             border: 1px solid #d4b295;
             border-radius: 6px;
             font-size: 1rem;
@@ -157,7 +159,7 @@
         }
     }
 
-    // Variación específica para Turnos Online
+    // Variación Turnos Online
     &.turno-card {
         background: #ffecb5;
         border-top: none;
@@ -168,9 +170,9 @@
             color: #ffffff;
             font-weight: 700;
             text-align: center;
-            padding: 10px;
+            padding: 9px;
             font-size: 1.1rem;
-            margin: 10px 0 14px;
+            margin: 8px 0 12px;
             border-radius: 4px;
             width: 100%;
         }
@@ -192,7 +194,7 @@
 
 .btn-aceptar-turno {
     display: block;
-    margin: 20px auto 0;
+    margin: 16px auto 0;
     background-color: #e0e0e0;
     color: #000000;
     font-family: $font-principal;
@@ -214,24 +216,7 @@
     }
 }
 
-// --- PIE DE PÁGINA / AUTORÍA CENTRADO ABAJO ---
-// --- PIE DE PÁGINA / AUTORÍA JUSTO DEBAJO DE LOS BOTONES ---
-.app-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: 28px;
-    padding-bottom: 10px;
-
-    h3 {
-        font-family: $font-principal;
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: #5c3a21;
-        letter-spacing: 0.5px;
-    }
-}
-
-// --- ESTILOS DE PANTALLA DE LOGIN ---
+// --- ESTILOS DE LOGIN ---
 .form-card.login-card {
     max-width: 360px;
     padding: 24px 20px;
@@ -258,6 +243,51 @@
                 text-decoration: underline;
             }
         }
+    }
+}
+
+// --- ESTILOS DEL COMPROBANTE DE TURNO ---
+.comprobante-card {
+    .comprobante-box {
+        background-color: #ffecb5;
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .comprobante-datos {
+        background-color: #ffffff;
+        border: 1px solid #d4b295;
+        border-radius: 6px;
+        padding: 16px;
+        margin-top: 10px;
+
+        p {
+            font-size: 0.95rem;
+            color: #222;
+            margin-bottom: 10px;
+            line-height: 1.4;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            strong {
+                color: $azul-institucional;
+            }
+        }
+    }
+
+    .comprobante-divider {
+        border: none;
+        border-top: 1px dashed #d4b295;
+        margin: 14px 0;
+    }
+
+    .comprobante-actions {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -489,6 +519,10 @@
         .col-monto {
             text-align: right;
             white-space: nowrap;
+
+            &.col-centro {
+                text-align: center;
+            }
         }
 
         .col-accion {
@@ -506,6 +540,17 @@
                     color: #003d82;
                 }
             }
+
+            .link-ver-detalle {
+                color: #7a007a;
+                text-decoration: underline;
+                font-size: 0.9rem;
+                display: inline-block;
+
+                &:hover {
+                    color: #4d004d;
+                }
+            }
         }
 
         .fila-vencida,
@@ -520,5 +565,199 @@
                 color: #008000;
             }
         }
+    }
+}
+
+// --- ESTILOS PANTALLAS CONSULTA CONTRATOS Y FORMULARIOS (FO) ---
+.form-card.legacy-card {
+    background: #ffffff;
+    max-width: 940px;
+    border-top: none;
+    border: 1px solid #d4b295;
+    padding: 18px 14px;
+
+    .titulo-contratos-underline {
+        font-family: $font-botones;
+        color: #ff7f27;
+        text-align: center;
+        font-size: 1.4rem;
+        text-decoration: underline;
+        margin: 10px 0 18px;
+    }
+
+    .subtitulo-marron {
+        color: #8c5828;
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    .tabla-legacy-responsive {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 16px;
+    }
+
+    .tabla-resumen-legacy {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        font-size: 0.78rem;
+
+        th {
+            background-color: #f39334;
+            color: #000000;
+            font-weight: 700;
+            padding: 5px 8px;
+            border: 1px solid #ffffff;
+            text-align: center;
+        }
+
+        td {
+            background-color: #fce4b8;
+            color: #000000;
+            padding: 5px 8px;
+            border: 1px solid #ffffff;
+        }
+
+        .col-num {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .fila-verde-resumen {
+            td {
+                color: #008000;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .bloque-saldar-centro {
+        text-align: center;
+        margin: 14px 0;
+
+        .link-saldar-grande {
+            color: #0056b3;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
+
+    .filtros-legacy {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 14px 0;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #8c3800;
+
+        .input-anio-corto {
+            width: 58px;
+            padding: 3px 5px;
+            border: 1px solid #777777;
+            font-size: 0.82rem;
+            text-align: center;
+        }
+
+        .btn-gris-legacy {
+            background-color: #e0e0e0;
+            color: #000000;
+            border: 1px solid #777777;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #d0d0d0;
+            }
+        }
+    }
+
+    .checks-legacy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 14px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #8c3800;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+    }
+
+    .subtitulo-periodo {
+        text-align: center;
+        color: #8c3800;
+        font-size: 0.88rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .tabla-detalle-legacy {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.72rem;
+        min-width: 780px;
+
+        th {
+            background-color: #f39334;
+            color: #000000;
+            font-weight: 700;
+            padding: 6px 5px;
+            border: 1px solid #ffffff;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td {
+            background-color: #fbd07c;
+            color: #0000cc;
+            padding: 6px 5px;
+            border: 1px solid #ffffff;
+            vertical-align: middle;
+        }
+
+        .col-centro {
+            text-align: center;
+        }
+
+        .col-num {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .link-azul {
+            color: #0000ee;
+            text-decoration: underline;
+        }
+    }
+}
+
+// --- PIE DE PÁGINA / AUTORÍA ---
+.app-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 28px;
+    padding-bottom: 10px;
+
+    h3 {
+        font-family: $font-principal;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #5c3a21;
+        letter-spacing: 0.5px;
     }
 }

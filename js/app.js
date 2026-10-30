@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenComprobanteTurno = document.getElementById('screen-comprobante-turno');
     const screenConsultas = document.getElementById('screen-consultas');
     const screenDeuda = document.getElementById('screen-deuda');
+    const screenContratos = document.getElementById('screen-contratos');
+    const screenFormularios = document.getElementById('screen-formularios');
 
     // 0. Lógica de Inicio de Sesión (Login)
     const loginForm = document.getElementById('login-form');
@@ -121,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Navegación Turnos Online y Comprobante
+    // 3. Navegación Turnos Online y Generación de Comprobante
     const btnTurnos = document.getElementById('btn-turnos');
     const btnBackTurno = document.getElementById('btn-back-turno');
     const turnoForm = document.getElementById('turno-form');
@@ -191,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputFile = document.getElementById('consulta-file');
     const archivoNombre = document.getElementById('archivo-nombre');
     const tablaConsultasBody = document.getElementById('tabla-consultas-body');
+    const linkGuia = document.getElementById('link-guia-tramites');
 
     if (btnConsultas) {
         btnConsultas.addEventListener('click', () => {
@@ -203,6 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btnBackConsultas.addEventListener('click', () => {
             screenConsultas.classList.remove('active');
             screenHome.classList.add('active');
+        });
+    }
+
+    if (linkGuia) {
+        linkGuia.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Guía de Trámites próximamente disponible.');
         });
     }
 
@@ -241,10 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Navegación y Funcionalidad de Estado de Deuda
+    // 5. Navegación y Funcionalidad de Situación (Estado de Deuda, Contratos y Formularios)
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
     const linkSaldarDeuda = document.getElementById('link-saldar-deuda');
+
+    const linkVerContratos = document.getElementById('link-ver-contratos');
+    const linkVerFormularios = document.getElementById('link-ver-formularios');
+    const btnBackContratos = document.getElementById('btn-back-contratos');
+    const btnBackFormularios = document.getElementById('btn-back-formularios');
 
     if (btnDeuda && screenDeuda) {
         btnDeuda.addEventListener('click', () => {
@@ -270,4 +285,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Abrir Consulta Contratos
+    if (linkVerContratos && screenContratos) {
+        linkVerContratos.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenDeuda.classList.remove('active');
+            screenContratos.classList.add('active');
+        });
+    }
+
+    // Volver de Contratos a Situación
+    if (btnBackContratos && screenContratos) {
+        btnBackContratos.addEventListener('click', () => {
+            screenContratos.classList.remove('active');
+            screenDeuda.classList.add('active');
+        });
+    }
+
+    // Abrir Consulta de Formularios (FO)
+    if (linkVerFormularios && screenFormularios) {
+        linkVerFormularios.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenDeuda.classList.remove('active');
+            screenFormularios.classList.add('active');
+        });
+    }
+
+    // Volver de Formularios a Situación
+    if (btnBackFormularios && screenFormularios) {
+        btnBackFormularios.addEventListener('click', () => {
+            screenFormularios.classList.remove('active');
+            screenDeuda.classList.add('active');
+        });
+    }
+
+    // Enlaces "Quiero Saldar Deuda" / "Generar Boleta de Aportes" hacia Boleta C.M.A.O.
+    document.querySelectorAll('.btn-ir-cmao').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (screenContratos) screenContratos.classList.remove('active');
+            if (screenFormularios) screenFormularios.classList.remove('active');
+            screenCmao.classList.add('active');
+        });
+    });
 });

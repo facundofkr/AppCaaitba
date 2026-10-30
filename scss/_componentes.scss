@@ -24,7 +24,7 @@
 }
 
 .logo-ba {
-    color: \$naranja-logo;
+    color: $naranja-logo;
     font-weight: 400;
 }
 
@@ -41,16 +41,16 @@
 
 // --- BOTONES ESTILO CAAITBA ---
 .btn-caaitba {
-    background-color: \$boton-bg;
+    background-color: $boton-bg;
     color: #ffffff;
-    font-family: \$font-botones;
+    font-family: $font-botones;
     font-size: 0.98rem;
     font-weight: 700;
     display: block;
     width: 100%;
     padding: 14px 18px;
     border: none;
-    border-bottom: 4px solid \$boton-borde;
+    border-bottom: 4px solid $boton-borde;
     border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@
     transition: transform 0.1s ease, background-color 0.2s ease;
 
     &:hover {
-        background-color: \$boton-hover;
+        background-color: $boton-hover;
     }
 
     &:active {
@@ -73,30 +73,29 @@
     }
 }
 
-// --- TARJETAS DE FORMULARIO UNIFICADAS CON ESTÉTICA NARANJA A BLANCO ---
+// --- TARJETAS DE FORMULARIO CON ESTÉTICA NARANJA DIFUMINADA ---
 .form-card {
-    background: \$bg-gradiente;
+    background: $bg-gradiente;
     width: 100%;
     max-width: 440px;
     margin: 0 auto;
     padding: 20px 18px;
     border-radius: 10px;
-    box-shadow: 0 10px 24px rgba(128, 48, 8, 0.22);
-    border: 1px solid rgba(143, 79, 32, 0.35);
-    border-top: 5px solid \$boton-bg;
+    box-shadow: 0 12px 28px rgba(140, 76, 30, 0.22);
+    border: 1px solid #d4b295;
+    border-top: 5px solid $boton-bg;
 
     .form-header {
         margin-bottom: 14px;
 
         h2 {
-            color: #6e2200;
+            color: $azul-institucional;
             margin-top: 8px;
             font-size: 1.4rem;
-            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
         }
 
         p {
-            color: #4a2508;
+            color: #5c3a21;
             font-size: 0.9rem;
             margin-top: 4px;
         }
@@ -106,7 +105,7 @@
         background: none;
         border: none;
         outline: none;
-        color: #5c2600;
+        color: #5c3a21;
         font-weight: 700;
         cursor: pointer;
         font-size: 0.9rem;
@@ -126,7 +125,7 @@
         label {
             font-weight: 700;
             font-size: 0.9rem;
-            color: #5c2600;
+            color: $azul-institucional;
             margin-bottom: 5px;
         }
 
@@ -135,18 +134,19 @@
         textarea {
             width: 100%;
             padding: 9px 12px;
-            border: 1px solid #b86b35;
+            border: 1px solid #c97539;
             border-radius: 6px;
             font-size: 1rem;
-            font-family: \$font-principal;
-            background: rgba(255, 255, 255, 0.94);
+            font-family: $font-principal;
+            background: rgba(255, 255, 255, 0.92);
             color: #222;
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, background-color 0.2s;
 
             &:focus {
-                border-color: \$azul-institucional;
-                box-shadow: 0 0 0 3px rgba(166, 52, 2, 0.2);
+                background: #ffffff;
+                border-color: $azul-institucional;
+                box-shadow: 0 0 0 3px rgba(201, 117, 57, 0.25);
             }
         }
 
@@ -161,36 +161,33 @@
         }
     }
 
-    // Variación Turnos Online con estética naranja difuminada
     &.turno-card {
-        background: \$bg-gradiente;
-        border: 1px solid rgba(143, 79, 32, 0.35);
-        border-top: 5px solid \$boton-bg;
+        background: $bg-gradiente;
+        border: 1px solid #d4b295;
+        border-top: 5px solid $boton-bg;
 
         .turno-title-bar {
-            background-color: \$boton-bg;
+            background-color: $boton-bg;
             color: #ffffff;
-            font-family: \$font-botones;
             font-weight: 700;
             text-align: center;
-            padding: 10px;
-            font-size: 1.05rem;
+            padding: 9px;
+            font-size: 1.1rem;
             margin: 8px 0 12px;
-            border-radius: 5px;
-            border-bottom: 3px solid \$boton-borde;
+            border-radius: 4px;
             width: 100%;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
         }
 
         .turno-legajo {
-            color: #4a2000;
+            color: #5c3a21;
             font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 12px;
             word-break: break-word;
 
             .legajo-link {
-                color: #004494;
+                color: $azul-institucional;
                 text-decoration: underline;
                 font-weight: 700;
             }
@@ -201,22 +198,21 @@
 .btn-aceptar-turno {
     display: block;
     margin: 16px auto 0;
-    background-color: \$boton-bg;
+    background-color: $boton-bg;
     color: #ffffff;
-    font-family: \$font-botones;
+    font-family: $font-botones;
     font-size: 0.95rem;
     font-weight: 700;
     padding: 10px 34px;
     border: none;
-    border-bottom: 3px solid \$boton-borde;
-    border-radius: 5px;
+    border-bottom: 3px solid $boton-borde;
+    border-radius: 6px;
     cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.15s ease, transform 0.1s ease;
 
     &:hover {
-        background-color: \$boton-hover;
+        background-color: $boton-hover;
     }
 
     &:active {
@@ -232,22 +228,22 @@
     .login-links {
         margin-top: 20px;
         padding-top: 15px;
-        border-top: 1px solid rgba(143, 79, 32, 0.3);
+        border-top: 1px solid rgba(166, 52, 2, 0.25);
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 10px;
 
         .login-link {
-            font-family: \$font-principal;
+            font-family: $font-principal;
             font-size: 0.9rem;
             font-weight: 700;
-            color: #6e2200;
+            color: $azul-institucional;
             text-decoration: none;
             transition: color 0.15s ease;
 
             &:hover {
-                color: \$boton-borde;
+                color: $boton-borde;
                 text-decoration: underline;
             }
         }
@@ -257,13 +253,13 @@
 // --- ESTILOS DEL COMPROBANTE DE TURNO ---
 .comprobante-card {
     .comprobante-box {
-        background: \$bg-gradiente;
+        background: $bg-gradiente;
         padding: 10px;
         border-radius: 6px;
     }
 
     .comprobante-datos {
-        background-color: rgba(255, 252, 248, 0.92);
+        background-color: rgba(255, 255, 255, 0.9);
         border: 1px solid #d4b295;
         border-radius: 6px;
         padding: 16px;
@@ -280,7 +276,7 @@
             }
 
             strong {
-                color: \$azul-institucional;
+                color: $azul-institucional;
             }
         }
     }
@@ -299,30 +295,28 @@
     }
 }
 
-// --- ESTILOS PANTALLA CONSULTAS ONLINE (CON ESTÉTICA NARANJA DIFUMINADA) ---
+// --- ESTILOS PANTALLA CONSULTAS ONLINE ---
 .form-card.consulta-card {
-    background: \$bg-gradiente;
+    background: $bg-gradiente;
     max-width: 780px;
-    border: 1px solid rgba(143, 79, 32, 0.35);
-    border-top: 5px solid \$boton-bg;
+    border: 1px solid #d4b295;
+    border-top: 5px solid $boton-bg;
     padding: 18px 15px;
 
     .consulta-title-bar {
-        background-color: \$boton-bg;
+        background-color: $boton-bg;
         color: #ffffff;
-        font-family: \$font-botones;
         font-weight: 700;
         text-align: center;
         padding: 10px;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         margin: 8px 0 14px;
-        border-radius: 5px;
-        border-bottom: 3px solid \$boton-borde;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
 
     .consulta-intro {
-        color: #4a2000;
+        color: #5c3a21;
         font-size: 0.85rem;
         font-weight: 700;
         line-height: 1.45;
@@ -330,21 +324,22 @@
 
         .underline-text {
             text-decoration: underline;
+            color: $azul-institucional;
         }
 
         .guia-text {
             margin-top: 8px;
 
             a {
-                color: #800040;
+                color: $azul-institucional;
                 text-decoration: underline;
             }
         }
     }
 
     .consulta-box {
-        background-color: rgba(255, 245, 235, 0.65);
-        border: 1px solid rgba(143, 79, 32, 0.35);
+        background: rgba(255, 248, 242, 0.65);
+        border: 1px solid #d4b295;
         padding: 14px;
         border-radius: 6px;
         margin-bottom: 12px;
@@ -355,7 +350,7 @@
             margin-bottom: 12px;
 
             label {
-                color: #5c2600;
+                color: $azul-institucional;
                 font-size: 0.85rem;
                 font-weight: 700;
                 margin-bottom: 5px;
@@ -365,10 +360,10 @@
             textarea {
                 width: 100%;
                 padding: 8px 10px;
-                border: 1px solid #b86b35;
+                border: 1px solid #c97539;
                 border-radius: 4px;
                 background-color: rgba(255, 255, 255, 0.95);
-                font-family: \$font-principal;
+                font-family: $font-principal;
                 font-size: 0.9rem;
                 color: #222;
             }
@@ -384,7 +379,7 @@
             gap: 10px;
 
             .link-adjuntar {
-                color: #6e2200;
+                color: $azul-institucional;
                 font-size: 0.78rem;
                 font-weight: 700;
                 text-decoration: underline;
@@ -398,8 +393,8 @@
 
             .archivo-seleccionado {
                 font-size: 0.8rem;
-                color: #4a2000;
-                font-weight: 700;
+                color: #5c3a21;
+                font-weight: 500;
             }
         }
     }
@@ -408,10 +403,10 @@
         margin-top: 22px;
 
         h4 {
-            color: #5c2600;
-            font-size: 0.92rem;
+            color: $azul-institucional;
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .tabla-responsive {
@@ -423,31 +418,31 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.78rem;
-            color: #331500;
+            color: #333;
             min-width: 520px;
 
             th,
             td {
-                border: 1px solid #c98a5b;
-                padding: 6px 8px;
+                border: 1px solid #d4b295;
+                padding: 7px 8px;
                 vertical-align: top;
                 text-align: left;
             }
 
             th {
-                background-color: \$boton-bg;
+                background-color: $boton-bg;
                 color: #ffffff;
                 font-weight: 700;
                 text-align: center;
             }
 
             td {
-                background-color: rgba(255, 250, 245, 0.92);
+                background-color: rgba(255, 252, 248, 0.92);
                 line-height: 1.35;
             }
 
             .link-tabla {
-                color: #a63402;
+                color: $azul-institucional;
                 font-weight: 700;
                 text-decoration: underline;
                 cursor: pointer;
@@ -456,37 +451,35 @@
     }
 }
 
-// --- ESTILOS PANTALLA SITUACIÓN DEL AFILIADO (CON ESTÉTICA NARANJA DIFUMINADA) ---
+// --- ESTILOS PANTALLA SITUACIÓN DEL AFILIADO ---
 .form-card.deuda-card {
-    background: \$bg-gradiente;
+    background: $bg-gradiente;
     max-width: 460px;
-    border: 1px solid rgba(143, 79, 32, 0.35);
-    border-top: 5px solid \$boton-bg;
+    border: 1px solid #d4b295;
+    border-top: 5px solid $boton-bg;
     padding: 18px 16px 24px;
 
     .deuda-title-bar {
-        background-color: \$boton-bg;
+        background-color: $boton-bg;
         color: #ffffff;
-        font-family: \$font-botones;
         font-weight: 700;
         text-align: center;
         padding: 9px 10px;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         margin: 8px 0 14px;
-        border-radius: 5px;
-        border-bottom: 3px solid \$boton-borde;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
 
     .deuda-legajo {
         text-align: center;
-        color: #4a2000;
+        color: #5c3a21;
         font-size: 0.95rem;
         font-weight: 700;
         margin-bottom: 18px;
 
         .legajo-link {
-            color: #004494;
+            color: $azul-institucional;
             text-decoration: underline;
         }
     }
@@ -499,7 +492,7 @@
     }
 
     .situacion-subtitulo {
-        font-family: \$font-botones;
+        font-family: $font-botones;
         font-size: 1.05rem;
         font-weight: 700;
         text-align: center;
@@ -507,11 +500,11 @@
         margin-bottom: 10px;
 
         &.titulo-rojo {
-            color: #c40000;
+            color: #b30000;
         }
 
         &.titulo-verde {
-            color: #0f7a23;
+            color: #147a27;
         }
     }
 
@@ -523,16 +516,16 @@
         border-spacing: 3px;
 
         td {
-            border: 1px solid #c98a5b;
+            border: 1px solid #d4b295;
             padding: 10px 8px;
             vertical-align: middle;
-            background-color: rgba(255, 252, 248, 0.92);
+            background-color: rgba(255, 255, 255, 0.92);
             line-height: 1.25;
         }
 
         .col-concepto {
             width: 58%;
-            font-family: \$font-botones;
+            font-family: $font-botones;
             font-size: 0.85rem;
             font-weight: 700;
             text-align: center;
@@ -549,28 +542,28 @@
 
         .col-valor {
             width: 42%;
-            font-family: \$font-principal;
+            font-family: $font-principal;
             font-size: 0.92rem;
             font-weight: 700;
             text-align: center;
         }
 
         .link-saldar {
-            color: #004494;
-            font-weight: 500;
+            color: #0056b3;
+            font-weight: 700;
             text-decoration: underline;
             font-size: 0.88rem;
             line-height: 1.25;
             display: inline-block;
 
             &:hover {
-                color: #002b66;
+                color: #003d82;
             }
         }
 
         .link-ver-detalle {
             color: #7a007a;
-            font-weight: 500;
+            font-weight: 700;
             text-decoration: underline;
             font-size: 0.88rem;
             line-height: 1.25;
@@ -583,13 +576,13 @@
 
         .fila-vencida {
             td {
-                color: #d60000;
+                color: #d90000;
             }
         }
 
         .fila-vencer {
             td {
-                color: #0f7a23;
+                color: #147a27;
             }
         }
     }
@@ -597,58 +590,56 @@
     .situacion-divider {
         border: none;
         height: 4px;
-        background-color: rgba(143, 79, 32, 0.35);
+        background-color: $boton-bg;
         border-radius: 4px;
         margin: 18px 6px;
+        opacity: 0.5;
     }
 }
 
 // --- ESTILOS PANTALLAS CONSULTA CONTRATOS Y FORMULARIOS (FO) ---
 .form-card.legacy-card {
-    background: \$bg-gradiente;
+    background: $bg-gradiente;
     max-width: 940px;
-    border: 1px solid rgba(143, 79, 32, 0.35);
-    border-top: 5px solid \$boton-bg;
+    border: 1px solid #d4b295;
+    border-top: 5px solid $boton-bg;
     padding: 18px 14px;
 
     .deuda-title-bar {
-        background-color: \$boton-bg;
+        background-color: $boton-bg;
         color: #ffffff;
-        font-family: \$font-botones;
         font-weight: 700;
         text-align: center;
-        padding: 9px 10px;
-        font-size: 1.05rem;
+        padding: 8px 10px;
+        font-size: 1.15rem;
         margin: 8px 0 12px;
-        border-radius: 5px;
-        border-bottom: 3px solid \$boton-borde;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
     }
 
     .deuda-legajo {
         text-align: center;
-        color: #4a2000;
+        color: #5c3a21;
         font-size: 0.95rem;
         font-weight: 700;
         margin-bottom: 18px;
 
         .legajo-link {
-            color: #004494;
+            color: $azul-institucional;
             text-decoration: underline;
         }
     }
 
     .titulo-contratos-underline {
-        font-family: \$font-botones;
-        color: #6e2200;
+        font-family: $font-botones;
+        color: $azul-institucional;
         text-align: center;
-        font-size: 1.35rem;
+        font-size: 1.4rem;
         text-decoration: underline;
         margin: 10px 0 18px;
     }
 
     .subtitulo-marron {
-        color: #4a2000;
+        color: #5c3a21;
         font-size: 0.92rem;
         font-weight: 700;
         text-align: center;
@@ -669,16 +660,16 @@
         font-size: 0.78rem;
 
         th {
-            background-color: \$boton-bg;
+            background-color: $boton-bg;
             color: #ffffff;
             font-weight: 700;
             padding: 6px 8px;
-            border: 1px solid #f9e2cc;
+            border: 1px solid #d4b295;
             text-align: center;
         }
 
         td {
-            background-color: rgba(255, 248, 238, 0.92);
+            background-color: rgba(255, 250, 244, 0.92);
             color: #222;
             padding: 6px 8px;
             border: 1px solid #d4b295;
@@ -691,7 +682,7 @@
 
         .fila-verde-resumen {
             td {
-                color: #0f7a23;
+                color: #147a27;
                 font-weight: 700;
             }
         }
@@ -702,7 +693,7 @@
         margin: 14px 0;
 
         .link-saldar-grande {
-            color: #004494;
+            color: $azul-institucional;
             font-size: 1rem;
             font-weight: 700;
             text-decoration: underline;
@@ -718,31 +709,31 @@
         margin: 14px 0;
         font-size: 0.85rem;
         font-weight: 700;
-        color: #5c2600;
+        color: #5c3a21;
 
         .input-anio-corto {
             width: 62px;
             padding: 4px 6px;
-            border: 1px solid #b86b35;
+            border: 1px solid #c97539;
             border-radius: 4px;
-            background-color: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
             font-size: 0.82rem;
             text-align: center;
         }
 
         .btn-gris-legacy {
-            background-color: \$boton-bg;
+            background-color: $boton-bg;
             color: #ffffff;
             border: none;
-            border-bottom: 2px solid \$boton-borde;
+            border-bottom: 2px solid $boton-borde;
             border-radius: 4px;
             padding: 5px 12px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 700;
             cursor: pointer;
 
             &:hover {
-                background-color: \$boton-hover;
+                background-color: $boton-hover;
             }
         }
     }
@@ -755,7 +746,7 @@
         margin-bottom: 14px;
         font-size: 0.82rem;
         font-weight: 700;
-        color: #5c2600;
+        color: #5c3a21;
 
         label {
             display: flex;
@@ -767,7 +758,7 @@
 
     .subtitulo-periodo {
         text-align: center;
-        color: #5c2600;
+        color: $azul-institucional;
         font-size: 0.88rem;
         font-weight: 700;
         margin-bottom: 10px;
@@ -780,18 +771,18 @@
         min-width: 780px;
 
         th {
-            background-color: \$boton-bg;
+            background-color: $boton-bg;
             color: #ffffff;
             font-weight: 700;
             padding: 6px 5px;
-            border: 1px solid #f9e2cc;
+            border: 1px solid #d4b295;
             text-align: center;
             vertical-align: middle;
         }
 
         td {
-            background-color: rgba(255, 248, 238, 0.92);
-            color: #331500;
+            background-color: rgba(255, 250, 244, 0.92);
+            color: #333;
             padding: 6px 5px;
             border: 1px solid #d4b295;
             vertical-align: middle;
@@ -807,7 +798,7 @@
         }
 
         .link-azul {
-            color: #004494;
+            color: $azul-institucional;
             font-weight: 700;
             text-decoration: underline;
         }
@@ -822,7 +813,7 @@
     padding-bottom: 10px;
 
     h3 {
-        font-family: \$font-principal;
+        font-family: $font-principal;
         font-size: 0.85rem;
         font-weight: 500;
         color: #5c3a21;

@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: \$font-principal;
+  font-family: "Roboto", sans-serif;
   min-height: 100vh;
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   background-attachment: fixed;
   color: #333;
   display: flex;
@@ -70,7 +70,7 @@ body {
 }
 
 .logo-ba {
-  color: \$naranja-logo;
+  color: #d17522;
   font-weight: 400;
 }
 
@@ -85,16 +85,16 @@ body {
 }
 
 .btn-caaitba {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
+  font-family: "Merriweather", serif;
   font-size: 0.98rem;
   font-weight: 700;
   display: block;
   width: 100%;
   padding: 14px 18px;
   border: none;
-  border-bottom: 4px solid \$boton-borde;
+  border-bottom: 4px solid #8f4f20;
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -102,7 +102,7 @@ body {
   transition: transform 0.1s ease, background-color 0.2s ease;
 }
 .btn-caaitba:hover {
-  background-color: \$boton-hover;
+  background-color: #d68042;
 }
 .btn-caaitba:active {
   transform: translateY(3px);
@@ -115,27 +115,26 @@ body {
 }
 
 .form-card {
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
   padding: 20px 18px;
   border-radius: 10px;
-  box-shadow: 0 10px 24px rgba(128, 48, 8, 0.22);
-  border: 1px solid rgba(143, 79, 32, 0.35);
-  border-top: 5px solid \$boton-bg;
+  box-shadow: 0 12px 28px rgba(140, 76, 30, 0.22);
+  border: 1px solid #d4b295;
+  border-top: 5px solid #c97539;
 }
 .form-card .form-header {
   margin-bottom: 14px;
 }
 .form-card .form-header h2 {
-  color: #6e2200;
+  color: #a63402;
   margin-top: 8px;
   font-size: 1.4rem;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 .form-card .form-header p {
-  color: #4a2508;
+  color: #5c3a21;
   font-size: 0.9rem;
   margin-top: 4px;
 }
@@ -143,7 +142,7 @@ body {
   background: none;
   border: none;
   outline: none;
-  color: #5c2600;
+  color: #5c3a21;
   font-weight: 700;
   cursor: pointer;
   font-size: 0.9rem;
@@ -161,7 +160,7 @@ body {
 .form-card .form-group label {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #5c2600;
+  color: #a63402;
   margin-bottom: 5px;
 }
 .form-card .form-group input,
@@ -169,20 +168,21 @@ body {
 .form-card .form-group textarea {
   width: 100%;
   padding: 9px 12px;
-  border: 1px solid #b86b35;
+  border: 1px solid #c97539;
   border-radius: 6px;
   font-size: 1rem;
-  font-family: \$font-principal;
-  background: rgba(255, 255, 255, 0.94);
+  font-family: "Roboto", sans-serif;
+  background: rgba(255, 255, 255, 0.92);
   color: #222;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 .form-card .form-group input:focus,
 .form-card .form-group select:focus,
 .form-card .form-group textarea:focus {
-  border-color: \$azul-institucional;
-  box-shadow: 0 0 0 3px rgba(166, 52, 2, 0.2);
+  background: #ffffff;
+  border-color: #a63402;
+  box-shadow: 0 0 0 3px rgba(201, 117, 57, 0.25);
 }
 .form-card .form-group textarea {
   resize: vertical;
@@ -193,33 +193,31 @@ body {
   margin-top: 4px;
 }
 .form-card.turno-card {
-  background: \$bg-gradiente;
-  border: 1px solid rgba(143, 79, 32, 0.35);
-  border-top: 5px solid \$boton-bg;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
+  border: 1px solid #d4b295;
+  border-top: 5px solid #c97539;
 }
 .form-card.turno-card .turno-title-bar {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
   font-weight: 700;
   text-align: center;
-  padding: 10px;
-  font-size: 1.05rem;
+  padding: 9px;
+  font-size: 1.1rem;
   margin: 8px 0 12px;
-  border-radius: 5px;
-  border-bottom: 3px solid \$boton-borde;
+  border-radius: 4px;
   width: 100%;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 .form-card.turno-card .turno-legajo {
-  color: #4a2000;
+  color: #5c3a21;
   font-size: 0.9rem;
   font-weight: 700;
   margin-bottom: 12px;
   word-break: break-word;
 }
 .form-card.turno-card .turno-legajo .legajo-link {
-  color: #004494;
+  color: #a63402;
   text-decoration: underline;
   font-weight: 700;
 }
@@ -227,22 +225,21 @@ body {
 .btn-aceptar-turno {
   display: block;
   margin: 16px auto 0;
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
+  font-family: "Merriweather", serif;
   font-size: 0.95rem;
   font-weight: 700;
   padding: 10px 34px;
   border: none;
-  border-bottom: 3px solid \$boton-borde;
-  border-radius: 5px;
+  border-bottom: 3px solid #8f4f20;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.15s ease, transform 0.1s ease;
 }
 .btn-aceptar-turno:hover {
-  background-color: \$boton-hover;
+  background-color: #d68042;
 }
 .btn-aceptar-turno:active {
   transform: translateY(2px);
@@ -255,32 +252,32 @@ body {
 .form-card.login-card .login-links {
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid rgba(143, 79, 32, 0.3);
+  border-top: 1px solid rgba(166, 52, 2, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 .form-card.login-card .login-links .login-link {
-  font-family: \$font-principal;
+  font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #6e2200;
+  color: #a63402;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 .form-card.login-card .login-links .login-link:hover {
-  color: \$boton-borde;
+  color: #8f4f20;
   text-decoration: underline;
 }
 
 .comprobante-card .comprobante-box {
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   padding: 10px;
   border-radius: 6px;
 }
 .comprobante-card .comprobante-datos {
-  background-color: rgba(255, 252, 248, 0.92);
+  background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #d4b295;
   border-radius: 6px;
   padding: 16px;
@@ -296,7 +293,7 @@ body {
   margin-bottom: 0;
 }
 .comprobante-card .comprobante-datos p strong {
-  color: \$azul-institucional;
+  color: #a63402;
 }
 .comprobante-card .comprobante-divider {
   border: none;
@@ -311,27 +308,25 @@ body {
 }
 
 .form-card.consulta-card {
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   max-width: 780px;
-  border: 1px solid rgba(143, 79, 32, 0.35);
-  border-top: 5px solid \$boton-bg;
+  border: 1px solid #d4b295;
+  border-top: 5px solid #c97539;
   padding: 18px 15px;
 }
 .form-card.consulta-card .consulta-title-bar {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
   font-weight: 700;
   text-align: center;
   padding: 10px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin: 8px 0 14px;
-  border-radius: 5px;
-  border-bottom: 3px solid \$boton-borde;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 .form-card.consulta-card .consulta-intro {
-  color: #4a2000;
+  color: #5c3a21;
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.45;
@@ -339,17 +334,18 @@ body {
 }
 .form-card.consulta-card .consulta-intro .underline-text {
   text-decoration: underline;
+  color: #a63402;
 }
 .form-card.consulta-card .consulta-intro .guia-text {
   margin-top: 8px;
 }
 .form-card.consulta-card .consulta-intro .guia-text a {
-  color: #800040;
+  color: #a63402;
   text-decoration: underline;
 }
 .form-card.consulta-card .consulta-box {
-  background-color: rgba(255, 245, 235, 0.65);
-  border: 1px solid rgba(143, 79, 32, 0.35);
+  background: rgba(255, 248, 242, 0.65);
+  border: 1px solid #d4b295;
   padding: 14px;
   border-radius: 6px;
   margin-bottom: 12px;
@@ -360,7 +356,7 @@ body {
   margin-bottom: 12px;
 }
 .form-card.consulta-card .consulta-box .consulta-row label {
-  color: #5c2600;
+  color: #a63402;
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 5px;
@@ -369,10 +365,10 @@ body {
 .form-card.consulta-card .consulta-box .consulta-row textarea {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid #b86b35;
+  border: 1px solid #c97539;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.95);
-  font-family: \$font-principal;
+  font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
   color: #222;
 }
@@ -385,7 +381,7 @@ body {
   gap: 10px;
 }
 .form-card.consulta-card .consulta-box .consulta-archivos .link-adjuntar {
-  color: #6e2200;
+  color: #a63402;
   font-size: 0.78rem;
   font-weight: 700;
   text-decoration: underline;
@@ -397,17 +393,17 @@ body {
 }
 .form-card.consulta-card .consulta-box .consulta-archivos .archivo-seleccionado {
   font-size: 0.8rem;
-  color: #4a2000;
-  font-weight: 700;
+  color: #5c3a21;
+  font-weight: 500;
 }
 .form-card.consulta-card .consulta-historial {
   margin-top: 22px;
 }
 .form-card.consulta-card .consulta-historial h4 {
-  color: #5c2600;
-  font-size: 0.92rem;
+  color: #a63402;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .form-card.consulta-card .consulta-historial .tabla-responsive {
   width: 100%;
@@ -417,24 +413,24 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.78rem;
-  color: #331500;
+  color: #333;
   min-width: 520px;
 }
 .form-card.consulta-card .consulta-historial .tabla-consultas th,
 .form-card.consulta-card .consulta-historial .tabla-consultas td {
-  border: 1px solid #c98a5b;
-  padding: 6px 8px;
+  border: 1px solid #d4b295;
+  padding: 7px 8px;
   vertical-align: top;
   text-align: left;
 }
 .form-card.consulta-card .consulta-historial .tabla-consultas th {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
   font-weight: 700;
   text-align: center;
 }
 .form-card.consulta-card .consulta-historial .tabla-consultas td {
-  background-color: rgba(255, 250, 245, 0.92);
+  background-color: rgba(255, 252, 248, 0.92);
   line-height: 1.35;
 }
 .form-card.consulta-card .consulta-historial .tabla-consultas .link-tabla {
@@ -445,34 +441,32 @@ body {
 }
 
 .form-card.deuda-card {
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   max-width: 460px;
-  border: 1px solid rgba(143, 79, 32, 0.35);
-  border-top: 5px solid \$boton-bg;
+  border: 1px solid #d4b295;
+  border-top: 5px solid #c97539;
   padding: 18px 16px 24px;
 }
 .form-card.deuda-card .deuda-title-bar {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
   font-weight: 700;
   text-align: center;
   padding: 9px 10px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin: 8px 0 14px;
-  border-radius: 5px;
-  border-bottom: 3px solid \$boton-borde;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 .form-card.deuda-card .deuda-legajo {
   text-align: center;
-  color: #4a2000;
+  color: #5c3a21;
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 18px;
 }
 .form-card.deuda-card .deuda-legajo .legajo-link {
-  color: #004494;
+  color: #a63402;
   text-decoration: underline;
 }
 .form-card.deuda-card .situacion-bloque {
@@ -482,7 +476,7 @@ body {
   align-items: center;
 }
 .form-card.deuda-card .situacion-subtitulo {
-  font-family: \$font-botones;
+  font-family: "Merriweather", serif;
   font-size: 1.05rem;
   font-weight: 700;
   text-align: center;
@@ -490,10 +484,10 @@ body {
   margin-bottom: 10px;
 }
 .form-card.deuda-card .situacion-subtitulo.titulo-rojo {
-  color: #c40000;
+  color: #b30000;
 }
 .form-card.deuda-card .situacion-subtitulo.titulo-verde {
-  color: #0f7a23;
+  color: #147a27;
 }
 .form-card.deuda-card .tabla-situacion {
   width: 100%;
@@ -503,15 +497,15 @@ body {
   border-spacing: 3px;
 }
 .form-card.deuda-card .tabla-situacion td {
-  border: 1px solid #c98a5b;
+  border: 1px solid #d4b295;
   padding: 10px 8px;
   vertical-align: middle;
-  background-color: rgba(255, 252, 248, 0.92);
+  background-color: rgba(255, 255, 255, 0.92);
   line-height: 1.25;
 }
 .form-card.deuda-card .tabla-situacion .col-concepto {
   width: 58%;
-  font-family: \$font-botones;
+  font-family: "Merriweather", serif;
   font-size: 0.85rem;
   font-weight: 700;
   text-align: center;
@@ -525,25 +519,25 @@ body {
 }
 .form-card.deuda-card .tabla-situacion .col-valor {
   width: 42%;
-  font-family: \$font-principal;
+  font-family: "Roboto", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
 }
 .form-card.deuda-card .tabla-situacion .link-saldar {
-  color: #004494;
-  font-weight: 500;
+  color: #0056b3;
+  font-weight: 700;
   text-decoration: underline;
   font-size: 0.88rem;
   line-height: 1.25;
   display: inline-block;
 }
 .form-card.deuda-card .tabla-situacion .link-saldar:hover {
-  color: #002b66;
+  color: #003d82;
 }
 .form-card.deuda-card .tabla-situacion .link-ver-detalle {
   color: #7a007a;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: underline;
   font-size: 0.88rem;
   line-height: 1.25;
@@ -553,60 +547,58 @@ body {
   color: #4d004d;
 }
 .form-card.deuda-card .tabla-situacion .fila-vencida td {
-  color: #d60000;
+  color: #d90000;
 }
 .form-card.deuda-card .tabla-situacion .fila-vencer td {
-  color: #0f7a23;
+  color: #147a27;
 }
 .form-card.deuda-card .situacion-divider {
   border: none;
   height: 4px;
-  background-color: rgba(143, 79, 32, 0.35);
+  background-color: #c97539;
   border-radius: 4px;
   margin: 18px 6px;
+  opacity: 0.5;
 }
 
 .form-card.legacy-card {
-  background: \$bg-gradiente;
+  background: linear-gradient(180deg, #f09c52 0%, #f3af73 30%, #f7cba1 62%, #f9e2cc 82%, #fcf7f2 100%);
   max-width: 940px;
-  border: 1px solid rgba(143, 79, 32, 0.35);
-  border-top: 5px solid \$boton-bg;
+  border: 1px solid #d4b295;
+  border-top: 5px solid #c97539;
   padding: 18px 14px;
 }
 .form-card.legacy-card .deuda-title-bar {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
-  font-family: \$font-botones;
   font-weight: 700;
   text-align: center;
-  padding: 9px 10px;
-  font-size: 1.05rem;
+  padding: 8px 10px;
+  font-size: 1.15rem;
   margin: 8px 0 12px;
-  border-radius: 5px;
-  border-bottom: 3px solid \$boton-borde;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
 }
 .form-card.legacy-card .deuda-legajo {
   text-align: center;
-  color: #4a2000;
+  color: #5c3a21;
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 18px;
 }
 .form-card.legacy-card .deuda-legajo .legajo-link {
-  color: #004494;
+  color: #a63402;
   text-decoration: underline;
 }
 .form-card.legacy-card .titulo-contratos-underline {
-  font-family: \$font-botones;
-  color: #6e2200;
+  font-family: "Merriweather", serif;
+  color: #a63402;
   text-align: center;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   text-decoration: underline;
   margin: 10px 0 18px;
 }
 .form-card.legacy-card .subtitulo-marron {
-  color: #4a2000;
+  color: #5c3a21;
   font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
@@ -625,15 +617,15 @@ body {
   font-size: 0.78rem;
 }
 .form-card.legacy-card .tabla-resumen-legacy th {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
   font-weight: 700;
   padding: 6px 8px;
-  border: 1px solid #f9e2cc;
+  border: 1px solid #d4b295;
   text-align: center;
 }
 .form-card.legacy-card .tabla-resumen-legacy td {
-  background-color: rgba(255, 248, 238, 0.92);
+  background-color: rgba(255, 250, 244, 0.92);
   color: #222;
   padding: 6px 8px;
   border: 1px solid #d4b295;
@@ -643,7 +635,7 @@ body {
   white-space: nowrap;
 }
 .form-card.legacy-card .tabla-resumen-legacy .fila-verde-resumen td {
-  color: #0f7a23;
+  color: #147a27;
   font-weight: 700;
 }
 .form-card.legacy-card .bloque-saldar-centro {
@@ -651,7 +643,7 @@ body {
   margin: 14px 0;
 }
 .form-card.legacy-card .bloque-saldar-centro .link-saldar-grande {
-  color: #004494;
+  color: #a63402;
   font-size: 1rem;
   font-weight: 700;
   text-decoration: underline;
@@ -665,30 +657,30 @@ body {
   margin: 14px 0;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #5c2600;
+  color: #5c3a21;
 }
 .form-card.legacy-card .filtros-legacy .input-anio-corto {
   width: 62px;
   padding: 4px 6px;
-  border: 1px solid #b86b35;
+  border: 1px solid #c97539;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
   font-size: 0.82rem;
   text-align: center;
 }
 .form-card.legacy-card .filtros-legacy .btn-gris-legacy {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
   border: none;
-  border-bottom: 2px solid \$boton-borde;
+  border-bottom: 2px solid #8f4f20;
   border-radius: 4px;
   padding: 5px 12px;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
 }
 .form-card.legacy-card .filtros-legacy .btn-gris-legacy:hover {
-  background-color: \$boton-hover;
+  background-color: #d68042;
 }
 .form-card.legacy-card .checks-legacy {
   display: flex;
@@ -698,7 +690,7 @@ body {
   margin-bottom: 14px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #5c2600;
+  color: #5c3a21;
 }
 .form-card.legacy-card .checks-legacy label {
   display: flex;
@@ -708,7 +700,7 @@ body {
 }
 .form-card.legacy-card .subtitulo-periodo {
   text-align: center;
-  color: #5c2600;
+  color: #a63402;
   font-size: 0.88rem;
   font-weight: 700;
   margin-bottom: 10px;
@@ -720,17 +712,17 @@ body {
   min-width: 780px;
 }
 .form-card.legacy-card .tabla-detalle-legacy th {
-  background-color: \$boton-bg;
+  background-color: #c97539;
   color: #ffffff;
   font-weight: 700;
   padding: 6px 5px;
-  border: 1px solid #f9e2cc;
+  border: 1px solid #d4b295;
   text-align: center;
   vertical-align: middle;
 }
 .form-card.legacy-card .tabla-detalle-legacy td {
-  background-color: rgba(255, 248, 238, 0.92);
-  color: #331500;
+  background-color: rgba(255, 250, 244, 0.92);
+  color: #333;
   padding: 6px 5px;
   border: 1px solid #d4b295;
   vertical-align: middle;
@@ -743,7 +735,7 @@ body {
   white-space: nowrap;
 }
 .form-card.legacy-card .tabla-detalle-legacy .link-azul {
-  color: #004494;
+  color: #a63402;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -755,7 +747,7 @@ body {
   padding-bottom: 10px;
 }
 .app-footer h3 {
-  font-family: \$font-principal;
+  font-family: "Roboto", sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   color: #5c3a21;

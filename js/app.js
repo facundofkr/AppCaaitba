@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Navegación y Funcionalidad de Situación (Estado de Deuda, Contratos y Formularios)
+    // 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
     const linkSaldarDeuda = document.getElementById('link-saldar-deuda');

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'caaitba-app-v12';
+const CACHE_NAME = 'caaitba-app-v14';
 const ASSETS = [
     './',
     './index.html',

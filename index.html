@@ -56,9 +56,9 @@
             </header>
 
             <div class="menu-buttons-container">
-                <button id="btn-deuda" class="btn-caaitba" type="button">Situación del Afiliado</button>
                 <button id="btn-cmao" class="btn-caaitba" type="button">Boleta C.M.A.O.</button>
                 <button id="btn-turnos" class="btn-caaitba" type="button">Turnos Online</button>
+                <button id="btn-deuda" class="btn-caaitba" type="button">Situación</button>
                 <button id="btn-consultas" class="btn-caaitba" type="button">Consultas Online</button>
             </div>
         </main>
@@ -296,7 +296,7 @@
             </div>
         </section>
 
-        <!-- PANTALLA 6: ESTADO DE DEUDA -->
+        <!-- PANTALLA 6: SITUACIÓN DEL AFILIADO -->
         <section id="screen-deuda" class="screen">
             <div class="form-card deuda-card">
                 <div class="form-header">
@@ -305,44 +305,48 @@
                     <p class="deuda-legajo">Legajo: <span class="legajo-link">124200/9 PERROTTA VICENTE</span></p>
                 </div>
 
-                
-                    <div class="tabla-deuda-responsive">
-                        <table class="tabla-deuda">
-                            <tbody>
-                                <tr class="fila-vencida">
-                                    <td>Deuda vencida NO reclamada de C.M.A.O</td>
-                                    <td class="col-periodo">C.M.A.O. 2024 - 2025</td>
-                                    <td class="col-monto">$ 1.553.841,50</td>
-                                </tr>
-                                <tr class="fila-reclamo">
-                                    <td>Deuda CMAO con reclamo iniciado.</td>
-                                    <td class="col-periodo">C.M.A.O. (FORMAL): 2021</td>
-                                    <td class="col-accion">
-                                        <a href="#" id="link-saldar-deuda" class="link-saldar">Quiero Saldar<br>Deuda</a>
-                                    </td>
-                                </tr>
-                                <tr class="fila-vencer">
-                                    <td>Ud. Tiene Deuda de CMAO a vencer</td>
-                                    <td class="col-periodo">C.M.A.O. 2026</td>
-                                    <td class="col-monto">$ 1.301.701,20</td>
-                                </tr>
-                                <tr class="fila-vencida">
-                                    <td>Deuda vencida NO reclamada de CONTRATOS</td>
-                                    <td class="col-monto col-centro">$ 41.137,80</td>
-                                    <td class="col-accion">
-                                        <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
-                                    </td>
-                                </tr>
-                                <tr class="fila-vencida">
-                                    <td>Deuda vencida NO reclamada de FORMULARIOS (FO)</td>
-                                    <td class="col-monto col-centro">$ 6.924.964,20</td>
-                                    <td class="col-accion">
-                                        <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver Formularios</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="situacion-bloque">
+                    <h3 class="situacion-subtitulo titulo-rojo">Deuda Vencida</h3>
+                    <table class="tabla-situacion">
+                        <tbody>
+                            <tr class="fila-vencida">
+                                <td class="col-concepto texto-izquierda">C.M.A.O. 2024 (NO<br>RECLAMADO)</td>
+                                <td class="col-valor">$ 1.553.841,50</td>
+                            </tr>
+                            <tr class="fila-vencida">
+                                <td class="col-concepto">C.M.A.O.<br>(FORMAL): 2021</td>
+                                <td class="col-valor">
+                                    <a href="#" id="link-saldar-deuda" class="link-saldar">Quiero Saldar<br>Deuda</a>
+                                </td>
+                            </tr>
+                            <tr class="fila-vencida">
+                                <td class="col-concepto">No reclamada<br><span class="texto-chico">(Contratos: $41.235,00)</span></td>
+                                <td class="col-valor">
+                                    <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
+                                </td>
+                            </tr>
+                            <tr class="fila-vencida">
+                                <td class="col-concepto">No reclamada (FO)<br>($125.326,00)</td>
+                                <td class="col-valor">
+                                    <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver<br>Formularios</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="situacion-divider">
+
+                <div class="situacion-bloque">
+                    <h3 class="situacion-subtitulo titulo-verde">Deuda a Vencer</h3>
+                    <table class="tabla-situacion">
+                        <tbody>
+                            <tr class="fila-vencer">
+                                <td class="col-concepto">C.M.A.O. 2026</td>
+                                <td class="col-valor">$ 1.301.701,20</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -351,7 +355,7 @@
         <section id="screen-contratos" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-contratos" class="btn-back" type="button">← Volver a Estado de Deuda</button>
+                    <button id="btn-back-contratos" class="btn-back" type="button">← Volver a Situación</button>
                     <h2 class="titulo-contratos-underline">CONSULTA CONTRATOS</h2>
                 </div>
 
@@ -452,7 +456,7 @@
         <section id="screen-formularios" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-formularios" class="btn-back" type="button">← Volver a Estado de Deuda</button>
+                    <button id="btn-back-formularios" class="btn-back" type="button">← Volver a Situación</button>
                     <div class="deuda-title-bar">Consulta de formularios no vinculados con boleta pagada por legajo</div>
                     <p class="deuda-legajo">Legajo: <span class="legajo-link">64251/4 MINOTTO LUIS ALBERTO</span></p>
                 </div>

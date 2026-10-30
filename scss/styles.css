@@ -431,19 +431,19 @@ body {
 
 .form-card.deuda-card {
   background: #ffffff;
-  max-width: 720px;
+  max-width: 460px;
   border-top: none;
   border: 1px solid #d4b295;
-  padding: 20px 16px;
+  padding: 18px 16px 24px;
 }
 .form-card.deuda-card .deuda-title-bar {
   background-color: #f39334;
   color: #900c27;
   font-weight: 700;
   text-align: center;
-  padding: 8px 10px;
+  padding: 9px 10px;
   font-size: 1.15rem;
-  margin: 8px 0 12px;
+  margin: 8px 0 14px;
   border-radius: 2px;
 }
 .form-card.deuda-card .deuda-legajo {
@@ -457,79 +457,95 @@ body {
   color: #0056b3;
   text-decoration: underline;
 }
-.form-card.deuda-card .deuda-marco {
-  border-top: 2px solid #eeeeee;
-  border-left: 2px solid #eeeeee;
-  border-right: 2px solid #888888;
-  border-bottom: 2px solid #888888;
-  padding: 16px 12px;
-  background-color: #ffffff;
+.form-card.deuda-card .situacion-bloque {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.form-card.deuda-card .deuda-aviso {
-  color: #2f4f4f;
-  font-size: 0.95rem;
+.form-card.deuda-card .situacion-subtitulo {
+  font-family: "Merriweather", serif;
+  font-size: 1.05rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 14px;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
-.form-card.deuda-card .tabla-deuda-responsive {
-  width: 100%;
-  overflow-x: auto;
+.form-card.deuda-card .situacion-subtitulo.titulo-rojo {
+  color: #ff0000;
 }
-.form-card.deuda-card .tabla-deuda {
+.form-card.deuda-card .situacion-subtitulo.titulo-verde {
+  color: #199932;
+}
+.form-card.deuda-card .tabla-situacion {
   width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
   border-collapse: separate;
-  border-spacing: 4px;
-  min-width: 480px;
+  border-spacing: 3px;
 }
-.form-card.deuda-card .tabla-deuda td {
-  border: 1px solid #cccccc;
-  padding: 12px 10px;
-  font-size: 0.92rem;
-  font-weight: 700;
+.form-card.deuda-card .tabla-situacion td {
+  border: 1px solid #c8c8c8;
+  padding: 10px 8px;
   vertical-align: middle;
   background-color: #ffffff;
+  line-height: 1.25;
 }
-.form-card.deuda-card .tabla-deuda .col-periodo {
+.form-card.deuda-card .tabla-situacion .col-concepto {
+  width: 58%;
   font-family: "Merriweather", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-align: center;
 }
-.form-card.deuda-card .tabla-deuda .col-monto {
-  text-align: right;
-  white-space: nowrap;
+.form-card.deuda-card .tabla-situacion .col-concepto.texto-izquierda {
+  text-align: left;
+  font-size: 0.78rem;
 }
-.form-card.deuda-card .tabla-deuda .col-monto.col-centro {
+.form-card.deuda-card .tabla-situacion .col-concepto .texto-chico {
+  font-size: 0.76rem;
+}
+.form-card.deuda-card .tabla-situacion .col-valor {
+  width: 42%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
   text-align: center;
 }
-.form-card.deuda-card .tabla-deuda .col-accion {
-  text-align: center;
-  font-weight: 400;
-}
-.form-card.deuda-card .tabla-deuda .col-accion .link-saldar {
+.form-card.deuda-card .tabla-situacion .link-saldar {
   color: #0056b3;
+  font-weight: 400;
   text-decoration: underline;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.25;
   display: inline-block;
 }
-.form-card.deuda-card .tabla-deuda .col-accion .link-saldar:hover {
+.form-card.deuda-card .tabla-situacion .link-saldar:hover {
   color: #003d82;
 }
-.form-card.deuda-card .tabla-deuda .col-accion .link-ver-detalle {
+.form-card.deuda-card .tabla-situacion .link-ver-detalle {
   color: #7a007a;
+  font-weight: 400;
   text-decoration: underline;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.25;
   display: inline-block;
 }
-.form-card.deuda-card .tabla-deuda .col-accion .link-ver-detalle:hover {
+.form-card.deuda-card .tabla-situacion .link-ver-detalle:hover {
   color: #4d004d;
 }
-.form-card.deuda-card .tabla-deuda .fila-vencida td,
-.form-card.deuda-card .tabla-deuda .fila-reclamo td {
+.form-card.deuda-card .tabla-situacion .fila-vencida td {
   color: #ff0000;
 }
-.form-card.deuda-card .tabla-deuda .fila-vencer td {
+.form-card.deuda-card .tabla-situacion .fila-vencer td {
   color: #008000;
+}
+.form-card.deuda-card .situacion-divider {
+  border: none;
+  height: 5px;
+  background-color: #f5cba7;
+  border-radius: 4px;
+  margin: 18px 6px;
 }
 
 .form-card.legacy-card {
@@ -538,6 +554,27 @@ body {
   border-top: none;
   border: 1px solid #d4b295;
   padding: 18px 14px;
+}
+.form-card.legacy-card .deuda-title-bar {
+  background-color: #f39334;
+  color: #900c27;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 1.15rem;
+  margin: 8px 0 12px;
+  border-radius: 2px;
+}
+.form-card.legacy-card .deuda-legajo {
+  text-align: center;
+  color: #8c5828;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.form-card.legacy-card .deuda-legajo .legajo-link {
+  color: #0056b3;
+  text-decoration: underline;
 }
 .form-card.legacy-card .titulo-contratos-underline {
   font-family: "Merriweather", serif;

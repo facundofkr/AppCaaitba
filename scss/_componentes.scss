@@ -442,13 +442,157 @@
     }
 }
 
-// --- ESTILOS PANTALLA ESTADO DE DEUDA ---
+// --- ESTILOS PANTALLA SITUACIÓN DEL AFILIADO ---
 .form-card.deuda-card {
     background: #ffffff;
-    max-width: 720px;
+    max-width: 460px;
     border-top: none;
     border: 1px solid #d4b295;
-    padding: 20px 16px;
+    padding: 18px 16px 24px;
+
+    .deuda-title-bar {
+        background-color: #f39334;
+        color: #900c27;
+        font-weight: 700;
+        text-align: center;
+        padding: 9px 10px;
+        font-size: 1.15rem;
+        margin: 8px 0 14px;
+        border-radius: 2px;
+    }
+
+    .deuda-legajo {
+        text-align: center;
+        color: #8c5828;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+
+        .legajo-link {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+
+    .situacion-bloque {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .situacion-subtitulo {
+        font-family: $font-botones;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: underline;
+        margin-bottom: 10px;
+
+        &.titulo-rojo {
+            color: #ff0000;
+        }
+
+        &.titulo-verde {
+            color: #199932;
+        }
+    }
+
+    .tabla-situacion {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        border-collapse: separate;
+        border-spacing: 3px;
+
+        td {
+            border: 1px solid #c8c8c8;
+            padding: 10px 8px;
+            vertical-align: middle;
+            background-color: #ffffff;
+            line-height: 1.25;
+        }
+
+        .col-concepto {
+            width: 58%;
+            font-family: $font-botones;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+
+            &.texto-izquierda {
+                text-align: left;
+                font-size: 0.78rem;
+            }
+
+            .texto-chico {
+                font-size: 0.76rem;
+            }
+        }
+
+        .col-valor {
+            width: 42%;
+            font-family: $font-principal;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .link-saldar {
+            color: #0056b3;
+            font-weight: 400;
+            text-decoration: underline;
+            font-size: 0.88rem;
+            line-height: 1.25;
+            display: inline-block;
+
+            &:hover {
+                color: #003d82;
+            }
+        }
+
+        .link-ver-detalle {
+            color: #7a007a;
+            font-weight: 400;
+            text-decoration: underline;
+            font-size: 0.88rem;
+            line-height: 1.25;
+            display: inline-block;
+
+            &:hover {
+                color: #4d004d;
+            }
+        }
+
+        .fila-vencida {
+            td {
+                color: #ff0000;
+            }
+        }
+
+        .fila-vencer {
+            td {
+                color: #008000;
+            }
+        }
+    }
+
+    .situacion-divider {
+        border: none;
+        height: 5px;
+        background-color: #f5cba7;
+        border-radius: 4px;
+        margin: 18px 6px;
+    }
+}
+
+// --- ESTILOS PANTALLAS CONSULTA CONTRATOS Y FORMULARIOS (FO) ---
+.form-card.legacy-card {
+    background: #ffffff;
+    max-width: 940px;
+    border-top: none;
+    border: 1px solid #d4b295;
+    padding: 18px 14px;
 
     .deuda-title-bar {
         background-color: #f39334;
@@ -473,108 +617,6 @@
             text-decoration: underline;
         }
     }
-
-    .deuda-marco {
-        border-top: 2px solid #eeeeee;
-        border-left: 2px solid #eeeeee;
-        border-right: 2px solid #888888;
-        border-bottom: 2px solid #888888;
-        padding: 16px 12px;
-        background-color: #ffffff;
-    }
-
-    .deuda-aviso {
-        color: #2f4f4f;
-        font-size: 0.95rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 14px;
-    }
-
-    .tabla-deuda-responsive {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    .tabla-deuda {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 4px;
-        min-width: 480px;
-
-        td {
-            border: 1px solid #cccccc;
-            padding: 12px 10px;
-            font-size: 0.92rem;
-            font-weight: 700;
-            vertical-align: middle;
-            background-color: #ffffff;
-        }
-
-        .col-periodo {
-            font-family: $font-botones;
-            text-align: center;
-        }
-
-        .col-monto {
-            text-align: right;
-            white-space: nowrap;
-
-            &.col-centro {
-                text-align: center;
-            }
-        }
-
-        .col-accion {
-            text-align: center;
-            font-weight: 400;
-
-            .link-saldar {
-                color: #0056b3;
-                text-decoration: underline;
-                font-size: 0.9rem;
-                line-height: 1.25;
-                display: inline-block;
-
-                &:hover {
-                    color: #003d82;
-                }
-            }
-
-            .link-ver-detalle {
-                color: #7a007a;
-                text-decoration: underline;
-                font-size: 0.9rem;
-                display: inline-block;
-
-                &:hover {
-                    color: #4d004d;
-                }
-            }
-        }
-
-        .fila-vencida,
-        .fila-reclamo {
-            td {
-                color: #ff0000;
-            }
-        }
-
-        .fila-vencer {
-            td {
-                color: #008000;
-            }
-        }
-    }
-}
-
-// --- ESTILOS PANTALLAS CONSULTA CONTRATOS Y FORMULARIOS (FO) ---
-.form-card.legacy-card {
-    background: #ffffff;
-    max-width: 940px;
-    border-top: none;
-    border: 1px solid #d4b295;
-    padding: 18px 14px;
 
     .titulo-contratos-underline {
         font-family: $font-botones;

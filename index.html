@@ -68,7 +68,7 @@
             <div class="form-card">
                 <div class="form-header">
                     <button id="btn-back" class="btn-back" type="button">INICIO</button>
-                    <h2><div class="turno-title-bar">Boleta Digital C.M.A.O.</div></h2>
+                    <h2>Boleta Digital C.M.A.O.</h2>
                 </div>
 
                 <form id="cmao-form">
@@ -112,7 +112,7 @@
                 <div class="form-header">
                     <button id="btn-back-turno" class="btn-back" type="button">INICIO</button>
                     <div class="turno-title-bar">Solicitud de Turno</div>
-                    <p class="turno-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA</span></p>
+                    <p class="turno-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA ANAHID</span></p>
                 </div>
 
                 <form id="turno-form">
@@ -169,6 +169,10 @@
         <!-- PANTALLA 4: COMPROBANTE DE TURNO GENERADO -->
         <section id="screen-comprobante-turno" class="screen">
             <div class="form-card turno-card comprobante-card">
+                <div class="form-header">
+                    <button id="btn-volver-inicio-turno" class="btn-back" type="button">INICIO</button>
+                </div>
+
                 <div id="comprobante-turno-print" class="comprobante-box">
                     <div class="turno-title-bar">Comprobante de Turno</div>
 
@@ -185,7 +189,6 @@
 
                 <div class="comprobante-actions">
                     <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
-                    <button id="btn-volver-inicio-turno" class="btn-aceptar-turno" type="button">Volver al menú</button>
                 </div>
             </div>
         </section>
@@ -197,7 +200,14 @@
                     <button id="btn-back-consultas" class="btn-back" type="button">INICIO</button>
                     <div class="consulta-title-bar">Consulta Online</div>
                 </div>
-               <form id="consulta-form">
+
+                <div class="consulta-intro">
+                    <p>Las consultas se responderán a la brevedad, los días hábiles de 9 a 14 hs.</p>
+                    <p>A fin de agilizar la respuesta, deberá realizar <span class="underline-text">una pregunta por cada tema a consultar</span></p>
+                    <p class="guia-text">Verifique previamente si su consulta se encuentra en <a href="#" id="link-guia-tramites">Guía de Trámites</a></p>
+                </div>
+
+                <form id="consulta-form">
                     <div class="consulta-box">
                         <div class="consulta-row">
                             <label for="consulta-tema">Elija un Tema:</label>
@@ -241,21 +251,24 @@
                             <tbody id="tabla-consultas-body">
                                 <tr>
                                     <td class="col-comentario">
-                                        <b>Deuda C.M.A.O.</b><br>
-                                        Se envió aviso de deuda de <strong>C.M.A.O. 2021, 2022, 2023 y 2024</strong>, con vencimiento el 16/10/2026.<br>
-                                        </td>
+                                        Ref: Aviso Deuda C.M.A.O. Trámite: 721324<br>
+                                        Se envió aviso de deuda de <strong>CUOTA MÍNIMA ANUAL OBLIGATORIA</strong>, correspondiente a los años <strong>2021, 2022, 2023 y 2024</strong>, según liquidación N°443843 con vencimiento el 16/10/2026.<br>
+                                        Para mayor detalle ingrese a <span class="link-tabla">Reclamos/ Liq. de CMAO.</span>
+                                    </td>
                                     <td class="col-fecha">01/10/2026</td>
                                 </tr>
                                 <tr>
                                     <td class="col-comentario">
-                                        El <b>Formulario de Obra</b> N° 6653684 se encuentra <u>verificado</u>.<br>
+                                        Sr./a. Afiliado/a: El formulario de obra N° 6653684 se encuentra verificado.<br>
+                                        Podrá ingresar en su Sitio Autogestión, Menú Formularios de Obra, Formularios/Boleta y generar las boletas de pago correspondiente.<br>
                                         <strong>CaaitBA</strong>
                                     </td>
                                     <td class="col-fecha">26/09/2026</td>
                                 </tr>
                                 <tr>
                                     <td class="col-comentario">
-                                        El <b>Formulario de Obra</b> N° 6653685 se encuentra <u>verificado</u>.<br>
+                                        Sr./a. Afiliado/a: El formulario de obra N° 6653685 se encuentra verificado.<br>
+                                        Podrá ingresar en su Sitio Autogestión, Menú Formularios de Obra, Formularios/Boleta y generar las boletas de pago correspondiente.<br>
                                         <strong>CaaitBA</strong>
                                     </td>
                                     <td class="col-fecha">26/09/2026</td>
@@ -285,9 +298,9 @@
                     <table class="tabla-situacion">
                         <tbody>
                             <tr class="fila-vencida">
-                                <td class="col-concepto texto-izquierda">C.M.A.O. 2024 <br>(SIN RECLAMO)</td>
+                                <td class="col-concepto">C.M.A.O. 2024<br>(SIN RECLAMO)</td>
                                 <td class="col-valor">
-                                    <a href="#" id="link-saldar-deuda" class="link-saldar">Solicitar<br>Liquidación</a>
+                                    <a href="#" id="link-solicitar-liquidacion" class="link-saldar">Solicitar<br>Liquidación</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
@@ -297,13 +310,13 @@
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">Contratos<br><span class="texto-chico">(Sin Reclamo)</span></td>
+                                <td class="col-concepto">SIN RECLAMO<br><span class="texto-chico">(Contratos)</span></td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">Formularios Obra <br>(Sin Reclamo)</td>
+                                <td class="col-concepto">SIN RECLAMO (FO)</td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver<br>Formularios</a>
                                 </td>
@@ -332,7 +345,7 @@
         <section id="screen-contratos" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-contratos" class="btn-back" type="button">← Volver a Situación</button>
+                    <button id="btn-back-contratos" class="btn-back" type="button">INICIO</button>
                     <h2 class="titulo-contratos-underline">CONSULTA CONTRATOS</h2>
                 </div>
 
@@ -433,7 +446,7 @@
         <section id="screen-formularios" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-formularios" class="btn-back" type="button">← Volver a Situación</button>
+                    <button id="btn-back-formularios" class="btn-back" type="button">INICIO</button>
                     <div class="deuda-title-bar">Consulta de formularios no vinculados con boleta pagada por legajo</div>
                     <p class="deuda-legajo">Legajo: <span class="legajo-link">64251/4 MINOTTO LUIS ALBERTO</span></p>
                 </div>

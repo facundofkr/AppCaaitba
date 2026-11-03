@@ -132,6 +132,7 @@ body {
   color: #a63402;
   margin-top: 8px;
   font-size: 1.4rem;
+  text-align: center;
 }
 .form-card .form-header p {
   color: #5c3a21;
@@ -139,17 +140,33 @@ body {
   margin-top: 4px;
 }
 .form-card .btn-back {
-  background: none;
-  border: none;
-  outline: none;
-  color: #5c3a21;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 135px;
+  margin: 0 auto 14px;
+  padding: 7px 26px;
+  background-color: #c97539;
+  color: #ffffff;
+  font-family: "Merriweather", serif;
+  font-size: 0.88rem;
   font-weight: 700;
+  text-align: center;
+  border: none;
+  border-bottom: 3px solid #8f4f20;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.95rem;
-  padding: 4px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease, background-color 0.2s ease;
 }
 .form-card .btn-back:hover {
-  text-decoration: underline;
+  background-color: #d68042;
+  text-decoration: none;
+}
+.form-card .btn-back:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
 }
 .form-card .form-group {
   width: 100%;
@@ -465,7 +482,7 @@ body {
   text-align: center;
   padding: 11px 12px;
   font-size: 1.2rem;
-  margin: 10px 0 16px;
+  margin: 8px 0 16px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
@@ -512,7 +529,7 @@ body {
 }
 .form-card.deuda-card .tabla-situacion tr {
   display: grid;
-  grid-template-columns: 57% 1fr;
+  grid-template-columns: 56% 1fr;
   gap: 5px;
   width: 100%;
 }
@@ -531,11 +548,6 @@ body {
   font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
-}
-.form-card.deuda-card .tabla-situacion .col-concepto.texto-izquierda {
-  align-items: flex-start;
-  text-align: left;
-  font-size: 0.84rem;
 }
 .form-card.deuda-card .tabla-situacion .col-concepto .texto-chico {
   font-size: 0.82rem;

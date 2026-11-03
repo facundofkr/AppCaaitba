@@ -92,6 +92,7 @@
             color: $azul-institucional;
             margin-top: 8px;
             font-size: 1.4rem;
+            text-align: center;
         }
 
         p {
@@ -101,18 +102,35 @@
         }
     }
 
+    // Botón INICIO institucional centrado en todas las pantallas
     .btn-back {
-        background: none;
-        border: none;
-        outline: none;
-        color: #5c3a21;
+        display: block;
+        width: fit-content;
+        min-width: 135px;
+        margin: 0 auto 14px;
+        padding: 7px 26px;
+        background-color: $boton-bg;
+        color: #ffffff;
+        font-family: $font-botones;
+        font-size: 0.88rem;
         font-weight: 700;
+        text-align: center;
+        border: none;
+        border-bottom: 3px solid $boton-borde;
+        border-radius: 4px;
         cursor: pointer;
-        font-size: 0.95rem;
-        padding: 4px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        transition: transform 0.1s ease, background-color 0.2s ease;
 
         &:hover {
-            text-decoration: underline;
+            background-color: $boton-hover;
+            text-decoration: none;
+        }
+
+        &:active {
+            transform: translateY(2px);
+            border-bottom-width: 1px;
         }
     }
 
@@ -479,7 +497,7 @@
         text-align: center;
         padding: 11px 12px;
         font-size: 1.2rem;
-        margin: 10px 0 16px;
+        margin: 8px 0 16px;
         border-radius: 4px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
@@ -534,7 +552,7 @@
 
         tr {
             display: grid;
-            grid-template-columns: 57% 1fr;
+            grid-template-columns: 56% 1fr;
             gap: 5px;
             width: 100%;
         }
@@ -555,12 +573,6 @@
             font-size: 0.92rem;
             font-weight: 700;
             text-align: center;
-
-            &.texto-izquierda {
-                align-items: flex-start;
-                text-align: left;
-                font-size: 0.84rem;
-            }
 
             .texto-chico {
                 font-size: 0.82rem;

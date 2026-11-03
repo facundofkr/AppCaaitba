@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
+    const linkSolicitarLiquidacion = document.getElementById('link-solicitar-liquidacion');
     const linkSaldarDeuda = document.getElementById('link-saldar-deuda');
 
     const linkVerContratos = document.getElementById('link-ver-contratos');
@@ -280,6 +281,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // "Solicitar Liquidación" -> Abre Boleta C.M.A.O. en el año 2024
+    if (linkSolicitarLiquidacion && screenDeuda) {
+        linkSolicitarLiquidacion.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenDeuda.classList.remove('active');
+            screenCmao.classList.add('active');
+            if (selectAnio) {
+                selectAnio.value = '2024';
+            }
+        });
+    }
+
+    // "Quiero Saldar Deuda" -> Abre Boleta C.M.A.O. en el año 2021
     if (linkSaldarDeuda && screenDeuda) {
         linkSaldarDeuda.addEventListener('click', (e) => {
             e.preventDefault();
@@ -300,11 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Volver de Contratos a Situación
+    // Botón INICIO desde Contratos hacia el menú principal
     if (btnBackContratos && screenContratos) {
         btnBackContratos.addEventListener('click', () => {
             screenContratos.classList.remove('active');
-            screenDeuda.classList.add('active');
+            screenHome.classList.add('active');
         });
     }
 
@@ -317,11 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Volver de Formularios a Situación
+    // Botón INICIO desde Formularios hacia el menú principal
     if (btnBackFormularios && screenFormularios) {
         btnBackFormularios.addEventListener('click', () => {
             screenFormularios.classList.remove('active');
-            screenDeuda.classList.add('active');
+            screenHome.classList.add('active');
         });
     }
 

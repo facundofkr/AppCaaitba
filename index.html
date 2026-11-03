@@ -68,7 +68,7 @@
             <div class="form-card">
                 <div class="form-header">
                     <button id="btn-back" class="btn-back" type="button">INICIO</button>
-                    <h2>Boleta Digital C.M.A.O.</h2>
+                    <h2><div class="turno-title-bar">Boleta Digital C.M.A.O.</div></h2>
                 </div>
 
                 <form id="cmao-form">
@@ -110,7 +110,7 @@
         <section id="screen-turno" class="screen">
             <div class="form-card turno-card">
                 <div class="form-header">
-                    <button id="btn-back-turno" class="btn-back" type="button">← Volver al menú</button>
+                    <button id="btn-back-turno" class="btn-back" type="button">INICIO</button>
                     <div class="turno-title-bar">Solicitud de Turno</div>
                     <p class="turno-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA</span></p>
                 </div>
@@ -194,7 +194,7 @@
         <section id="screen-consultas" class="screen">
             <div class="form-card consulta-card">
                 <div class="form-header">
-                    <button id="btn-back-consultas" class="btn-back" type="button">← Volver al menú</button>
+                    <button id="btn-back-consultas" class="btn-back" type="button">INICIO</button>
                     <div class="consulta-title-bar">Consulta Online</div>
                 </div>
                <form id="consulta-form">
@@ -241,21 +241,21 @@
                             <tbody id="tabla-consultas-body">
                                 <tr>
                                     <td class="col-comentario">
-                                        Deuda C.M.A.O. Trámite 721324/Liq.443843<br>
+                                        <b>Deuda C.M.A.O.</b><br>
                                         Se envió aviso de deuda de <strong>C.M.A.O. 2021, 2022, 2023 y 2024</strong>, con vencimiento el 16/10/2026.<br>
                                         </td>
                                     <td class="col-fecha">01/10/2026</td>
                                 </tr>
                                 <tr>
                                     <td class="col-comentario">
-                                        El formulario de obra N° 6653684 se encuentra verificado.<br>
+                                        El <b>Formulario de Obra</b> N° 6653684 se encuentra <u>verificado</u>.<br>
                                         <strong>CaaitBA</strong>
                                     </td>
                                     <td class="col-fecha">26/09/2026</td>
                                 </tr>
                                 <tr>
                                     <td class="col-comentario">
-                                        El formulario de obra N° 6653685 se encuentra verificado.<br>
+                                        El <b>Formulario de Obra</b> N° 6653685 se encuentra <u>verificado</u>.<br>
                                         <strong>CaaitBA</strong>
                                     </td>
                                     <td class="col-fecha">26/09/2026</td>
@@ -285,23 +285,25 @@
                     <table class="tabla-situacion">
                         <tbody>
                             <tr class="fila-vencida">
-                                <td class="col-concepto texto-izquierda">C.M.A.O. 2024 (NO<br>RECLAMADO)</td>
-                                <td class="col-valor">$ 1.553.841,50</td>
+                                <td class="col-concepto texto-izquierda">C.M.A.O. 2024 <br>(SIN RECLAMO)</td>
+                                <td class="col-valor">
+                                    <a href="#" id="link-saldar-deuda" class="link-saldar">Solicitar<br>Liquidación</a>
+                                </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">C.M.A.O.<br>(FORMAL): 2021</td>
+                                <td class="col-concepto">C.M.A.O. 2021<br>(RECLAMO FORMAL)</td>
                                 <td class="col-valor">
                                     <a href="#" id="link-saldar-deuda" class="link-saldar">Quiero Saldar<br>Deuda</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">No reclamada<br><span class="texto-chico">(Contratos: $41.235,00)</span></td>
+                                <td class="col-concepto">Contratos<br><span class="texto-chico">(Sin Reclamo)</span></td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">No reclamada (FO)<br>($125.326,00)</td>
+                                <td class="col-concepto">Formularios Obra <br>(Sin Reclamo)</td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver<br>Formularios</a>
                                 </td>
@@ -318,7 +320,7 @@
                         <tbody>
                             <tr class="fila-vencer">
                                 <td class="col-concepto">C.M.A.O. 2026</td>
-                                <td class="col-valor">$ 1.301.701,20</td>
+                                <td class="col-valor">$ 2.520.000.-</td>
                             </tr>
                         </tbody>
                     </table>

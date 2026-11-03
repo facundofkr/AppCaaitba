@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnDescargarTurno) {
         btnDescargarTurno.addEventListener('click', async () => {
             const comprobanteElement = document.getElementById('comprobante-turno-print');
-            const canvas = await html2canvas(comprobanteElement, { scale: 2, backgroundColor: '#ffecb5' });
+            const canvas = await html2canvas(comprobanteElement, { scale: 2, backgroundColor: '#f7cba1' });
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF('p', 'mm', 'a4');
             const imgData = canvas.toDataURL('image/png');
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Navegación y Funcionalidad de Consultas Online
+    // 4. Navegación y Funcionalidad de Consultas Online (Máximo 4 consultas con Comentario y Fecha DD/MM/AAAA)
     const btnConsultas = document.getElementById('btn-consultas');
     const btnBackConsultas = document.getElementById('btn-back-consultas');
     const consultaForm = document.getElementById('consulta-form');
@@ -229,25 +229,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectTema = document.getElementById('consulta-tema');
             const tema = selectTema.options[selectTema.selectedIndex].text;
             const texto = document.getElementById('consulta-texto').value;
-            const adjunto = inputFile && inputFile.files.length > 0 ? inputFile.files[0].name : '';
 
-            const nroRandom = Math.floor(2986000 + Math.random() * 9000);
             const ahora = new Date();
-            const fechaFormateada = `${ahora.toLocaleDateString('es-AR')} ${ahora.toLocaleTimeString('es-AR', { hour12: false })}`;
+            const dia = String(ahora.getDate()).padStart(2, '0');
+            const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+            const anio = ahora.getFullYear();
+            const fechaFormateada = `${dia}/${mes}/${anio}`;
 
             const nuevaFila = document.createElement('tr');
             nuevaFila.innerHTML = `
-                <td>${nroRandom}</td>
-                <td>Consulta On Line</td>
-                <td><strong>[${tema}]</strong> ${texto}</td>
-                <td>${adjunto}</td>
-                <td>${fechaFormateada}</td>
+                <td class="col-comentario"><strong>[${tema}]</strong> ${texto}</td>
+                <td class="col-fecha">${fechaFormateada}</td>
             `;
 
             tablaConsultasBody.prepend(nuevaFila);
+
+            while (tablaConsultasBody.rows.length > 4) {
+                tablaConsultasBody.deleteRow(tablaConsultasBody.rows.length - 1);
+            }
+
             alert('Su consulta fue enviada correctamente.');
             consultaForm.reset();
-            archivoNombre.textContent = '';
+            if (archivoNombre) {
+                archivoNombre.textContent = '';
+            }
         });
     }
 

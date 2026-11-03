@@ -102,6 +102,19 @@
         }
     }
 
+    .cmao-title-bar {
+        background-color: $boton-bg;
+        color: #ffffff;
+        font-weight: 700;
+        text-align: center;
+        padding: 11px 12px;
+        font-size: 1.2rem;
+        margin: 8px 0 16px;
+        border-radius: 4px;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
     // Botón INICIO institucional centrado en todas las pantallas
     .btn-back {
         display: block;
@@ -189,8 +202,8 @@
             color: #ffffff;
             font-weight: 700;
             text-align: center;
-            padding: 9px;
-            font-size: 1.1rem;
+            padding: 11px 12px;
+            font-size: 1.2rem;
             margin: 8px 0 12px;
             border-radius: 4px;
             width: 100%;
@@ -326,8 +339,8 @@
         color: #ffffff;
         font-weight: 700;
         text-align: center;
-        padding: 10px;
-        font-size: 1.15rem;
+        padding: 11px 12px;
+        font-size: 1.2rem;
         margin: 8px 0 14px;
         border-radius: 4px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);

@@ -40,9 +40,105 @@
                 </form>
 
                 <div class="login-links">
-                    <a href="#" class="login-link" data-link="Recuperar contraseña">Recuperar contraseña</a>
-                    <a href="#" class="login-link" data-link="Nuevo Usuario">Nuevo Usuario</a>
-                    <a href="#" class="login-link" data-link="¿Cuál es mi legajo?">¿Cuál es mi legajo?</a>
+                    <a href="#" id="link-recuperar" class="login-link">Recuperar contraseña</a>
+                    <a href="#" id="link-nuevo-usuario" class="login-link">Nuevo Usuario</a>
+                    <a href="#" id="link-consultar-legajo" class="login-link">¿Cuál es mi legajo?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANTALLA 0.1: RECUPERAR CONTRASEÑA -->
+        <section id="screen-recuperar-pass" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-recuperar" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">Recuperar contraseña</div>
+                </div>
+
+                <form id="recuperar-form">
+                    <div class="form-group">
+                        <label for="recuperar-email">Correo Electrónico</label>
+                        <input type="email" id="recuperar-email" placeholder="Ingrese su email" required>
+                        <small class="helper-text">Le enviaremos un correo con los pasos a seguir.</small>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">ENVIAR</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- PANTALLA 0.2: NUEVO USUARIO -->
+        <section id="screen-nuevo-usuario" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-nuevo-usuario" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">Nuevo Usuario</div>
+                </div>
+
+                <form id="nuevo-usuario-form">
+                    <div class="form-group">
+                        <label for="nuevo-dni">DNI</label>
+                        <input type="number" id="nuevo-dni" placeholder="Ingrese su DNI" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-nombre">Nombre y Apellido</label>
+                        <input type="text" id="nuevo-nombre" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-email">Email</label>
+                        <input type="email" id="nuevo-email" placeholder="correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-legajo">Legajo</label>
+                        <input type="text" id="nuevo-legajo" placeholder="Ej: 118198/0" required>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">ACEPTAR</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- PANTALLA 0.3: CONSULTAR LEGAJO -->
+        <section id="screen-consultar-legajo" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-consultar-legajo" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">¿Cuál es mi legajo?</div>
+                </div>
+
+                <form id="consultar-legajo-form">
+                    <div class="form-group">
+                        <label for="consulta-dni">DNI</label>
+                        <input type="number" id="consulta-dni" placeholder="Ingrese su DNI" required>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">BUSCAR</button>
+                </form>
+
+                <div id="resultado-legajo" style="display: none; margin-top: 20px; text-align: center;">
+                    <p style="color: #a63402; font-weight: 700; font-size: 0.95rem; margin-bottom: 5px;">Su legajo es:</p>
+                    <p style="color: #222; font-family: 'Roboto', sans-serif; font-size: 1.2rem; font-weight: 700; background: rgba(255,255,255,0.9); padding: 10px; border: 1px solid #c97539; border-radius: 4px;">118198/0</p>
                 </div>
             </div>
         </section>

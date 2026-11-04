@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias de todas las pantallas
     const screenLogin = document.getElementById('screen-login');
+    const screenRecuperar = document.getElementById('screen-recuperar-pass');
+    const screenNuevoUsuario = document.getElementById('screen-nuevo-usuario');
+    const screenConsultarLegajo = document.getElementById('screen-consultar-legajo');
+    
     const screenHome = document.getElementById('screen-home');
     const screenCmao = document.getElementById('screen-cmao');
     const screenTurno = document.getElementById('screen-turno');
@@ -10,13 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenContratos = document.getElementById('screen-contratos');
     const screenFormularios = document.getElementById('screen-formularios');
 
-    // Variables de seguimiento para volver a la pantalla anterior cuando se entra desde una sub-opción
+    // Variables de seguimiento para volver a la pantalla anterior
     let pantallaOrigenCmao = screenHome;
     let pantallaOrigenConsultas = screenHome;
 
-    // 0. Lógica de Inicio de Sesión (Login)
+    // --- 0. Lógica de Inicio de Sesión, Recuperar Pass, Nuevo Usuario y Legajo ---
+    
     const loginForm = document.getElementById('login-form');
+    
+    // Formularios Secundarios
+    const recuperarForm = document.getElementById('recuperar-form');
+    const nuevoUsuarioForm = document.getElementById('nuevo-usuario-form');
+    const consultarLegajoForm = document.getElementById('consultar-legajo-form');
+    const resultadoLegajo = document.getElementById('resultado-legajo');
 
+    // Botones de Navegación del Login
+    const linkRecuperar = document.getElementById('link-recuperar');
+    const linkNuevoUsuario = document.getElementById('link-nuevo-usuario');
+    const linkConsultarLegajo = document.getElementById('link-consultar-legajo');
+    
+    // Botones 'Volver' hacia el Login
+    const btnBackRecuperar = document.getElementById('btn-back-recuperar');
+    const btnBackNuevoUsuario = document.getElementById('btn-back-nuevo-usuario');
+    const btnBackConsultarLegajo = document.getElementById('btn-back-consultar-legajo');
+
+    // Login Principal
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -25,15 +47,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.querySelectorAll('.login-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+    // Navegación desde Enlaces del Login
+    if (linkRecuperar && screenRecuperar) {
+        linkRecuperar.addEventListener('click', (e) => {
             e.preventDefault();
-            const opcion = link.getAttribute('data-link');
-            alert(`Opción "${opcion}" próximamente disponible.`);
+            screenLogin.classList.remove('active');
+            screenRecuperar.classList.add('active');
         });
-    });
+    }
 
-    // 1. Cargar años de 1998 a 2026 en C.M.A.O.
+    if (linkNuevoUsuario && screenNuevoUsuario) {
+        linkNuevoUsuario.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenLogin.classList.remove('active');
+            screenNuevoUsuario.classList.add('active');
+        });
+    }
+
+    if (linkConsultarLegajo && screenConsultarLegajo) {
+        linkConsultarLegajo.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (resultadoLegajo) resultadoLegajo.style.display = 'none';
+            if (consultarLegajoForm) consultarLegajoForm.reset();
+            screenLogin.classList.remove('active');
+            screenConsultarLegajo.classList.add('active');
+        });
+    }
+
+    // Botones Volver hacia Login
+    if (btnBackRecuperar && screenRecuperar) {
+        btnBackRecuperar.addEventListener('click', () => {
+            screenRecuperar.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (btnBackNuevoUsuario && screenNuevoUsuario) {
+        btnBackNuevoUsuario.addEventListener('click', () => {
+            screenNuevoUsuario.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (btnBackConsultarLegajo && screenConsultarLegajo) {
+        btnBackConsultarLegajo.addEventListener('click', () => {
+            screenConsultarLegajo.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    // Envío de Formularios Secundarios
+    if (recuperarForm) {
+        recuperarForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Se envió la contraseña al mail indicado');
+            recuperarForm.reset();
+            screenRecuperar.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (nuevoUsuarioForm) {
+        nuevoUsuarioForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('El usuario se ha creado con éxito');
+            nuevoUsuarioForm.reset();
+            screenNuevoUsuario.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (consultarLegajoForm) {
+        consultarLegajoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (resultadoLegajo) {
+                resultadoLegajo.style.display = 'block';
+            }
+        });
+    }
+
+
+    // --- 1. Cargar años de 1998 a 2026 en C.M.A.O. ---
     const selectAnio = document.getElementById('input-anio');
     if (selectAnio) {
         selectAnio.innerHTML = '';
@@ -45,7 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Navegación y Lógica de Boleta C.M.A.O. con Interés Automático ($100 a $200.000)
+
+    // --- 2. Navegación y Lógica de Boleta C.M.A.O. ---
     const btnCmao = document.getElementById('btn-cmao');
     const btnBack = document.getElementById('btn-back');
     const formCmao = document.getElementById('cmao-form');
@@ -69,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Función centralizada para abrir Boleta C.M.A.O. diferenciando entre Menú Principal ('INICIO') y Sub-opción ('Volver')
     const abrirPantallaCmao = (pantallaDesde, anioSeleccionado = '2026') => {
         pantallaOrigenCmao = pantallaDesde;
         if (btnBack) {
@@ -155,7 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Navegación Turnos Online y Generación de Comprobante
+
+    // --- 3. Navegación Turnos Online y Generación de Comprobante ---
     const btnTurnos = document.getElementById('btn-turnos');
     const btnBackTurno = document.getElementById('btn-back-turno');
     const turnoForm = document.getElementById('turno-form');
@@ -196,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sub-opción Comprobante de Turno: 'Volver' regresa a la pantalla anterior (Solicitud de Turno)
     if (btnVolverInicioTurno) {
         btnVolverInicioTurno.addEventListener('click', () => {
             screenComprobanteTurno.classList.remove('active');
@@ -218,7 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Navegación y Funcionalidad de Consultas Online (Máximo 4 consultas con Comentario y Fecha DD/MM/AAAA)
+
+    // --- 4. Navegación y Funcionalidad de Consultas Online ---
     const btnConsultas = document.getElementById('btn-consultas');
     const btnBackConsultas = document.getElementById('btn-back-consultas');
     const consultaForm = document.getElementById('consulta-form');
@@ -287,7 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios
+
+    // --- 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios ---
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
     const linkGenerar2024 = document.getElementById('link-generar-2024');
@@ -313,7 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sub-opción "Generar Boleta" (C.M.A.O. 2024) -> Abre Boleta C.M.A.O. con botón 'Volver' hacia Situación
     if (linkGenerar2024 && screenDeuda) {
         linkGenerar2024.addEventListener('click', (e) => {
             e.preventDefault();
@@ -321,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sub-opción "Solicitar Liquidación" -> Abre Consultas Online con botón 'Volver' hacia Situación
     if (linkSolicitarLiquidacion && screenDeuda && screenConsultas) {
         linkSolicitarLiquidacion.addEventListener('click', (e) => {
             e.preventDefault();
@@ -344,7 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sub-opción "Generar Boleta" (C.M.A.O. 2026) -> Abre Boleta C.M.A.O. con botón 'Volver' hacia Situación
     if (linkGenerar2026 && screenDeuda) {
         linkGenerar2026.addEventListener('click', (e) => {
             e.preventDefault();
@@ -352,7 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Abrir Consulta Contratos desde Situación
     if (linkVerContratos && screenContratos) {
         linkVerContratos.addEventListener('click', (e) => {
             e.preventDefault();
@@ -361,7 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón 'Volver' desde Contratos hacia la pantalla anterior (Situación)
     if (btnBackContratos && screenContratos) {
         btnBackContratos.addEventListener('click', () => {
             screenContratos.classList.remove('active');
@@ -369,7 +460,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Abrir Consulta de Formularios (FO) desde Situación
     if (linkVerFormularios && screenFormularios) {
         linkVerFormularios.addEventListener('click', (e) => {
             e.preventDefault();
@@ -378,7 +468,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón 'Volver' desde Formularios hacia la pantalla anterior (Situación)
     if (btnBackFormularios && screenFormularios) {
         btnBackFormularios.addEventListener('click', () => {
             screenFormularios.classList.remove('active');
@@ -386,7 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sub-opción "Quiero Saldar Deuda" / "Generar Boleta de Aportes" desde Contratos o Formularios -> Abre Boleta C.M.A.O. con botón 'Volver' a esa tabla
     document.querySelectorAll('.btn-ir-cmao').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();

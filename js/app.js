@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenContratos = document.getElementById('screen-contratos');
     const screenFormularios = document.getElementById('screen-formularios');
 
-<<<<<<< HEAD
     const customModal = document.getElementById('custom-modal');
     const modalMessage = document.getElementById('modal-message');
     const modalBtnAccept = document.getElementById('modal-btn-accept');
@@ -54,33 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnBackRecuperar = document.getElementById('btn-back-recuperar');
     const btnBackNuevoUsuario = document.getElementById('btn-back-nuevo-usuario');
     const btnBackConsultarLegajo = document.getElementById('btn-back-consultar-legajo');
-=======
-    // Variables de seguimiento para volver a la pantalla anterior
-    let pantallaOrigenCmao = screenHome;
-    let pantallaOrigenConsultas = screenHome;
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
 
-    // --- 0. Lógica de Inicio de Sesión, Recuperar Pass, Nuevo Usuario y Legajo ---
-    
-    const loginForm = document.getElementById('login-form');
-    
-    // Formularios Secundarios
-    const recuperarForm = document.getElementById('recuperar-form');
-    const nuevoUsuarioForm = document.getElementById('nuevo-usuario-form');
-    const consultarLegajoForm = document.getElementById('consultar-legajo-form');
-    const resultadoLegajo = document.getElementById('resultado-legajo');
-
-    // Botones de Navegación del Login
-    const linkRecuperar = document.getElementById('link-recuperar');
-    const linkNuevoUsuario = document.getElementById('link-nuevo-usuario');
-    const linkConsultarLegajo = document.getElementById('link-consultar-legajo');
-    
-    // Botones 'Volver' hacia el Login
-    const btnBackRecuperar = document.getElementById('btn-back-recuperar');
-    const btnBackNuevoUsuario = document.getElementById('btn-back-nuevo-usuario');
-    const btnBackConsultarLegajo = document.getElementById('btn-back-consultar-legajo');
-
-    // Login Principal
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -89,10 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
-=======
-    // Navegación desde Enlaces del Login
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     if (linkRecuperar && screenRecuperar) {
         linkRecuperar.addEventListener('click', (e) => {
             e.preventDefault();
@@ -100,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             screenRecuperar.classList.add('active');
         });
     }
-<<<<<<< HEAD
 
     if (linkNuevoUsuario && screenNuevoUsuario) {
         linkNuevoUsuario.addEventListener('click', (e) => {
@@ -172,81 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-=======
-
-    if (linkNuevoUsuario && screenNuevoUsuario) {
-        linkNuevoUsuario.addEventListener('click', (e) => {
-            e.preventDefault();
-            screenLogin.classList.remove('active');
-            screenNuevoUsuario.classList.add('active');
-        });
-    }
-
-    if (linkConsultarLegajo && screenConsultarLegajo) {
-        linkConsultarLegajo.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (resultadoLegajo) resultadoLegajo.style.display = 'none';
-            if (consultarLegajoForm) consultarLegajoForm.reset();
-            screenLogin.classList.remove('active');
-            screenConsultarLegajo.classList.add('active');
-        });
-    }
-
-    // Botones Volver hacia Login
-    if (btnBackRecuperar && screenRecuperar) {
-        btnBackRecuperar.addEventListener('click', () => {
-            screenRecuperar.classList.remove('active');
-            screenLogin.classList.add('active');
-        });
-    }
-
-    if (btnBackNuevoUsuario && screenNuevoUsuario) {
-        btnBackNuevoUsuario.addEventListener('click', () => {
-            screenNuevoUsuario.classList.remove('active');
-            screenLogin.classList.add('active');
-        });
-    }
-
-    if (btnBackConsultarLegajo && screenConsultarLegajo) {
-        btnBackConsultarLegajo.addEventListener('click', () => {
-            screenConsultarLegajo.classList.remove('active');
-            screenLogin.classList.add('active');
-        });
-    }
-
-    // Envío de Formularios Secundarios
-    if (recuperarForm) {
-        recuperarForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Se envió la contraseña al mail indicado');
-            recuperarForm.reset();
-            screenRecuperar.classList.remove('active');
-            screenLogin.classList.add('active');
-        });
-    }
-
-    if (nuevoUsuarioForm) {
-        nuevoUsuarioForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('El usuario se ha creado con éxito');
-            nuevoUsuarioForm.reset();
-            screenNuevoUsuario.classList.remove('active');
-            screenLogin.classList.add('active');
-        });
-    }
-
-    if (consultarLegajoForm) {
-        consultarLegajoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (resultadoLegajo) {
-                resultadoLegajo.style.display = 'block';
-            }
-        });
-    }
-
-
-    // --- 1. Cargar años de 1998 a 2026 en C.M.A.O. ---
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     const selectAnio = document.getElementById('input-anio');
     if (selectAnio) {
         selectAnio.innerHTML = '';
@@ -258,11 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-<<<<<<< HEAD
-=======
-
-    // --- 2. Navegación y Lógica de Boleta C.M.A.O. ---
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     const btnCmao = document.getElementById('btn-cmao');
     const btnBack = document.getElementById('btn-back');
     const formCmao = document.getElementById('cmao-form');
@@ -371,11 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
-=======
-
-    // --- 3. Navegación Turnos Online y Generación de Comprobante ---
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     const btnTurnos = document.getElementById('btn-turnos');
     const btnBackTurno = document.getElementById('btn-back-turno');
     const turnoForm = document.getElementById('turno-form');
@@ -437,11 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
-=======
-
-    // --- 4. Navegación y Funcionalidad de Consultas Online ---
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     const btnConsultas = document.getElementById('btn-consultas');
     const btnBackConsultas = document.getElementById('btn-back-consultas');
     const consultaForm = document.getElementById('consulta-form');
@@ -511,11 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
-=======
-
-    // --- 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios ---
->>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
     const linkGenerar2024 = document.getElementById('link-generar-2024');

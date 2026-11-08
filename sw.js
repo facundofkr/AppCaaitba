@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const CACHE_NAME = 'caaitba-app-v28';
+=======
+const CACHE_NAME = 'caaitba-app-v25';
+>>>>>>> ae2caa292d689366bbaf285d6abf4496c29e1592
 const ASSETS = [
     './',
     './index.html',

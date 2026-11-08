@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias de todas las pantallas
     const screenLogin = document.getElementById('screen-login');
+    const screenRecuperar = document.getElementById('screen-recuperar-pass');
+    const screenNuevoUsuario = document.getElementById('screen-nuevo-usuario');
+    const screenConsultarLegajo = document.getElementById('screen-consultar-legajo');
+    
     const screenHome = document.getElementById('screen-home');
     const screenCmao = document.getElementById('screen-cmao');
     const screenTurno = document.getElementById('screen-turno');
@@ -10,8 +13,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenContratos = document.getElementById('screen-contratos');
     const screenFormularios = document.getElementById('screen-formularios');
 
-    // 0. Lógica de Inicio de Sesión (Login)
+    const customModal = document.getElementById('custom-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalBtnAccept = document.getElementById('modal-btn-accept');
+    let modalCallback = null;
+
+    const mostrarModal = (mensaje, callback = null) => {
+        if (modalMessage && customModal) {
+            modalMessage.textContent = mensaje;
+            modalCallback = callback;
+            customModal.classList.add('active');
+        }
+    };
+
+    if (modalBtnAccept && customModal) {
+        modalBtnAccept.addEventListener('click', () => {
+            customModal.classList.remove('active');
+            if (typeof modalCallback === 'function') {
+                const accion = modalCallback;
+                modalCallback = null;
+                accion();
+            }
+        });
+    }
+
+    let pantallaOrigenCmao = screenHome;
+    let pantallaOrigenConsultas = screenHome;
+
     const loginForm = document.getElementById('login-form');
+    const recuperarForm = document.getElementById('recuperar-form');
+    const nuevoUsuarioForm = document.getElementById('nuevo-usuario-form');
+    const consultarLegajoForm = document.getElementById('consultar-legajo-form');
+    const resultadoLegajo = document.getElementById('resultado-legajo');
+
+    const linkRecuperar = document.getElementById('link-recuperar');
+    const linkNuevoUsuario = document.getElementById('link-nuevo-usuario');
+    const linkConsultarLegajo = document.getElementById('link-consultar-legajo');
+    
+    const btnBackRecuperar = document.getElementById('btn-back-recuperar');
+    const btnBackNuevoUsuario = document.getElementById('btn-back-nuevo-usuario');
+    const btnBackConsultarLegajo = document.getElementById('btn-back-consultar-legajo');
 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
@@ -21,15 +62,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.querySelectorAll('.login-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+    if (linkRecuperar && screenRecuperar) {
+        linkRecuperar.addEventListener('click', (e) => {
             e.preventDefault();
-            const opcion = link.getAttribute('data-link');
-            alert(`Opción "${opcion}" próximamente disponible.`);
+            screenLogin.classList.remove('active');
+            screenRecuperar.classList.add('active');
         });
-    });
+    }
 
-    // 1. Cargar años de 1998 a 2026 en C.M.A.O.
+    if (linkNuevoUsuario && screenNuevoUsuario) {
+        linkNuevoUsuario.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenLogin.classList.remove('active');
+            screenNuevoUsuario.classList.add('active');
+        });
+    }
+
+    if (linkConsultarLegajo && screenConsultarLegajo) {
+        linkConsultarLegajo.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (resultadoLegajo) resultadoLegajo.style.display = 'none';
+            if (consultarLegajoForm) consultarLegajoForm.reset();
+            screenLogin.classList.remove('active');
+            screenConsultarLegajo.classList.add('active');
+        });
+    }
+
+    if (btnBackRecuperar && screenRecuperar) {
+        btnBackRecuperar.addEventListener('click', () => {
+            screenRecuperar.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (btnBackNuevoUsuario && screenNuevoUsuario) {
+        btnBackNuevoUsuario.addEventListener('click', () => {
+            screenNuevoUsuario.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (btnBackConsultarLegajo && screenConsultarLegajo) {
+        btnBackConsultarLegajo.addEventListener('click', () => {
+            screenConsultarLegajo.classList.remove('active');
+            screenLogin.classList.add('active');
+        });
+    }
+
+    if (recuperarForm) {
+        recuperarForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            mostrarModal('Se envió la contraseña al mail indicado', () => {
+                recuperarForm.reset();
+                screenRecuperar.classList.remove('active');
+                screenLogin.classList.add('active');
+            });
+        });
+    }
+
+    if (nuevoUsuarioForm) {
+        nuevoUsuarioForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            mostrarModal('El usuario se ha creado con éxito', () => {
+                nuevoUsuarioForm.reset();
+                screenNuevoUsuario.classList.remove('active');
+                screenLogin.classList.add('active');
+            });
+        });
+    }
+
+    if (consultarLegajoForm) {
+        consultarLegajoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (resultadoLegajo) {
+                resultadoLegajo.style.display = 'block';
+            }
+        });
+    }
+
     const selectAnio = document.getElementById('input-anio');
     if (selectAnio) {
         selectAnio.innerHTML = '';
@@ -41,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Navegación y Lógica de Boleta C.M.A.O.
     const btnCmao = document.getElementById('btn-cmao');
     const btnBack = document.getElementById('btn-back');
     const formCmao = document.getElementById('cmao-form');
@@ -50,20 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputValorFinal = document.getElementById('input-valor-final');
     const selectFormato = document.getElementById('input-formato');
 
-    if (btnCmao) {
-        btnCmao.addEventListener('click', () => {
-            screenHome.classList.remove('active');
-            screenCmao.classList.add('active');
-        });
-    }
-
-    if (btnBack) {
-        btnBack.addEventListener('click', () => {
-            screenCmao.classList.remove('active');
-            screenHome.classList.add('active');
-        });
-    }
-
     const calcularTotal = () => {
         const importe = parseFloat(inputImporte.value) || 0;
         const interes = parseFloat(inputInteres.value) || 0;
@@ -71,9 +166,50 @@ document.addEventListener('DOMContentLoaded', () => {
         inputValorFinal.value = total > 0 ? total.toFixed(2) : '';
     };
 
-    if (inputImporte && inputInteres) {
+    const generarInteresAleatorio = () => {
+        if (inputInteres) {
+            const interesRandom = Math.floor(Math.random() * (200000 - 100 + 1)) + 100;
+            inputInteres.value = interesRandom;
+            calcularTotal();
+        }
+    };
+
+    const abrirPantallaCmao = (pantallaDesde, anioSeleccionado = '2026') => {
+        pantallaOrigenCmao = pantallaDesde;
+        if (btnBack) {
+            btnBack.textContent = (pantallaDesde === screenHome) ? 'INICIO' : 'Volver';
+        }
+        if (selectAnio && anioSeleccionado) {
+            selectAnio.value = anioSeleccionado;
+        }
+        if (inputImporte) {
+            inputImporte.value = '';
+        }
+        generarInteresAleatorio();
+
+        pantallaDesde.classList.remove('active');
+        screenCmao.classList.add('active');
+    };
+
+    if (btnCmao) {
+        btnCmao.addEventListener('click', () => {
+            abrirPantallaCmao(screenHome, '2026');
+        });
+    }
+
+    if (btnBack) {
+        btnBack.addEventListener('click', () => {
+            screenCmao.classList.remove('active');
+            pantallaOrigenCmao.classList.add('active');
+        });
+    }
+
+    if (inputImporte) {
         inputImporte.addEventListener('input', calcularTotal);
-        inputInteres.addEventListener('input', calcularTotal);
+    }
+
+    if (selectAnio) {
+        selectAnio.addEventListener('change', generarInteresAleatorio);
     }
 
     const formatearMoneda = (valor) => {
@@ -123,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Navegación Turnos Online y Generación de Comprobante
     const btnTurnos = document.getElementById('btn-turnos');
     const btnBackTurno = document.getElementById('btn-back-turno');
     const turnoForm = document.getElementById('turno-form');
@@ -166,9 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnVolverInicioTurno) {
         btnVolverInicioTurno.addEventListener('click', () => {
-            turnoForm.reset();
             screenComprobanteTurno.classList.remove('active');
-            screenHome.classList.add('active');
+            screenTurno.classList.add('active');
         });
     }
 
@@ -186,17 +320,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Navegación y Funcionalidad de Consultas Online (Máximo 4 consultas con Comentario y Fecha DD/MM/AAAA)
     const btnConsultas = document.getElementById('btn-consultas');
     const btnBackConsultas = document.getElementById('btn-back-consultas');
     const consultaForm = document.getElementById('consulta-form');
+    const selectConsultaTema = document.getElementById('consulta-tema');
+    const inputConsultaTexto = document.getElementById('consulta-texto');
     const inputFile = document.getElementById('consulta-file');
     const archivoNombre = document.getElementById('archivo-nombre');
     const tablaConsultasBody = document.getElementById('tabla-consultas-body');
-    const linkGuia = document.getElementById('link-guia-tramites');
 
     if (btnConsultas) {
         btnConsultas.addEventListener('click', () => {
+            pantallaOrigenConsultas = screenHome;
+            if (btnBackConsultas) {
+                btnBackConsultas.textContent = 'INICIO';
+            }
+            if (consultaForm) consultaForm.reset();
+            if (archivoNombre) archivoNombre.textContent = '';
             screenHome.classList.remove('active');
             screenConsultas.classList.add('active');
         });
@@ -205,14 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnBackConsultas) {
         btnBackConsultas.addEventListener('click', () => {
             screenConsultas.classList.remove('active');
-            screenHome.classList.add('active');
-        });
-    }
-
-    if (linkGuia) {
-        linkGuia.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Guía de Trámites próximamente disponible.');
+            pantallaOrigenConsultas.classList.add('active');
         });
     }
 
@@ -226,9 +359,8 @@ document.addEventListener('DOMContentLoaded', () => {
         consultaForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const selectTema = document.getElementById('consulta-tema');
-            const tema = selectTema.options[selectTema.selectedIndex].text;
-            const texto = document.getElementById('consulta-texto').value;
+            const tema = selectConsultaTema.options[selectConsultaTema.selectedIndex].text;
+            const texto = inputConsultaTexto.value;
 
             const ahora = new Date();
             const dia = String(ahora.getDate()).padStart(2, '0');
@@ -248,19 +380,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 tablaConsultasBody.deleteRow(tablaConsultasBody.rows.length - 1);
             }
 
-            alert('Su consulta fue enviada correctamente.');
-            consultaForm.reset();
-            if (archivoNombre) {
-                archivoNombre.textContent = '';
-            }
+            mostrarModal('Su consulta fue enviada correctamente.', () => {
+                consultaForm.reset();
+                if (archivoNombre) {
+                    archivoNombre.textContent = '';
+                }
+            });
         });
     }
 
-    // 5. Navegación y Funcionalidad de Situación del Afiliado, Contratos y Formularios
     const btnDeuda = document.getElementById('btn-deuda');
     const btnBackDeuda = document.getElementById('btn-back-deuda');
+    const linkGenerar2024 = document.getElementById('link-generar-2024');
     const linkSolicitarLiquidacion = document.getElementById('link-solicitar-liquidacion');
-    const linkSaldarDeuda = document.getElementById('link-saldar-deuda');
+    const linkGenerar2026 = document.getElementById('link-generar-2026');
 
     const linkVerContratos = document.getElementById('link-ver-contratos');
     const linkVerFormularios = document.getElementById('link-ver-formularios');
@@ -281,31 +414,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Solicitar Liquidación" -> Abre Boleta C.M.A.O. en el año 2024
-    if (linkSolicitarLiquidacion && screenDeuda) {
+    if (linkGenerar2024 && screenDeuda) {
+        linkGenerar2024.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirPantallaCmao(screenDeuda, '2024');
+        });
+    }
+
+    if (linkSolicitarLiquidacion && screenDeuda && screenConsultas) {
         linkSolicitarLiquidacion.addEventListener('click', (e) => {
             e.preventDefault();
+            pantallaOrigenConsultas = screenDeuda;
+            if (btnBackConsultas) {
+                btnBackConsultas.textContent = 'Volver';
+            }
+
             screenDeuda.classList.remove('active');
-            screenCmao.classList.add('active');
-            if (selectAnio) {
-                selectAnio.value = '2024';
+            screenConsultas.classList.add('active');
+
+            if (selectConsultaTema) {
+                selectConsultaTema.value = 'C.M.A.O. / Eximiciones';
+            }
+
+            if (inputConsultaTexto) {
+                inputConsultaTexto.value = 'Solicito reliquidación del expediente n° 111111 (CMAO 2024)....';
+                inputConsultaTexto.focus();
             }
         });
     }
 
-    // "Quiero Saldar Deuda" -> Abre Boleta C.M.A.O. en el año 2021
-    if (linkSaldarDeuda && screenDeuda) {
-        linkSaldarDeuda.addEventListener('click', (e) => {
+    if (linkGenerar2026 && screenDeuda) {
+        linkGenerar2026.addEventListener('click', (e) => {
             e.preventDefault();
-            screenDeuda.classList.remove('active');
-            screenCmao.classList.add('active');
-            if (selectAnio) {
-                selectAnio.value = '2021';
-            }
+            abrirPantallaCmao(screenDeuda, '2026');
         });
     }
 
-    // Abrir Consulta Contratos
     if (linkVerContratos && screenContratos) {
         linkVerContratos.addEventListener('click', (e) => {
             e.preventDefault();
@@ -314,15 +458,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón INICIO desde Contratos hacia el menú principal
     if (btnBackContratos && screenContratos) {
         btnBackContratos.addEventListener('click', () => {
             screenContratos.classList.remove('active');
-            screenHome.classList.add('active');
+            screenDeuda.classList.add('active');
         });
     }
 
-    // Abrir Consulta de Formularios (FO)
     if (linkVerFormularios && screenFormularios) {
         linkVerFormularios.addEventListener('click', (e) => {
             e.preventDefault();
@@ -331,21 +473,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón INICIO desde Formularios hacia el menú principal
     if (btnBackFormularios && screenFormularios) {
         btnBackFormularios.addEventListener('click', () => {
             screenFormularios.classList.remove('active');
-            screenHome.classList.add('active');
+            screenDeuda.classList.add('active');
         });
     }
 
-    // Enlaces "Quiero Saldar Deuda" / "Generar Boleta de Aportes" hacia Boleta C.M.A.O.
     document.querySelectorAll('.btn-ir-cmao').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            if (screenContratos) screenContratos.classList.remove('active');
-            if (screenFormularios) screenFormularios.classList.remove('active');
-            screenCmao.classList.add('active');
+            const pantallaActual = (screenContratos && screenContratos.classList.contains('active'))
+                ? screenContratos
+                : screenFormularios;
+            abrirPantallaCmao(pantallaActual, '2026');
         });
     });
 });

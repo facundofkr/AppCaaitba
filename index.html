@@ -16,7 +16,6 @@
 <body>
 
     <div class="app-container">
-        <!-- PANTALLA 0: LOGIN (INICIO DE SESIÓN) -->
         <section id="screen-login" class="screen active">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -40,19 +39,112 @@
                 </form>
 
                 <div class="login-links">
-                    <a href="#" class="login-link" data-link="Recuperar contraseña">Recuperar contraseña</a>
-                    <a href="#" class="login-link" data-link="Nuevo Usuario">Nuevo Usuario</a>
-                    <a href="#" class="login-link" data-link="¿Cuál es mi legajo?">¿Cuál es mi legajo?</a>
+                    <a href="#" id="link-recuperar" class="login-link">Recuperar contraseña</a>
+                    <a href="#" id="link-nuevo-usuario" class="login-link">Nuevo Usuario</a>
+                    <a href="#" id="link-consultar-legajo" class="login-link">¿Cuál es mi legajo?</a>
                 </div>
             </div>
         </section>
 
-        <!-- PANTALLA 1: MENÚ PRINCIPAL -->
+        <section id="screen-recuperar-pass" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-recuperar" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">Recuperar contraseña</div>
+                </div>
+
+                <form id="recuperar-form">
+                    <div class="form-group">
+                        <label for="recuperar-email">Correo Electrónico</label>
+                        <input type="email" id="recuperar-email" placeholder="Ingrese su email" required>
+                        <small class="helper-text">Le enviaremos un correo con los pasos a seguir.</small>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">ENVIAR</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="screen-nuevo-usuario" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-nuevo-usuario" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">Nuevo Usuario</div>
+                </div>
+
+                <form id="nuevo-usuario-form">
+                    <div class="form-group">
+                        <label for="nuevo-dni">DNI</label>
+                        <input type="number" id="nuevo-dni" placeholder="Ingrese su DNI" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-nombre">Nombre y Apellido</label>
+                        <input type="text" id="nuevo-nombre" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-email">Email</label>
+                        <input type="email" id="nuevo-email" placeholder="correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nuevo-legajo">Legajo</label>
+                        <input type="text" id="nuevo-legajo" placeholder="Ej: 118198/0" required>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">ACEPTAR</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="screen-consultar-legajo" class="screen">
+            <header class="main-header">
+                <div class="logo-img-container">
+                    <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
+                </div>
+            </header>
+
+            <div class="form-card login-card">
+                <div class="form-header">
+                    <button id="btn-back-consultar-legajo" class="btn-back" type="button">Volver</button>
+                    <div class="cmao-title-bar">¿Cuál es mi legajo?</div>
+                </div>
+
+                <form id="consultar-legajo-form">
+                    <div class="form-group">
+                        <label for="consulta-dni">DNI</label>
+                        <input type="number" id="consulta-dni" placeholder="Ingrese su DNI" required>
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">BUSCAR</button>
+                </form>
+
+                <div id="resultado-legajo" style="display: none; margin-top: 20px; text-align: center;">
+                    <p style="color: #a63402; font-weight: 700; font-size: 0.95rem; margin-bottom: 5px;">Su legajo es:</p>
+                    <p style="color: #222; font-family: 'Roboto', sans-serif; font-size: 1.2rem; font-weight: 700; background: rgba(255,255,255,0.9); padding: 10px; border: 1px solid #c97539; border-radius: 4px;">118198/0</p>
+                </div>
+            </div>
+        </section>
+
         <main id="screen-home" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
                     <img src="assets/images/icon-192.png" alt="Logo CAAITBA" class="logo-caaitba-img">
                 </div>
+                <p class="home-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA</span></p>
             </header>
 
             <div class="menu-buttons-container">
@@ -60,10 +152,9 @@
                 <button id="btn-consultas" class="btn-caaitba" type="button">Consultas Online</button>
                 <button id="btn-turnos" class="btn-caaitba" type="button">Turnos Online</button>
                 <button id="btn-cmao" class="btn-caaitba" type="button">Boleta C.M.A.O.</button>
-                </div>
+            </div>
         </main>
 
-        <!-- PANTALLA 2: FORMULARIO C.M.A.O. -->
         <section id="screen-cmao" class="screen">
             <div class="form-card">
                 <div class="form-header">
@@ -84,13 +175,14 @@
 
                     <div class="form-group">
                         <label for="input-interes">Interés ($)</label>
-                        <input type="number" id="input-interes" placeholder="Ej: 25000" step="0.01" min="0" required>
+                        <input type="number" id="input-interes" step="0.01" readonly required>
+                        <small class="helper-text">Interés establecido automáticamente por CAAITBA.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="input-valor-final">Valor Final ($)</label>
-                        <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" min="0" required>
-                        <small class="helper-text">Se calcula automáticamente al ingresar Importe e Interés.</small>
+                        <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" readonly required>
+                        <small class="helper-text">Se calcula automáticamente sumando Importe e Interés.</small>
                     </div>
 
                     <div class="form-group">
@@ -106,7 +198,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
         <section id="screen-turno" class="screen">
             <div class="form-card turno-card">
                 <div class="form-header">
@@ -166,11 +257,10 @@
             </div>
         </section>
 
-        <!-- PANTALLA 4: COMPROBANTE DE TURNO GENERADO -->
         <section id="screen-comprobante-turno" class="screen">
             <div class="form-card turno-card comprobante-card">
                 <div class="form-header">
-                    <button id="btn-volver-inicio-turno" class="btn-back" type="button">INICIO</button>
+                    <button id="btn-volver-inicio-turno" class="btn-back" type="button">Volver</button>
                 </div>
 
                 <div id="comprobante-turno-print" class="comprobante-box">
@@ -182,8 +272,8 @@
                         <p><strong>Día y Hora:</strong> <span id="comp-dia-hora">-</span></p>
                         <p><strong>Tema:</strong> <span id="comp-tema">-</span></p>
                         <hr class="comprobante-divider">
-                        <p><strong>Dirección:</strong> Calle 56 Nº 684, La Plata</p>
-                        <p><strong>Teléfono:</strong> 0810-333-2224 / (0221) 427-2526</p>
+                        <p><strong>Dirección:</strong> Calle 48 N° 695, La Plata</p>
+                        <p><strong>Teléfono:</strong> (0221-4120600)</p>
                     </div>
                 </div>
 
@@ -193,7 +283,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 5: CONSULTAS ONLINE -->
         <section id="screen-consultas" class="screen">
             <div class="form-card consulta-card">
                 <div class="form-header">
@@ -273,39 +362,37 @@
             </div>
         </section>
 
-        <!-- PANTALLA 6: SITUACIÓN DEL AFILIADO -->
         <section id="screen-deuda" class="screen">
             <div class="form-card deuda-card">
                 <div class="form-header">
                     <button id="btn-back-deuda" class="btn-back" type="button">INICIO</button>
-                    
                     <p class="deuda-legajo">Legajo: <span class="legajo-link">118198/0 REVOLERO TATIANA</span></p>
                 </div>
 
                 <div class="situacion-bloque">
-                    <h3 class="situacion-subtitulo titulo-rojo">Deuda Vencida</h3>
+                    <h3 class="situacion-subtitulo">DEUDA VENCIDA</h3>
                     <table class="tabla-situacion">
                         <tbody>
                             <tr class="fila-vencida">
                                 <td class="col-concepto">C.M.A.O. 2024<br>(SIN RECLAMO)</td>
                                 <td class="col-valor">
-                                    <a href="#" id="link-solicitar-liquidacion" class="link-saldar">Solicitar<br>Liquidación</a>
+                                    <a href="#" id="link-generar-2024" class="link-saldar">Generar<br>Boleta</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
                                 <td class="col-concepto">C.M.A.O. 2021<br>(RECLAMO FORMAL)</td>
                                 <td class="col-valor">
-                                    <a href="#" id="link-saldar-deuda" class="link-saldar">Quiero Saldar<br>Deuda</a>
+                                    <a href="#" id="link-solicitar-liquidacion" class="link-saldar">Solicitar<br>Liquidación</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">SIN RECLAMO<br><span class="texto-chico">(Contratos)</span></td>
+                                <td class="col-concepto">CONTRATOS<br><span class="texto-chico">(SIN RECLAMO)</span></td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-contratos" class="link-ver-detalle">Ver Contratos</a>
                                 </td>
                             </tr>
                             <tr class="fila-vencida">
-                                <td class="col-concepto">SIN RECLAMO<br><span class="texto-chico">(FORMULARIOS OBRA)</span></td>
+                                <td class="col-concepto">FORMULARIOS OBRA<br><span class="texto-chico">(SIN RECLAMO)</span></td>
                                 <td class="col-valor">
                                     <a href="#" id="link-ver-formularios" class="link-ver-detalle">Ver<br>Formularios</a>
                                 </td>
@@ -317,12 +404,14 @@
                 <hr class="situacion-divider">
 
                 <div class="situacion-bloque">
-                    <h3 class="situacion-subtitulo titulo-verde">Deuda a Vencer</h3>
+                    <h3 class="situacion-subtitulo">DEUDA A VENCER</h3>
                     <table class="tabla-situacion">
                         <tbody>
                             <tr class="fila-vencer">
                                 <td class="col-concepto">C.M.A.O. 2026</td>
-                                <td class="col-valor">$ 2.520.000.-</td>
+                                <td class="col-valor">
+                                    <a href="#" id="link-generar-2026" class="link-saldar">Generar<br>Boleta</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -330,11 +419,10 @@
             </div>
         </section>
 
-        <!-- PANTALLA 7: CONSULTA CONTRATOS -->
         <section id="screen-contratos" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-contratos" class="btn-back" type="button">INICIO</button>
+                    <button id="btn-back-contratos" class="btn-back" type="button">Volver</button>
                     <h2 class="titulo-contratos-underline">CONSULTA CONTRATOS</h2>
                 </div>
 
@@ -431,11 +519,10 @@
             </div>
         </section>
 
-        <!-- PANTALLA 8: CONSULTA DE FORMULARIOS (FO) -->
         <section id="screen-formularios" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
-                    <button id="btn-back-formularios" class="btn-back" type="button">INICIO</button>
+                    <button id="btn-back-formularios" class="btn-back" type="button">Volver</button>
                     <div class="deuda-title-bar">Consulta de formularios no vinculados con boleta pagada por legajo</div>
                     <p class="deuda-legajo">Legajo: <span class="legajo-link">64251/4 MINOTTO LUIS ALBERTO</span></p>
                 </div>
@@ -679,13 +766,21 @@
             </div>
         </section>
 
-        <!-- FIRMA DE AUTORÍA -->
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>
     </div>
 
-    <!-- PLANTILLA OCULTA PARA EXPORTAR BOLETA -->
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header-bar">Aviso CAAITBA</div>
+            <div class="modal-body">
+                <p id="modal-message"></p>
+            </div>
+            <button id="modal-btn-accept" type="button" class="btn-caaitba">ACEPTAR</button>
+        </div>
+    </div>
+
     <div class="boleta-render-zone">
         <div id="boleta-template" class="boleta-ticket">
             <div class="boleta-header">

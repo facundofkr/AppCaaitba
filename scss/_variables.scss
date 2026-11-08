@@ -1,11 +1,9 @@
-// Paleta institucional CAAITBA
 $azul-institucional: #a63402;
 $naranja-logo: #d17522;
 $boton-bg: #c97539;
 $boton-hover: #d68042;
 $boton-borde: #8f4f20;
 
-// Degradado naranja difuminado hacia blanco
 $bg-gradiente: linear-gradient(
     180deg,
     #f09c52 0%,
@@ -15,7 +13,11 @@ $bg-gradiente: linear-gradient(
     #fcf7f2 100%
 );
 
-// Tipografías
+$sombra-marco: 0 14px 30px rgba(120, 58, 16, 0.25), 0 4px 10px rgba(120, 58, 16, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+$sombra-bloque: 0 5px 14px rgba(140, 76, 30, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+$sombra-celda: 0 3px 6px rgba(140, 76, 30, 0.12), inset 0 1px 0 #ffffff;
+$sombra-barra: 0 3px 6px rgba(95, 42, 10, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
 $font-principal: 'Roboto', sans-serif;
 $font-botones: 'Merriweather', serif;
 

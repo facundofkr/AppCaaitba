@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAAITBA - Autogestión y Boletas Digitales</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/styles.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#f09c52">
@@ -271,14 +271,19 @@
                         <p><strong>Legajo:</strong> <span id="comp-legajo">118198/0</span></p>
                         <p><strong>Día y Hora:</strong> <span id="comp-dia-hora">-</span></p>
                         <p><strong>Tema:</strong> <span id="comp-tema">-</span></p>
+                        <p><strong>Tercero Autorizado:</strong> <span id="comp-tercero">Sin tercero autorizado</span></p>
                         <hr class="comprobante-divider">
                         <p><strong>Dirección:</strong> Calle 48 N° 695, La Plata</p>
-                        <p><strong>Teléfono:</strong> (0221-4120600)</p>
+                        <p><strong>Teléfono:</strong> (0221) 412-0600</p>
+                        <div class="comprobante-qr-preview">
+                            <div id="comp-qr-mini" class="qr-mini-box"></div>
+                            <span>Comprobante digital con QR y código de barras listo para descargar</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="comprobante-actions">
-                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
+                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE PDF</button>
                 </div>
             </div>
         </section>
@@ -773,11 +778,7 @@
 
     <div id="custom-modal" class="modal-overlay">
         <div class="modal-card">
-
             <div id="modal-title" class="modal-header-bar">Aviso CAAITBA</div>
-
-            <div class="modal-header-bar">Aviso CAAITBA</div>
-
             <div class="modal-body">
                 <p id="modal-message"></p>
             </div>
@@ -788,50 +789,77 @@
     <div class="boleta-render-zone">
         <div id="boleta-template" class="boleta-ticket">
             <div class="boleta-header">
-                <div>
+                <div class="boleta-header-left">
                     <div class="boleta-logo">
                         <span class="logo-caait">caait</span><span class="logo-ba">BA</span>
                     </div>
-                    <p class="boleta-org">Caja de Previsión Social para Agrimensores, Arquitectos, Ingenieros y Técnicos de la Prov. de Bs. As.</p>
+                    <p class="boleta-org">Caja de Previsión Social para Agrimensores, Arquitectos, Ingenieros y Técnicos de la Provincia de Buenos Aires (Ley 12.490)</p>
+                    <p class="boleta-contact">Calle 48 N° 695, La Plata | Tel: (0221) 412-0600 | www.caaitba.org.ar</p>
                 </div>
                 <div class="boleta-meta">
-                    <span class="boleta-badge">BOLETA DIGITAL</span>
-                    <p><strong>Fecha de emisión:</strong> <span id="boleta-fecha">-</span></p>
+                    <span id="boleta-badge" class="boleta-badge">BOLETA DIGITAL DE PAGO</span>
                     <p><strong>Comprobante N°:</strong> <span id="boleta-nro">-</span></p>
+                    <p><strong>Solicitud / Ref.:</strong> <span id="boleta-solicitud">-</span></p>
+                    <p><strong>Fecha de Emisión:</strong> <span id="boleta-fecha">-</span></p>
                 </div>
             </div>
 
-            <hr class="boleta-divider">
+            <div class="boleta-afiliado-banner">
+                <div class="afiliado-info">
+                    <span class="afiliado-label">AFILIADO / TITULAR</span>
+                    <span id="boleta-afiliado" class="afiliado-value">Legajo 118198/0 — REVOLERO TATIANA</span>
+                </div>
+                <div class="vencimiento-box">
+                    <span id="boleta-vencimiento-label" class="vencimiento-label">VENCIMIENTO</span>
+                    <span id="boleta-vencimiento" class="vencimiento-date">-</span>
+                </div>
+            </div>
 
             <div class="boleta-body">
-                <h3>Concepto: Cuota Mínima Anual Obligatoria (C.M.A.O.)</h3>
+                <h3 id="boleta-concepto-titulo">TRÁMITE: CUOTA MÍNIMA ANUAL OBLIGATORIA (C.M.A.O.)</h3>
                 <table class="boleta-table">
-                    <tbody>
+                    <thead>
                         <tr>
-                            <th>Período / Año imputado:</th>
-                            <td id="boleta-anio">-</td>
+                            <th id="boleta-col1-header">DETALLE DE CONCEPTOS IMPUTADOS</th>
+                            <th id="boleta-col2-header" class="col-right">IMPORTE</th>
                         </tr>
-                        <tr>
-                            <th>Importe Original:</th>
-                            <td id="boleta-importe">$ 0,00</td>
-                        </tr>
-                        <tr>
-                            <th>Intereses / Recargos:</th>
-                            <td id="boleta-interes">$ 0,00</td>
-                        </tr>
-                        <tr class="row-total">
-                            <th>VALOR FINAL A ABONAR:</th>
-                            <td id="boleta-total">$ 0,00</td>
-                        </tr>
+                    </thead>
+                    <tbody id="boleta-tabla-body">
                     </tbody>
                 </table>
             </div>
 
-            <div class="boleta-footer">
-                <div class="barcode-lines"></div>
-                <p id="boleta-codigo-barras" class="barcode-numbers">0000000000000000000000000000</p>
-                <p class="boleta-legal">Comprobante generado digitalmente para pago de C.M.A.O. - CAAITBA</p>
+            <div id="boleta-declaracion" class="boleta-declaracion-box">
             </div>
+
+            <div id="boleta-medios-pago" class="boleta-medios-section">
+                <p class="medios-title">MEDIOS DE PAGO HABILITADOS</p>
+                <div class="medios-pills">
+                    <span class="medio-pill">BANCO PROVINCIA</span>
+                    <span class="medio-pill">PROVINCIA NET / BAPRO</span>
+                    <span class="medio-pill">MERCADO PAGO</span>
+                    <span class="medio-pill">RAPIPAGO</span>
+                    <span class="medio-pill">PAGO FÁCIL</span>
+                    <span class="medio-pill">RIPSA PAGOS</span>
+                </div>
+                <p class="medios-note">La imputación del pago puede demorar hasta 10 días hábiles según la entidad recaudadora seleccionada.</p>
+            </div>
+
+            <div class="boleta-footer">
+                <div class="qr-col">
+                    <div id="boleta-qr-box" class="qr-frame"></div>
+                    <p id="boleta-qr-caption" class="qr-caption">ESCANEÁ PARA PAGAR CON QR</p>
+                </div>
+                <div class="barcode-col">
+                    <p id="boleta-barcode-label" class="barcode-label">CÓDIGO DE BARRAS PARA PAGO EN VENTANILLA / CAJERO</p>
+                    <div class="barcode-wrap">
+                        <div id="boleta-barcode-svg" class="barcode-lines"></div>
+                    </div>
+                    <p id="boleta-codigo-barras" class="barcode-numbers">0000000000000000000000000000</p>
+                </div>
+            </div>
+
+            <p class="boleta-legal">Comprobante digital unificado — CAAITBA Autogestión</p>
         </div>
     </div>
 

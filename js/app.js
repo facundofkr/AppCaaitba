@@ -47,6 +47,141 @@ document.addEventListener('DOMContentLoaded', () => {
         'VERSIÓN DE PRUEBA'
     );
 
+    const crearQrSvg = (semillaTexto, dimension = 105) => {
+        const size = 25;
+        const matrix = Array.from({ length: size }, () => Array(size).fill(false));
+
+        const agregarPatron = (r0, c0) => {
+            for (let r = 0; r < 7; r++) {
+                for (let c = 0; c < 7; c++) {
+                    if (r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+                        matrix[r0 + r][c0 + c] = true;
+                    }
+                }
+            }
+        };
+
+        agregarPatron(0, 0);
+        agregarPatron(0, size - 7);
+        agregarPatron(size - 7, 0);
+
+        let hash = 2166136261;
+        for (let i = 0; i < semillaTexto.length; i++) {
+            hash ^= semillaTexto.charCodeAt(i);
+            hash = Math.imul(hash, 16777619);
+        }
+
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                const enEsquina = (r < 8 && c < 8) || (r < 8 && c >= size - 8) || (r >= size - 8 && c < 8);
+                if (enEsquina) continue;
+                if (r === 6 || c === 6) {
+                    matrix[r][c] = (r + c) % 2 === 0;
+                } else {
+                    hash ^= (r * 31 + c * 17);
+                    hash = Math.imul(hash, 16777619);
+                    matrix[r][c] = (Math.abs(hash) % 10) < 5;
+                }
+            }
+        }
+
+        let rects = '';
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                if (matrix[r][c]) {
+                    rects += `<rect x="${c}" y="${r}" width="1" height="1" fill="#1e1e1e"/>`;
+                }
+            }
+        }
+
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${dimension}" height="${dimension}" shape-rendering="crispEdges"><rect width="${size}" height="${size}" fill="#ffffff"/>${rects}</svg>`;
+    };
+
+    const crearBarcodeSvg = (codigoNumerico) => {
+        const patrones = [2, 1, 1, 2, 3, 1];
+        for (let i = 0; i < codigoNumerico.length; i++) {
+            const digito = parseInt(codigoNumerico[i], 10) || 0;
+            patrones.push(
+                (digito % 3) + 1,
+                ((digito + 1) % 2) + 1,
+                ((digito * 2) % 3) + 1,
+                digito < 5 ? 1 : 2,
+                ((digito + 2) % 3) + 1,
+                1
+            );
+        }
+        patrones.push(2, 3, 1, 1, 2);
+
+        let x = 0;
+        let rects = '';
+        for (let i = 0; i < patrones.length; i++) {
+            const ancho = patrones[i];
+            if (i % 2 === 0) {
+                rects += `<rect x="${x}" y="0" width="${ancho}" height="48" fill="#111111"/>`;
+            }
+            x += ancho;
+        }
+
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${x} 48" width="100%" height="48" preserveAspectRatio="none" shape-rendering="crispEdges"><rect width="${x}" height="48" fill="#ffffff"/>${rects}</svg>`;
+    };
+
+    const exportarPlantillaUnificada = async (config) => {
+        document.getElementById('boleta-badge').textContent = config.badge;
+        document.getElementById('boleta-nro').textContent = config.nroComprobante;
+        document.getElementById('boleta-solicitud').textContent = config.nroSolicitud;
+        document.getElementById('boleta-fecha').textContent = config.fechaEmision;
+        document.getElementById('boleta-afiliado').textContent = config.afiliado;
+        document.getElementById('boleta-vencimiento-label').textContent = config.vencimientoLabel;
+        document.getElementById('boleta-vencimiento').textContent = config.vencimientoValor;
+        document.getElementById('boleta-concepto-titulo').textContent = config.tituloSeccion;
+        document.getElementById('boleta-col1-header').textContent = config.col1Header;
+        document.getElementById('boleta-col2-header').textContent = config.col2Header;
+
+        const tbody = document.getElementById('boleta-tabla-body');
+        tbody.innerHTML = '';
+        config.filas.forEach((fila) => {
+            const tr = document.createElement('tr');
+            if (fila.esTotal) {
+                tr.classList.add('row-total');
+            }
+            tr.innerHTML = `
+                <td>${fila.concepto}</td>
+                <td class="col-right">${fila.valor}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        const declaracionEl = document.getElementById('boleta-declaracion');
+        declaracionEl.innerHTML = config.declaracionHtml;
+
+        const mediosEl = document.getElementById('boleta-medios-pago');
+        mediosEl.style.display = config.mostrarMediosPago ? 'block' : 'none';
+
+        document.getElementById('boleta-qr-caption').textContent = config.qrCaption;
+        document.getElementById('boleta-barcode-label').textContent = config.barcodeLabel;
+        document.getElementById('boleta-codigo-barras').textContent = config.codigoBarras;
+        document.getElementById('boleta-qr-box').innerHTML = crearQrSvg(config.codigoBarras, 105);
+        document.getElementById('boleta-barcode-svg').innerHTML = crearBarcodeSvg(config.codigoBarras);
+
+        const boletaElement = document.getElementById('boleta-template');
+        const canvas = await html2canvas(boletaElement, { scale: 2, backgroundColor: '#ffffff' });
+
+        if (config.formato === 'png') {
+            const link = document.createElement('a');
+            link.download = `${config.nombreArchivo}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        } else {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgData = canvas.toDataURL('image/png');
+            const pdfWidth = 190;
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            pdf.addImage(imgData, 'PNG', 10, 12, pdfWidth, pdfHeight);
+            pdf.save(`${config.nombreArchivo}.pdf`);
+        }
+    };
+
     let pantallaOrigenCmao = screenHome;
     let pantallaOrigenConsultas = screenHome;
 
@@ -184,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const abrirPantallaCmao = (pantallaDesde, anioSeleccionado = '2026') => {
+    const abrirPantallaCmao = (pantallaDesde, anioSeleccionado = '2026', importePredefinido = '') => {
         pantallaOrigenCmao = pantallaDesde;
         if (btnBack) {
             btnBack.textContent = (pantallaDesde === screenHome) ? 'INICIO' : 'Volver';
@@ -193,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             selectAnio.value = anioSeleccionado;
         }
         if (inputImporte) {
-            inputImporte.value = '';
+            inputImporte.value = importePredefinido;
         }
         generarInteresAleatorio();
 
@@ -240,32 +375,40 @@ document.addEventListener('DOMContentLoaded', () => {
             const valorFinal = parseFloat(inputValorFinal.value) || 0;
             const formato = selectFormato.value;
 
-            document.getElementById('boleta-fecha').textContent = new Date().toLocaleDateString('es-AR');
-            document.getElementById('boleta-nro').textContent = `0004-${Math.floor(10000000 + Math.random() * 90000000)}`;
-            document.getElementById('boleta-anio').textContent = anio;
-            document.getElementById('boleta-importe').textContent = formatearMoneda(importe);
-            document.getElementById('boleta-interes').textContent = formatearMoneda(interes);
-            document.getElementById('boleta-total').textContent = formatearMoneda(valorFinal);
-            document.getElementById('boleta-codigo-barras').textContent = `2026${anio}${Math.floor(1000000000000000 + Math.random() * 9000000000000000)}`;
+            const hoy = new Date();
+            const vto = new Date(hoy);
+            vto.setDate(hoy.getDate() + 15);
 
-            const boletaElement = document.getElementById('boleta-template');
-            const canvas = await html2canvas(boletaElement, { scale: 2, backgroundColor: '#ffffff' });
-            const nombreArchivo = `Boleta_CMAO_${anio}`;
+            const fechaEmision = hoy.toLocaleDateString('es-AR');
+            const fechaVencimiento = vto.toLocaleDateString('es-AR');
+            const nroBoleta = String(Math.floor(1000000 + Math.random() * 9000000));
+            const nroSolicitud = String(Math.floor(100000 + Math.random() * 900000));
+            const codigoBarras = `031201181980${nroSolicitud}${nroBoleta}0000000012${anio}${Math.floor(10000000 + Math.random() * 89999999)}`;
 
-            if (formato === 'png') {
-                const link = document.createElement('a');
-                link.download = `${nombreArchivo}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            } else {
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgData = canvas.toDataURL('image/png');
-                const pdfWidth = 190;
-                const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-                pdf.addImage(imgData, 'PNG', 10, 15, pdfWidth, pdfHeight);
-                pdf.save(`${nombreArchivo}.pdf`);
-            }
+            await exportarPlantillaUnificada({
+                badge: 'BOLETA DIGITAL DE PAGO',
+                nroComprobante: nroBoleta,
+                nroSolicitud: nroSolicitud,
+                fechaEmision: fechaEmision,
+                afiliado: 'Legajo 118198/0 — REVOLERO TATIANA',
+                vencimientoLabel: 'VENCIMIENTO',
+                vencimientoValor: fechaVencimiento,
+                tituloSeccion: `TRÁMITE: CUOTA MÍNIMA ANUAL OBLIGATORIA (C.M.A.O.) — PERÍODO ${anio}`,
+                col1Header: 'DETALLE DE CONCEPTOS IMPUTADOS',
+                col2Header: 'IMPORTE',
+                filas: [
+                    { concepto: `Cuota Mínima Anual Obligatoria (C.M.A.O.) — Año ${anio}`, valor: formatearMoneda(importe) },
+                    { concepto: 'Intereses / Recargos Administrativos CAAITBA (Ley 12.490)', valor: formatearMoneda(interes) },
+                    { concepto: 'TOTAL A ABONAR', valor: formatearMoneda(valorFinal), esTotal: true }
+                ],
+                declaracionHtml: `<strong>Información Previsional (Ley 12.490):</strong> Boleta generada por autogestión para imputación de aportes del período ${anio}. El trámite queda acreditado una vez confirmado el pago ante CAAITBA hasta la fecha de vencimiento indicada.`,
+                mostrarMediosPago: true,
+                qrCaption: 'ESCANEÁ PARA PAGAR CON QR',
+                barcodeLabel: 'CÓDIGO DE BARRAS PARA PAGO EN VENTANILLA / CAJERO',
+                codigoBarras: codigoBarras,
+                formato: formato,
+                nombreArchivo: `Boleta_CMAO_${anio}`
+            });
         });
     }
 
@@ -274,6 +417,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const turnoForm = document.getElementById('turno-form');
     const btnVolverInicioTurno = document.getElementById('btn-volver-inicio-turno');
     const btnDescargarTurno = document.getElementById('btn-descargar-turno');
+
+    let ultimoTurnoGenerado = {
+        tema: '-',
+        fechaTexto: '-',
+        hora: '-',
+        tercero: 'Sin tercero autorizado',
+        motivo: '-',
+        nroTurno: '-',
+        nroSolicitud: '-',
+        codigoBarras: '03120118198000000000000000000000000000000000'
+    };
 
     if (btnTurnos) {
         btnTurnos.addEventListener('click', () => {
@@ -296,13 +450,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectTipo = document.getElementById('tipo-atencion');
             const selectFecha = document.getElementById('seleccione-fecha');
             const selectHora = document.getElementById('horarios-disponibles');
+            const inputTercero = document.getElementById('tercero-autorizado');
+            const inputMotivo = document.getElementById('motivo-turno');
 
             const tema = selectTipo.options[selectTipo.selectedIndex].text;
             const fechaTexto = selectFecha.options[selectFecha.selectedIndex].text;
             const hora = selectHora.value;
+            const tercero = inputTercero && inputTercero.value.trim() !== ''
+                ? inputTercero.value.trim()
+                : 'Titular (Sin tercero)';
+            const motivo = inputMotivo && inputMotivo.value.trim() !== ''
+                ? inputMotivo.value.trim()
+                : 'Consulta presencial en delegación';
+
+            const nroTurno = `T-${Math.floor(100000 + Math.random() * 900000)}`;
+            const nroSolicitud = String(Math.floor(100000 + Math.random() * 900000));
+            const codigoBarras = `031201181980${nroSolicitud}20261021${Math.floor(100000000000 + Math.random() * 899999999999)}`;
+
+            ultimoTurnoGenerado = {
+                tema,
+                fechaTexto,
+                hora,
+                tercero,
+                motivo,
+                nroTurno,
+                nroSolicitud,
+                codigoBarras
+            };
 
             document.getElementById('comp-dia-hora').textContent = `${fechaTexto} - ${hora} hs`;
             document.getElementById('comp-tema').textContent = tema;
+            const compTercero = document.getElementById('comp-tercero');
+            if (compTercero) {
+                compTercero.textContent = tercero;
+            }
+            const compQrMini = document.getElementById('comp-qr-mini');
+            if (compQrMini) {
+                compQrMini.innerHTML = crearQrSvg(codigoBarras, 68);
+            }
 
             screenTurno.classList.remove('active');
             screenComprobanteTurno.classList.add('active');
@@ -318,15 +503,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnDescargarTurno) {
         btnDescargarTurno.addEventListener('click', async () => {
-            const comprobanteElement = document.getElementById('comprobante-turno-print');
-            const canvas = await html2canvas(comprobanteElement, { scale: 2, backgroundColor: '#f7cba1' });
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const imgData = canvas.toDataURL('image/png');
-            const pdfWidth = 140;
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-            pdf.addImage(imgData, 'PNG', 35, 20, pdfWidth, pdfHeight);
-            pdf.save('Comprobante_Turno_CAAITBA.pdf');
+            const fechaEmision = new Date().toLocaleDateString('es-AR');
+
+            await exportarPlantillaUnificada({
+                badge: 'COMPROBANTE OFICIAL DE TURNO',
+                nroComprobante: ultimoTurnoGenerado.nroTurno,
+                nroSolicitud: ultimoTurnoGenerado.nroSolicitud,
+                fechaEmision: fechaEmision,
+                afiliado: 'Legajo 118198/0 — REVOLERO TATIANA',
+                vencimientoLabel: 'FECHA Y HORA ASIGNADA',
+                vencimientoValor: `${ultimoTurnoGenerado.fechaTexto} (${ultimoTurnoGenerado.hora} hs)`,
+                tituloSeccion: 'DETALLE DE RESERVA DE TURNO PRESENCIAL — SEDE CENTRAL LA PLATA',
+                col1Header: 'DATOS DEL TURNO SOLICITADO',
+                col2Header: 'DETALLE REGISTRADO',
+                filas: [
+                    { concepto: 'Sector / Tipo de Atención', valor: ultimoTurnoGenerado.tema },
+                    { concepto: 'Persona Autorizada a Asistir', valor: ultimoTurnoGenerado.tercero },
+                    { concepto: 'Motivo Declarado', valor: ultimoTurnoGenerado.motivo },
+                    { concepto: 'SEDE DE ATENCIÓN', valor: 'Calle 48 N° 695, La Plata', esTotal: true }
+                ],
+                declaracionHtml: '<strong>Requisitos de Asistencia:</strong> Presentarse 10 minutos antes del horario asignado con DNI físico y este comprobante digital o impreso. En caso de asistir un tercero autorizado, deberá exhibir su DNI y la documentación respaldatoria del trámite.',
+                mostrarMediosPago: false,
+                qrCaption: 'QR DE ACREDITACIÓN EN RECEPCIÓN',
+                barcodeLabel: 'CÓDIGO DE VALIDACIÓN DE TURNO EN TERMINAL DE AUTOGESTIÓN',
+                codigoBarras: ultimoTurnoGenerado.codigoBarras,
+                formato: 'pdf',
+                nombreArchivo: `Comprobante_Turno_${ultimoTurnoGenerado.nroTurno}`
+            });
         });
     }
 

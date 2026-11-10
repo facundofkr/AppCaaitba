@@ -16,7 +16,6 @@
 <body>
 
     <div class="app-container">
-        <!-- PANTALLA 0: LOGIN (INICIO DE SESIÓN) -->
         <section id="screen-login" class="screen active">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -47,7 +46,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 0.1: RECUPERAR CONTRASEÑA -->
         <section id="screen-recuperar-pass" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -73,7 +71,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 0.2: NUEVO USUARIO -->
         <section id="screen-nuevo-usuario" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -113,7 +110,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 0.3: CONSULTAR LEGAJO -->
         <section id="screen-consultar-legajo" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -143,7 +139,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 1: MENÚ PRINCIPAL -->
         <main id="screen-home" class="screen">
             <header class="main-header">
                 <div class="logo-img-container">
@@ -160,7 +155,6 @@
             </div>
         </main>
 
-        <!-- PANTALLA 2: FORMULARIO C.M.A.O. -->
         <section id="screen-cmao" class="screen">
             <div class="form-card">
                 <div class="form-header">
@@ -204,7 +198,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 3: SOLICITUD DE TURNO ONLINE -->
         <section id="screen-turno" class="screen">
             <div class="form-card turno-card">
                 <div class="form-header">
@@ -264,7 +257,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 4: COMPROBANTE DE TURNO GENERADO -->
         <section id="screen-comprobante-turno" class="screen">
             <div class="form-card turno-card comprobante-card">
                 <div class="form-header">
@@ -291,7 +283,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 5: CONSULTAS ONLINE -->
         <section id="screen-consultas" class="screen">
             <div class="form-card consulta-card">
                 <div class="form-header">
@@ -371,7 +362,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 6: SITUACIÓN DEL AFILIADO -->
         <section id="screen-deuda" class="screen">
             <div class="form-card deuda-card">
                 <div class="form-header">
@@ -429,7 +419,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 7: CONSULTA CONTRATOS -->
         <section id="screen-contratos" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
@@ -530,7 +519,6 @@
             </div>
         </section>
 
-        <!-- PANTALLA 8: CONSULTA DE FORMULARIOS (FO) -->
         <section id="screen-formularios" class="screen">
             <div class="form-card legacy-card">
                 <div class="form-header">
@@ -778,13 +766,21 @@
             </div>
         </section>
 
-        <!-- FIRMA DE AUTORÍA -->
         <footer class="app-footer">
             <h3>Creado por F. Delgado Di Stasio</h3>
         </footer>
     </div>
 
-    <!-- PLANTILLA OCULTA PARA EXPORTAR BOLETA -->
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div id="modal-title" class="modal-header-bar">Aviso CAAITBA</div>
+            <div class="modal-body">
+                <p id="modal-message"></p>
+            </div>
+            <button id="modal-btn-accept" type="button" class="btn-caaitba">ACEPTAR</button>
+        </div>
+    </div>
+
     <div class="boleta-render-zone">
         <div id="boleta-template" class="boleta-ticket">
             <div class="boleta-header">

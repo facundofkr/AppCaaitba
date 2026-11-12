@@ -1,8 +1,8 @@
-const CACHE_NAME = 'caaitba-app-v31';
+const CACHE_NAME = 'caaitba-app-v32';
 const ASSETS = [
     './',
     './index.html',
-    './scss/styles.css',
+    './scss/styles.css?v=32',
     './js/app.js',
     './manifest.json',
     './assets/images/icon-192.png',

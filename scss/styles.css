@@ -753,7 +753,8 @@ body {
 .form-card.deuda-card .tabla-situacion .col-valor {
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding: 10px 8px;
+  padding: 12px 10px;
+  cursor: pointer;
 }
 .form-card.deuda-card .tabla-situacion .col-valor:hover {
   transform: translateY(-1px);
@@ -1202,6 +1203,7 @@ body {
   background-color: rgba(65, 28, 6, 0.65);
   backdrop-filter: blur(3px);
   display: none;
+  pointer-events: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -1209,6 +1211,7 @@ body {
 }
 .modal-overlay.active {
   display: flex;
+  pointer-events: auto;
   animation: fadeIn 0.2s ease-out;
 }
 .modal-overlay .modal-card {
@@ -1271,6 +1274,8 @@ body {
   position: fixed;
   left: -9999px;
   top: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .boleta-ticket {

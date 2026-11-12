@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const iniciarAppCaaitba = () => {
     const screenLogin = document.getElementById('screen-login');
     const screenRecuperar = document.getElementById('screen-recuperar-pass');
     const screenNuevoUsuario = document.getElementById('screen-nuevo-usuario');
@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBtnAccept = document.getElementById('modal-btn-accept');
     let modalCallback = null;
 
+    const cerrarModal = () => {
+        if (customModal) {
+            customModal.classList.remove('active');
+        }
+        if (typeof modalCallback === 'function') {
+            const accion = modalCallback;
+            modalCallback = null;
+            accion();
+        }
+    };
+
     const mostrarModal = (mensaje, callback = null, titulo = 'Aviso CAAITBA') => {
         if (modalMessage && customModal) {
             if (modalTitle) {
@@ -30,13 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    if (modalBtnAccept && customModal) {
-        modalBtnAccept.addEventListener('click', () => {
-            customModal.classList.remove('active');
-            if (typeof modalCallback === 'function') {
-                const accion = modalCallback;
-                modalCallback = null;
-                accion();
+    if (modalBtnAccept) {
+        modalBtnAccept.addEventListener('click', cerrarModal);
+    }
+
+    if (customModal) {
+        customModal.addEventListener('click', (e) => {
+            if (e.target === customModal) {
+                cerrarModal();
             }
         });
     }
@@ -693,7 +705,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.querySelectorAll('.btn-ir-cmao').forEach(link => {
+    document.querySelectorAll('.tabla-situacion td.col-valor').forEach((celda) => {
+        celda.addEventListener('click', (e) => {
+            const enlaceInterno = celda.querySelector('a');
+            if (enlaceInterno && e.target !== enlaceInterno && !enlaceInterno.contains(e.target)) {
+                enlaceInterno.click();
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-ir-cmao').forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const pantallaActual = (screenContratos && screenContratos.classList.contains('active'))
@@ -704,4 +725,10 @@ document.addEventListener('DOMContentLoaded', () => {
             abrirPantallaCmao(pantallaActual, anioFila, importeFila);
         });
     });
-});
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', iniciarAppCaaitba);
+} else {
+    iniciarAppCaaitba();
+}

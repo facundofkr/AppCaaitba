@@ -13,6 +13,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background-image: linear-gradient(to right, rgba(145, 62, 14, 0.16) 1px, transparent 1px), linear-gradient(to bottom, rgba(145, 62, 14, 0.16) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .app-container {
@@ -24,6 +40,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
 .screen {
@@ -87,15 +105,23 @@ body {
   transition: filter 0.25s ease, transform 0.25s ease;
 }
 .main-header .home-legajo {
-  text-align: center;
-  color: #5c3a21;
-  font-size: 1rem;
+  display: block;
+  width: calc(100% - 36px);
+  max-width: 308px;
+  margin: 18px auto -43px;
+  background: linear-gradient(180deg, #7a3512 0%, #5e2609 100%);
+  color: #ffffff;
+  font-size: 0.92rem;
   font-weight: 700;
-  margin-top: 14px;
-  margin-bottom: 2px;
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: 3px solid #a85824;
+  box-shadow: 0 3px 6px rgba(75, 28, 4, 0.25);
+  position: relative;
+  z-index: 2;
 }
 .main-header .home-legajo .legajo-link {
-  color: #5c3a21;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -111,33 +137,42 @@ body {
 
 .menu-buttons-container {
   width: 100%;
-  max-width: 300px;
+  max-width: 344px;
   margin: 0 auto;
+  padding: 40px 18px 22px;
+  border: 2px solid #753812;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .btn-caaitba {
-  background-color: #c97539;
+  background: linear-gradient(180deg, #b8581e 0%, #a64b15 100%);
   color: #ffffff;
   font-family: "Merriweather", serif;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
   display: block;
   width: 100%;
-  padding: 14px 18px;
+  padding: 15px 18px;
   border: none;
-  border-bottom: 4px solid #8f4f20;
-  border-radius: 6px;
+  border-bottom: 4px solid #6e2e09;
+  border-radius: 7px;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(95, 42, 10, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 6px rgba(70, 26, 4, 0.22);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  transition: transform 0.1s ease, background-color 0.2s ease;
+  transition: transform 0.1s ease, filter 0.2s ease;
 }
 .btn-caaitba:hover {
-  background-color: #d68042;
+  filter: brightness(1.06);
 }
 .btn-caaitba:active {
   transform: translateY(3px);
@@ -146,7 +181,7 @@ body {
 .btn-caaitba.btn-generate {
   width: 100%;
   margin-top: 10px;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
 }
 
 .form-card {

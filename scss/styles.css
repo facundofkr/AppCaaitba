@@ -909,97 +909,264 @@ body {
 }
 
 .boleta-ticket {
-  width: 750px;
+  width: 780px;
   background: #ffffff;
-  padding: 40px;
-  border: 2px solid #a63402;
-  color: #222;
+  padding: 32px 36px;
+  border: 2px solid #c97539;
+  border-top: 7px solid #a63402;
+  border-radius: 8px;
+  color: #2b1d12;
   font-family: "Roboto", sans-serif;
 }
 .boleta-ticket .boleta-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  border-bottom: 2px solid #ecd6c3;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+.boleta-ticket .boleta-header .boleta-header-left {
+  max-width: 58%;
 }
 .boleta-ticket .boleta-header .boleta-logo {
-  font-size: 2.6rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
   margin-bottom: 6px;
 }
 .boleta-ticket .boleta-header .boleta-org {
-  font-size: 0.8rem;
-  color: #555;
-  max-width: 360px;
+  font-size: 0.84rem;
+  color: #5c3a21;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+.boleta-ticket .boleta-header .boleta-contact {
+  font-size: 0.78rem;
+  color: #7a5a40;
 }
 .boleta-ticket .boleta-header .boleta-meta {
   text-align: right;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
 }
 .boleta-ticket .boleta-header .boleta-meta .boleta-badge {
   display: inline-block;
-  background: #c97539;
-  color: #fff;
+  background: #a63402;
+  color: #ffffff;
   font-weight: 700;
-  padding: 4px 10px;
+  font-size: 0.82rem;
+  padding: 5px 12px;
   border-radius: 4px;
+  letter-spacing: 0.5px;
   margin-bottom: 8px;
+  text-transform: uppercase;
 }
-.boleta-ticket .boleta-divider {
-  border: none;
-  border-top: 2px solid #e0e0e0;
-  margin: 22px 0;
+.boleta-ticket .boleta-header .boleta-meta p {
+  margin: 3px 0;
+  color: #333333;
+}
+.boleta-ticket .boleta-header .boleta-meta p strong {
+  color: #a63402;
+}
+.boleta-ticket .boleta-afiliado-banner {
+  background-color: #fdf2e9;
+  border: 1px solid #dfbfa4;
+  border-left: 5px solid #c97539;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.boleta-ticket .boleta-afiliado-banner .afiliado-info {
+  display: flex;
+  flex-direction: column;
+}
+.boleta-ticket .boleta-afiliado-banner .afiliado-info .afiliado-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8f4f20;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.boleta-ticket .boleta-afiliado-banner .afiliado-info .afiliado-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2b180a;
+}
+.boleta-ticket .boleta-afiliado-banner .vencimiento-box {
+  background-color: #ffffff;
+  border: 1px solid #c97539;
+  border-radius: 5px;
+  padding: 6px 12px;
+  text-align: right;
+}
+.boleta-ticket .boleta-afiliado-banner .vencimiento-box .vencimiento-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a63402;
+  text-transform: uppercase;
+}
+.boleta-ticket .boleta-afiliado-banner .vencimiento-box .vencimiento-date {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #2b180a;
 }
 .boleta-ticket .boleta-body h3 {
   color: #a63402;
-  margin-bottom: 16px;
-  font-size: 1.15rem;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 .boleta-ticket .boleta-body .boleta-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 28px;
-}
-.boleta-ticket .boleta-body .boleta-table th,
-.boleta-ticket .boleta-body .boleta-table td {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
+  margin-bottom: 18px;
 }
 .boleta-ticket .boleta-body .boleta-table th {
+  background-color: #c97539;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-align: left;
-  background-color: #f8f9fa;
-  color: #444;
-  width: 60%;
+  padding: 9px 14px;
+  border: 1px solid #c97539;
 }
 .boleta-ticket .boleta-body .boleta-table td {
-  text-align: right;
-  font-weight: 500;
+  padding: 10px 14px;
+  border: 1px solid #ecd6c3;
+  font-size: 0.92rem;
+  color: #2b1d12;
 }
-.boleta-ticket .boleta-body .boleta-table .row-total th,
+.boleta-ticket .boleta-body .boleta-table .col-right {
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .boleta-ticket .boleta-body .boleta-table .row-total td {
   background-color: #fdf2e9;
-  color: #8f4f20;
-  font-size: 1.2rem;
-  font-weight: 700;
+  color: #a63402;
+  font-size: 1.1rem;
+  font-weight: 900;
   border-top: 2px solid #c97539;
+  border-bottom: 2px solid #c97539;
+  padding: 12px 14px;
+}
+.boleta-ticket .boleta-declaracion-box {
+  background-color: #faf6f2;
+  border: 1px solid #e2cbb5;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: #4a3525;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.boleta-ticket .boleta-medios-section {
+  background-color: #fff8f1;
+  border: 2px solid #c97539;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+}
+.boleta-ticket .boleta-medios-section .medios-title {
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: #a63402;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.4px;
+}
+.boleta-ticket .boleta-medios-section .medios-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.boleta-ticket .boleta-medios-section .medio-pill {
+  background-color: #c97539;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+}
+.boleta-ticket .boleta-medios-section .medios-note {
+  font-size: 0.75rem;
+  color: #6e4e32;
 }
 .boleta-ticket .boleta-footer {
+  border-top: 2px dashed #c97539;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.boleta-ticket .boleta-footer .qr-col {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #ecd6c3;
+  padding-right: 14px;
+}
+.boleta-ticket .boleta-footer .qr-col .qr-frame {
+  padding: 6px;
+  border: 1px solid #c97539;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boleta-ticket .boleta-footer .qr-col .qr-caption {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a63402;
+  margin-top: 6px;
   text-align: center;
-  margin-top: 20px;
+  text-transform: uppercase;
 }
-.boleta-ticket .boleta-footer .barcode-lines {
-  height: 48px;
-  width: 85%;
+.boleta-ticket .boleta-footer .barcode-col {
+  width: 72%;
+  text-align: center;
+}
+.boleta-ticket .boleta-footer .barcode-col .barcode-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #5c3a21;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.4px;
+}
+.boleta-ticket .boleta-footer .barcode-col .barcode-wrap {
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border: 1px solid #e2cbb5;
+  border-radius: 4px;
+  width: 92%;
   margin: 0 auto 6px;
-  background: repeating-linear-gradient(90deg, #111 0px, #111 3px, transparent 3px, transparent 6px, #111 6px, #111 7px, transparent 7px, transparent 11px, #111 11px, #111 15px, transparent 15px, transparent 18px);
 }
-.boleta-ticket .boleta-footer .barcode-numbers {
-  font-family: monospace;
-  letter-spacing: 3px;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
+.boleta-ticket .boleta-footer .barcode-col .barcode-lines {
+  width: 100%;
+  height: 48px;
 }
-.boleta-ticket .boleta-footer .boleta-legal {
-  font-size: 0.75rem;
-  color: #777;
+.boleta-ticket .boleta-footer .barcode-col .barcode-numbers {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 1.5px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #111111;
+}
+.boleta-ticket .boleta-legal {
+  text-align: center;
+  font-size: 0.74rem;
+  color: #8c6747;
+  margin-top: 14px;
 }/*# sourceMappingURL=styles.css.map */

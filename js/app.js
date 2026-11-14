@@ -525,16 +525,15 @@ const iniciarAppCaaitba = () => {
                 afiliado: 'Legajo 118198/0 — REVOLERO TATIANA',
                 vencimientoLabel: 'FECHA Y HORA ASIGNADA',
                 vencimientoValor: `${ultimoTurnoGenerado.fechaTexto} (${ultimoTurnoGenerado.hora} hs)`,
-                tituloSeccion: 'DETALLE DE RESERVA DE TURNO PRESENCIAL — SEDE CENTRAL LA PLATA',
                 col1Header: 'DATOS DEL TURNO SOLICITADO',
                 col2Header: 'DETALLE REGISTRADO',
                 filas: [
                     { concepto: 'Sector / Tipo de Atención', valor: ultimoTurnoGenerado.tema },
                     { concepto: 'Persona Autorizada a Asistir', valor: ultimoTurnoGenerado.tercero },
                     { concepto: 'Motivo Declarado', valor: ultimoTurnoGenerado.motivo },
-                    { concepto: 'SEDE DE ATENCIÓN', valor: 'Calle 48 N° 695, La Plata', esTotal: true }
+                    { concepto: 'Dirección', valor: 'Calle 48 N° 695, La Plata', esTotal: true }
                 ],
-                declaracionHtml: '<strong>Requisitos de Asistencia:</strong> Presentarse 10 minutos antes del horario asignado con DNI físico y este comprobante digital o impreso. En caso de asistir un tercero autorizado, deberá exhibir su DNI y la documentación respaldatoria del trámite.',
+                declaracionHtml: '<strong>Requisitos de Asistencia:</strong> En caso de asistir un tercero autorizado, deberá exhibir su DNI y la documentación respaldatoria del trámite.',
                 mostrarMediosPago: false,
                 qrCaption: 'QR DE ACREDITACIÓN EN RECEPCIÓN',
                 barcodeLabel: 'CÓDIGO DE VALIDACIÓN DE TURNO EN TERMINAL DE AUTOGESTIÓN',

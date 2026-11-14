@@ -598,7 +598,7 @@
             }
 
             .col-comentario {
-                width: 72%;
+                width: 66%;
                 text-align: left;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
@@ -626,7 +626,8 @@
             }
 
             .col-fecha {
-                width: 28%;
+                width: 34%;
+                padding: 10px 4px;
                 text-align: center;
                 white-space: nowrap;
 
@@ -635,9 +636,9 @@
                     background-color: #f3e4d7;
                     color: #3d1b10;
                     font-weight: 700;
-                    font-size: 0.76rem;
-                    padding: 4px 8px;
-                    border-radius: 12px;
+                    font-size: 0.73rem;
+                    padding: 4px 6px;
+                    border-radius: 10px;
                 }
             }
         }

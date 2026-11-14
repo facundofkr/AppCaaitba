@@ -145,7 +145,13 @@ const iniciarAppCaaitba = () => {
         document.getElementById('boleta-afiliado').textContent = config.afiliado;
         document.getElementById('boleta-vencimiento-label').textContent = config.vencimientoLabel;
         document.getElementById('boleta-vencimiento').textContent = config.vencimientoValor;
-        document.getElementById('boleta-concepto-titulo').textContent = config.tituloSeccion;
+
+        const tituloEl = document.getElementById('boleta-concepto-titulo');
+        if (tituloEl) {
+            tituloEl.textContent = config.tituloSeccion || '';
+            tituloEl.style.display = config.tituloSeccion ? 'block' : 'none';
+        }
+
         document.getElementById('boleta-col1-header').textContent = config.col1Header;
         document.getElementById('boleta-col2-header').textContent = config.col2Header;
 
@@ -169,11 +175,18 @@ const iniciarAppCaaitba = () => {
         const mediosEl = document.getElementById('boleta-medios-pago');
         mediosEl.style.display = config.mostrarMediosPago ? 'block' : 'none';
 
-        document.getElementById('boleta-qr-caption').textContent = config.qrCaption;
-        document.getElementById('boleta-barcode-label').textContent = config.barcodeLabel;
-        document.getElementById('boleta-codigo-barras').textContent = config.codigoBarras;
-        document.getElementById('boleta-qr-box').innerHTML = crearQrSvg(config.codigoBarras, 105);
-        document.getElementById('boleta-barcode-svg').innerHTML = crearBarcodeSvg(config.codigoBarras);
+        const footerEl = document.querySelector('#boleta-template .boleta-footer');
+        if (footerEl) {
+            footerEl.style.display = config.mostrarMediosPago ? 'flex' : 'none';
+        }
+
+        if (config.mostrarMediosPago) {
+            document.getElementById('boleta-qr-caption').textContent = config.qrCaption;
+            document.getElementById('boleta-barcode-label').textContent = config.barcodeLabel;
+            document.getElementById('boleta-codigo-barras').textContent = config.codigoBarras;
+            document.getElementById('boleta-qr-box').innerHTML = crearQrSvg(config.codigoBarras, 105);
+            document.getElementById('boleta-barcode-svg').innerHTML = crearBarcodeSvg(config.codigoBarras);
+        }
 
         const boletaElement = document.getElementById('boleta-template');
         const canvas = await html2canvas(boletaElement, { scale: 2, backgroundColor: '#ffffff' });
@@ -437,8 +450,7 @@ const iniciarAppCaaitba = () => {
         tercero: 'Sin tercero autorizado',
         motivo: '-',
         nroTurno: '-',
-        nroSolicitud: '-',
-        codigoBarras: '03120118198000000000000000000000000000000000'
+        nroSolicitud: '-'
     };
 
     if (btnTurnos) {
@@ -477,7 +489,6 @@ const iniciarAppCaaitba = () => {
 
             const nroTurno = `T-${Math.floor(100000 + Math.random() * 900000)}`;
             const nroSolicitud = String(Math.floor(100000 + Math.random() * 900000));
-            const codigoBarras = `031201181980${nroSolicitud}20261021${Math.floor(100000000000 + Math.random() * 899999999999)}`;
 
             ultimoTurnoGenerado = {
                 tema,
@@ -486,8 +497,7 @@ const iniciarAppCaaitba = () => {
                 tercero,
                 motivo,
                 nroTurno,
-                nroSolicitud,
-                codigoBarras
+                nroSolicitud
             };
 
             document.getElementById('comp-dia-hora').textContent = `${fechaTexto} - ${hora} hs`;
@@ -496,9 +506,10 @@ const iniciarAppCaaitba = () => {
             if (compTercero) {
                 compTercero.textContent = tercero;
             }
-            const compQrMini = document.getElementById('comp-qr-mini');
-            if (compQrMini) {
-                compQrMini.innerHTML = crearQrSvg(codigoBarras, 68);
+
+            const qrPreview = document.querySelector('.comprobante-qr-preview');
+            if (qrPreview) {
+                qrPreview.style.display = 'none';
             }
 
             screenTurno.classList.remove('active');
@@ -535,9 +546,6 @@ const iniciarAppCaaitba = () => {
                 ],
                 declaracionHtml: '<strong>Requisitos de Asistencia:</strong> En caso de asistir un tercero autorizado, deberá exhibir su DNI y la documentación respaldatoria del trámite.',
                 mostrarMediosPago: false,
-                qrCaption: 'QR DE ACREDITACIÓN EN RECEPCIÓN',
-                barcodeLabel: 'CÓDIGO DE VALIDACIÓN DE TURNO EN TERMINAL DE AUTOGESTIÓN',
-                codigoBarras: ultimoTurnoGenerado.codigoBarras,
                 formato: 'pdf',
                 nombreArchivo: `Comprobante_Turno_${ultimoTurnoGenerado.nroTurno}`
             });

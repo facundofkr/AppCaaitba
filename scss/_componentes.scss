@@ -400,30 +400,6 @@
                 color: $azul-institucional;
             }
         }
-
-        .comprobante-qr-preview {
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px dashed #c97539;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            .qr-mini-box {
-                padding: 4px;
-                border: 1px solid #c97539;
-                border-radius: 4px;
-                background: #ffffff;
-                display: flex;
-            }
-
-            span {
-                font-size: 0.8rem;
-                font-weight: 700;
-                color: #5c3a21;
-                line-height: 1.3;
-            }
-        }
     }
 
     .comprobante-divider {
@@ -777,7 +753,7 @@
         .col-valor {
             font-family: $font-principal;
             text-align: center;
-            padding: 12px 10px;
+            padding: 10px 8px;
             cursor: pointer;
 
             &:hover {
@@ -1041,43 +1017,6 @@
         font-weight: 700;
     }
 
-    .bloque-saldar-centro {
-        text-align: center;
-        margin: 16px 0;
-
-        .btn-saldar-corp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(180deg, #ffffff 0%, #fcf6f0 100%);
-            color: #16324f;
-            font-family: $font-principal;
-            font-size: 0.96rem;
-            font-weight: 700;
-            text-decoration: none;
-            padding: 11px 22px;
-            border: 1px solid #d9b89c;
-            border-bottom: 3px solid #a87952;
-            border-radius: 8px;
-            box-shadow: $sombra-celda;
-            transition: transform 0.12s ease;
-
-            .icono-boleta {
-                width: 16px;
-                height: 16px;
-                max-width: 16px;
-                max-height: 16px;
-                fill: #8c4819;
-                flex-shrink: 0;
-            }
-
-            &:hover {
-                transform: translateY(-1px);
-            }
-        }
-    }
-
     .filtros-panel-corp {
         background: linear-gradient(180deg, rgba(255, 252, 248, 0.75) 0%, rgba(248, 232, 216, 0.52) 100%);
         border: 1px solid #d4a984;
@@ -1166,7 +1105,7 @@
         width: 100%;
         border-collapse: collapse;
         font-size: 0.76rem;
-        min-width: 820px;
+        min-width: 720px;
 
         th {
             background: linear-gradient(180deg, #b55419 0%, #9e4612 100%);
@@ -1233,48 +1172,6 @@
             padding: 3px 8px;
             border-radius: 10px;
         }
-
-        .btn-tabla-boleta {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: linear-gradient(180deg, #ffffff 0%, #fcf6f0 100%);
-            color: #16324f;
-            font-weight: 700;
-            font-size: 0.74rem;
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid #d9b89c;
-            border-bottom: 2px solid #a87952;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(140, 76, 30, 0.1);
-            white-space: nowrap;
-
-            .icono-boleta-sm {
-                width: 13px;
-                height: 13px;
-                max-width: 13px;
-                max-height: 13px;
-                fill: #8c4819;
-                flex-shrink: 0;
-            }
-
-            &:hover {
-                background: #ffffff;
-            }
-        }
-
-        .monto-actualizado-link {
-            display: inline-block;
-            background-color: #fff2ea;
-            color: #16324f;
-            border: 1px solid #d9b89c;
-            border-bottom: 2px solid #a87952;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-        }
     }
 }
 
@@ -1287,7 +1184,6 @@
     background-color: rgba(65, 28, 6, 0.65);
     backdrop-filter: blur(3px);
     display: none;
-    pointer-events: none;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -1295,7 +1191,6 @@
 
     &.active {
         display: flex;
-        pointer-events: auto;
         animation: fadeIn 0.2s ease-out;
     }
 

@@ -174,13 +174,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="input-interes">Interés</label>
+                        <label for="input-interes">Interés ($)</label>
                         <input type="number" id="input-interes" step="0.01" readonly required>
-                        <small class="helper-text">Interés establecido automáticamente</small>
+                        <small class="helper-text">Interés establecido automáticamente por CAAITBA.</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="input-valor-final">Valor Final</label>
+                        <label for="input-valor-final">Valor Final ($)</label>
                         <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" readonly required>
                         <small class="helper-text">Se calcula automáticamente sumando Importe e Interés.</small>
                     </div>
@@ -213,6 +213,7 @@
                             <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
                             <option value="Obra Pública / Privada">Obra Pública / Privada</option>
                             <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
+                            <option value="Atención al Público">Atención al Público</option>
                             <option value="Tesorería">Tesorería</option>
                             <option value="Legales">Legales</option>
                         </select>
@@ -221,9 +222,9 @@
                     <div class="form-group">
                         <label for="seleccione-fecha">Seleccione Fecha:</label>
                         <select id="seleccione-fecha" required>
-                            <option value="2026-10-21">Lunes - 23/11/2026</option>
-                            <option value="2026-10-22">Miércoles - 25/11/2026</option>
-                            <option value="2026-10-23">Viernes - 28/11/2026</option>
+                            <option value="2026-10-21">Miércoles - 21/10/2026</option>
+                            <option value="2026-10-22">Jueves - 22/10/2026</option>
+                            <option value="2026-10-23">Viernes - 23/10/2026</option>
                         </select>
                     </div>
 
@@ -238,9 +239,6 @@
                             <option value="11:00">11:00</option>
                             <option value="11:30">11:30</option>
                             <option value="12:00">12:00</option>
-                            <option value="12:30">12:30</option>
-                            <option value="13:00">13:00</option>
-                            <option value="13:30">13:30</option>
                         </select>
                     </div>
 
@@ -277,11 +275,11 @@
                         <hr class="comprobante-divider">
                         <p><strong>Dirección:</strong> Calle 48 N° 695, La Plata</p>
                         <p><strong>Teléfono:</strong> (0221) 412-0600</p>
-                        </div>
+                    </div>
                 </div>
 
                 <div class="comprobante-actions">
-                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
+                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE PDF</button>
                 </div>
             </div>
         </section>
@@ -508,15 +506,6 @@
                     </table>
                 </div>
 
-                <div class="bloque-saldar-centro">
-                    <a href="#" class="btn-saldar-corp btn-ir-cmao" data-anio="2015" data-importe="41137.80">
-                        <svg class="icono-boleta" width="16" height="16" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                        </svg>
-                        <span>Quiero Saldar Deuda Total ($ 41.137,80)</span>
-                    </a>
-                </div>
-
                 <div class="filtros-panel-corp">
                     <div class="filtros-legacy">
                         <span>Período desde:</span>
@@ -535,7 +524,6 @@
                         <thead>
                             <tr>
                                 <th>CONTROL</th>
-                                <th>ACCIÓN</th>
                                 <th>VISADO AÑO</th>
                                 <th>VISADO ORIGINAL</th>
                                 <th>FECHA</th>
@@ -552,14 +540,6 @@
                         <tbody>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5971412</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2015" data-importe="41137.80">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-visado">056917/15</span></td>
                                 <td class="col-centro">2020150056917</td>
                                 <td class="col-centro">08/01/2015</td>
@@ -570,9 +550,7 @@
                                 <td class="col-num">$ 0,00</td>
                                 <td class="col-num">$ 195,00</td>
                                 <td class="col-num">$ 195,00</td>
-                                <td class="col-num">
-                                    <a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2015" data-importe="41137.80">$ 41.137,80</a>
-                                </td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 41.137,80</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -585,7 +563,7 @@
                 <div class="form-header">
                     <button id="btn-back-formularios" class="btn-back" type="button">Volver</button>
                     <div class="deuda-title-bar">CONSULTA DE FORMULARIOS DE OBRA</div>
-                    <p class="deuda-legajo">Legajo: <span class="legajo-link">64251/4 MINOTTO LUIS ALBERTO</span></p>
+                    <p class="deuda-legajo">Legajo: <span class="legajo-link">118198/0 USUARIO DE PRUEBA</span></p>
                 </div>
 
                 <p class="subtitulo-marron">Formularios registrados y no vinculados con boleta pagada desde su matriculación hasta la fecha</p>
@@ -658,7 +636,6 @@
                         <thead>
                             <tr>
                                 <th>NRO FO</th>
-                                <th>ACCIÓN</th>
                                 <th>TIPO</th>
                                 <th>FECHA</th>
                                 <th>VENCIMIENTO</th>
@@ -675,14 +652,6 @@
                         <tbody>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5164206</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2022" data-importe="328495.20">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">01/05/2022</td>
                                 <td class="col-centro">30/04/2023</td>
@@ -693,18 +662,10 @@
                                 <td class="col-num">7.013,00</td>
                                 <td class="col-centro">1</td>
                                 <td class="col-num">35.064,80</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2022" data-importe="328495.20">$ 328.495,20</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 328.495,20</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5479103</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2023" data-importe="1210756.80">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">24/03/2023</td>
                                 <td class="col-centro">24/03/2024</td>
@@ -715,18 +676,10 @@
                                 <td class="col-num">446.667,70</td>
                                 <td class="col-centro">4</td>
                                 <td class="col-num">223.332,30</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2023" data-importe="1210756.80">$ 1.210.756,80</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 1.210.756,80</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5479127</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2023" data-importe="140566.80">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">24/03/2023</td>
                                 <td class="col-centro">24/03/2024</td>
@@ -737,18 +690,10 @@
                                 <td class="col-num">129.585,00</td>
                                 <td class="col-centro">5</td>
                                 <td class="col-num">25.915,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2023" data-importe="140566.80">$ 140.566,80</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 140.566,80</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5608484</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2022" data-importe="837784.20">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">16/06/2022</td>
                                 <td class="col-centro">16/06/2023</td>
@@ -759,18 +704,10 @@
                                 <td class="col-num">92.849,00</td>
                                 <td class="col-centro">2</td>
                                 <td class="col-num">89.401,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2022" data-importe="837784.20">$ 837.784,20</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 837.784,20</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5781691</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2024" data-importe="18975.00">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">15/01/2024</td>
                                 <td class="col-centro">14/03/2024</td>
@@ -781,18 +718,10 @@
                                 <td class="col-num">3.500,00</td>
                                 <td class="col-centro">1</td>
                                 <td class="col-num">3.500,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2024" data-importe="18975.00">$ 18.975,00</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 18.975,00</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5781697</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2024" data-importe="18975.00">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">15/01/2024</td>
                                 <td class="col-centro">14/03/2024</td>
@@ -803,18 +732,10 @@
                                 <td class="col-num">3.500,00</td>
                                 <td class="col-centro">1</td>
                                 <td class="col-num">3.500,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2024" data-importe="18975.00">$ 18.975,00</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 18.975,00</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5787649</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2023" data-importe="271114.80">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">01/10/2023</td>
                                 <td class="col-centro">01/10/2024</td>
@@ -825,18 +746,10 @@
                                 <td class="col-num">328.000,00</td>
                                 <td class="col-centro">1</td>
                                 <td class="col-num">50.000,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2023" data-importe="271114.80">$ 271.114,80</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 271.114,80</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5858485</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2024" data-importe="1653557.40">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">24/03/2024</td>
                                 <td class="col-centro">24/03/2025</td>
@@ -847,18 +760,10 @@
                                 <td class="col-num">1.525.000,00</td>
                                 <td class="col-centro">5</td>
                                 <td class="col-num">305.000,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2024" data-importe="1653557.40">$ 1.653.557,40</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 1.653.557,40</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5858503</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2024" data-importe="388608.00">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">24/03/2024</td>
                                 <td class="col-centro">24/03/2025</td>
@@ -869,18 +774,10 @@
                                 <td class="col-num">358.333,40</td>
                                 <td class="col-centro">5</td>
                                 <td class="col-num">71.666,60</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2024" data-importe="388608.00">$ 388.608,00</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 388.608,00</span></td>
                             </tr>
                             <tr>
                                 <td class="col-centro"><span class="badge-nro">5923331</span></td>
-                                <td class="col-centro">
-                                    <a href="#" class="btn-tabla-boleta btn-ir-cmao" data-anio="2024" data-importe="1550181.60">
-                                        <svg class="icono-boleta-sm" width="13" height="13" fill="#8c4819" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/>
-                                        </svg>
-                                        <span>Generar Boleta</span>
-                                    </a>
-                                </td>
                                 <td class="col-centro"><span class="badge-tipo">PRIVADA</span></td>
                                 <td class="col-centro">03/06/2024</td>
                                 <td class="col-centro">03/06/2025</td>
@@ -891,7 +788,7 @@
                                 <td class="col-num">51.875,00</td>
                                 <td class="col-centro">1</td>
                                 <td class="col-num">510.625,00</td>
-                                <td class="col-num"><a href="#" class="monto-actualizado-link btn-ir-cmao" data-anio="2024" data-importe="1550181.60">$ 1.550.181,60</a></td>
+                                <td class="col-num"><span class="monto-actualizado-pill">$ 1.550.181,60</span></td>
                             </tr>
                         </tbody>
                     </table>

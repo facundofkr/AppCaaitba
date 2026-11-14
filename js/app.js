@@ -418,12 +418,12 @@ const iniciarAppCaaitba = () => {
                 afiliado: 'Legajo 118198/0 — USUARIO DE PRUEBA',
                 vencimientoLabel: 'VENCIMIENTO',
                 vencimientoValor: fechaVencimiento,
-                tituloSeccion: `TRÁMITE: CUOTA MÍNIMA ANUAL OBLIGATORIA (C.M.A.O.) — PERÍODO ${anio}`,
+                tituloSeccion: `BOLETA DIGITAL C.M.A.O. ${anio}`,
                 col1Header: 'DETALLE DE CONCEPTOS IMPUTADOS',
                 col2Header: 'IMPORTE',
                 filas: [
                     { concepto: `Cuota Mínima Anual Obligatoria (C.M.A.O.) — Año ${anio}`, valor: formatearMoneda(importe) },
-                    { concepto: 'Intereses / Recargos Administrativos CAAITBA (Ley 12.490)', valor: formatearMoneda(interes) },
+                    { concepto: 'Intereses (Ley 12.490)', valor: formatearMoneda(interes) },
                     { concepto: 'TOTAL A ABONAR', valor: formatearMoneda(valorFinal), esTotal: true }
                 ],
                 declaracionHtml: `<strong>Información Previsional (Ley 12.490):</strong> Boleta generada por autogestión para imputación de aportes del período ${anio}. El trámite queda acreditado una vez confirmado el pago ante CAAITBA hasta la fecha de vencimiento indicada.`,
@@ -505,11 +505,6 @@ const iniciarAppCaaitba = () => {
             const compTercero = document.getElementById('comp-tercero');
             if (compTercero) {
                 compTercero.textContent = tercero;
-            }
-
-            const qrPreview = document.querySelector('.comprobante-qr-preview');
-            if (qrPreview) {
-                qrPreview.style.display = 'none';
             }
 
             screenTurno.classList.remove('active');
@@ -718,18 +713,6 @@ const iniciarAppCaaitba = () => {
             if (enlaceInterno && e.target !== enlaceInterno && !enlaceInterno.contains(e.target)) {
                 enlaceInterno.click();
             }
-        });
-    });
-
-    document.querySelectorAll('.btn-ir-cmao').forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const pantallaActual = (screenContratos && screenContratos.classList.contains('active'))
-                ? screenContratos
-                : screenFormularios;
-            const anioFila = link.getAttribute('data-anio') || '2026';
-            const importeFila = link.getAttribute('data-importe') || '';
-            abrirPantallaCmao(pantallaActual, anioFila, importeFila);
         });
     });
 };

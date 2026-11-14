@@ -1,8 +1,12 @@
-const CACHE_NAME = 'caaitba-app-v37';
+const CACHE_NAME = 'caaitba-app-v38';
 const ASSETS = [
     './',
     './index.html',
     './scss/styles.css',
+    './js/app.js',
+    './manifest.json',
+    './assets/images/icon-192.png',
+    './assets/images/icon-512.png'
 ];
 
 self.addEventListener('install', (e) => {

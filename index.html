@@ -177,13 +177,13 @@
                     <div class="form-group">
                         <label for="input-interes">Interés ($)</label>
                         <input type="number" id="input-interes" step="0.01" readonly required>
-                        <small class="helper-text">Interés establecido automáticamente por CAAITBA.</small>
+                        <small class="helper-text">Interés establecido automáticamente.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="input-valor-final">Valor Final ($)</label>
                         <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" readonly required>
-                        <small class="helper-text">Se calcula automáticamente sumando Importe e Interés.</small>
+                        <small class="helper-text">Importe e Interés.</small>
                     </div>
 
                     <div class="form-group">
@@ -211,10 +211,11 @@
                     <div class="form-group">
                         <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
-                            <option value="Financiaciones">Financiaciones</option>
                             <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
-                            <option value="Obra Pública / Privada">Obra Pública / Privada</option>
+                            <option value="Obra Pública">Obra Pública</option>
+                            <option value="Obra Privada">Obra Privada</option>
                             <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
+                            <option value="Financiaciones">Financiaciones</option>
                             <option value="Tesorería">Tesorería</option>
                             <option value="Legales">Legales</option>
                         </select>
@@ -226,6 +227,9 @@
                             <option value="2026-10-21">Miércoles - 21/11/2026</option>
                             <option value="2026-10-22">Jueves - 22/11/2026</option>
                             <option value="2026-10-23">Viernes - 23/11/2026</option>
+                            <option value="2026-10-21">Miércoles - 21/12/2026</option>
+                            <option value="2026-10-22">Jueves - 22/12/2026</option>
+                            <option value="2026-10-23">Viernes - 23/12/2026</option>
                         </select>
                     </div>
 
@@ -284,7 +288,7 @@
                 </div>
 
                 <div class="comprobante-actions">
-                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
+                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE PDF</button>
                 </div>
             </div>
         </section>
@@ -302,13 +306,13 @@
                             <label for="consulta-tema">Elija un Tema:</label>
                             <select id="consulta-tema" required>
                                 <option value="">-SELECCIONE UN TEMA-</option>
+                                <option value="Obra Pública">Obra Pública</option>
+                                <option value="Obra Privada">Obra Privada</option>
+                                <option value="Legales">Legales</option>
                                 <option value="C.M.A.O. / Eximiciones">C.M.A.O. / Eximiciones</option>
-                                <option value="Deuda de Contratos">Deuda de Contratos</option>
-                                <option value="Eximición Vivienda Propia">Eximición Vivienda Propia</option>
                                 <option value="Jubilaciones y Prestaciones">Jubilaciones y Prestaciones</option>
-                                <option value="Formas y Medios de Pago Habilitados">Formas y Medios de Pago Habilitados</option>
-                                <option value="Plan de Financiación (CMAO y Contratos)">Plan de Financiación (CMAO y Contratos)</option>
-                                <option value="Rehabilitación FO con tarea 05">Rehabilitación FO con tarea 05</option>
+                                <option value="Tesorería">Tesorería</option>
+                                <option value="Financiaciones (CMAO/Contratos)">Financiaciones (CMAO/Contratos)</option>
                             </select>
                         </div>
 
@@ -831,22 +835,6 @@
                         </div>
                     </div>
 
-                        <div class="form-row-3col">
-                            <div class="form-group">
-                                <label for="datos-dni">DNI</label>
-                                <input type="text" id="datos-dni" value="30.123.456" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="datos-matricula">Matrícula</label>
-                                <input type="text" id="datos-matricula" value="45892" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="datos-legajo">Legajo</label>
-                                <input type="text" id="datos-legajo" value="118198/0" readonly>
-                            </div>
-                        </div>
-                    </div>
-
                     <hr class="datos-divider">
 
                     <div class="form-group">
@@ -874,7 +862,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="datos-mail">Mail</label>
+                        <label for="datos-mail">Mail de Registro</label>
                         <div class="input-editable-row">
                             <input type="email" id="datos-mail" value="afiliado@caaitba.org.ar" placeholder="correo@ejemplo.com" readonly required>
                             <button type="button" class="btn-editar-campo" data-target="datos-mail">Editar</button>

@@ -236,21 +236,28 @@
         border: 1px solid #d4a984;
         border-bottom: 3px solid #9e6d44;
         border-radius: 8px;
-        padding: 12px 12px 2px;
+        padding: 12px 10px 2px;
         margin-bottom: 14px;
         box-shadow: $sombra-bloque;
-    }
 
-    .form-row-2col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        .form-group {
+            label {
+                text-align: center;
+                width: 100%;
+            }
+
+            input[readonly] {
+                text-align: center;
+                padding: 8px 4px;
+                font-size: 0.88rem;
+            }
+        }
     }
 
     .form-row-3col {
         display: grid;
-        grid-template-columns: 1.1fr 1fr 1fr;
-        gap: 8px;
+        grid-template-columns: 1.25fr 0.85fr 1fr;
+        gap: 6px;
     }
 
     .datos-divider {

@@ -190,6 +190,40 @@
             margin-bottom: 5px;
         }
 
+        .datos-bloque-fijo {
+        background: linear-gradient(180deg, rgba(255, 252, 248, 0.72) 0%, rgba(248, 232, 216, 0.52) 100%);
+        border: 1px solid #d4a984;
+        border-bottom: 3px solid #9e6d44;
+        border-radius: 8px;
+        padding: 12px 12px 2px;
+        margin-bottom: 14px;
+        box-shadow: $sombra-bloque;
+    }
+
+    .form-row-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-row-3col {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    .datos-divider {
+        border: none;
+        border-top: 1px dashed #c97539;
+        margin: 6px 0 14px;
+    }
+
+    .label-opcional {
+        font-weight: 500;
+        font-size: 0.78rem;
+        color: #7a5230;
+    }
+
         input,
         select,
         textarea {

@@ -149,6 +149,7 @@
 
             <div class="menu-buttons-container">
                 <button id="btn-deuda" class="btn-caaitba" type="button">Situación del Afiliado</button>
+                <button id="btn-datos-personales" class="btn-caaitba" type="button">Datos Personales</button>
                 <button id="btn-consultas" class="btn-caaitba" type="button">Consultas Online</button>
                 <button id="btn-turnos" class="btn-caaitba" type="button">Turnos Online</button>
                 <button id="btn-cmao" class="btn-caaitba" type="button">Boleta C.M.A.O.</button>
@@ -801,6 +802,74 @@
                     </table>
                 </div>
             </div>
+            </section>
+            <section id="screen-datos-personales" class="screen">
+            <div class="form-card datos-card">
+                <div class="form-header">
+                    <button id="btn-back-datos" class="btn-back" type="button">INICIO</button>
+                    <div class="cmao-title-bar">Datos Personales</div>
+                </div>
+
+                <form id="datos-personales-form">
+                    <div class="datos-bloque-fijo">
+                        <div class="form-row-2col">
+                            <div class="form-group">
+                                <label for="datos-nombre">Nombre</label>
+                                <input type="text" id="datos-nombre" value="USUARIO" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="datos-apellido">Apellido</label>
+                                <input type="text" id="datos-apellido" value="DE PRUEBA" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-row-3col">
+                            <div class="form-group">
+                                <label for="datos-dni">DNI</label>
+                                <input type="text" id="datos-dni" value="30.123.456" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="datos-matricula">Matrícula</label>
+                                <input type="text" id="datos-matricula" value="45892" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="datos-legajo">Legajo</label>
+                                <input type="text" id="datos-legajo" value="118198/0" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="datos-divider">
+
+                    <div class="form-group">
+                        <label for="datos-celular">N° Celular</label>
+                        <input type="tel" id="datos-celular" value="221-4567890" placeholder="Ej: 221-1234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datos-domicilio">Domicilio</label>
+                        <input type="text" id="datos-domicilio" value="Calle 48 N° 695, La Plata" placeholder="Calle, número y localidad" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datos-domicilio-alt">Domicilio Alt. <span class="label-opcional">(Opcional)</span></label>
+                        <input type="text" id="datos-domicilio-alt" placeholder="Domicilio alternativo o estudio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datos-mail">Mail</label>
+                        <input type="email" id="datos-mail" value="afiliado@caaitba.org.ar" placeholder="correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datos-mail-alt">Mail Alt. <span class="label-opcional">(Opcional)</span></label>
+                        <input type="email" id="datos-mail-alt" placeholder="correo.alternativo@ejemplo.com">
+                    </div>
+
+                    <button type="submit" class="btn-caaitba btn-generate">GUARDAR CAMBIOS</button>
+                </form>
+            </div>
+        </section>
         </section>
 
         <footer class="app-footer">

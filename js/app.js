@@ -3,7 +3,7 @@ const iniciarAppCaaitba = () => {
     const screenRecuperar = document.getElementById('screen-recuperar-pass');
     const screenNuevoUsuario = document.getElementById('screen-nuevo-usuario');
     const screenConsultarLegajo = document.getElementById('screen-consultar-legajo');
-    
+
     const screenHome = document.getElementById('screen-home');
     const screenCmao = document.getElementById('screen-cmao');
     const screenTurno = document.getElementById('screen-turno');
@@ -12,6 +12,7 @@ const iniciarAppCaaitba = () => {
     const screenDeuda = document.getElementById('screen-deuda');
     const screenContratos = document.getElementById('screen-contratos');
     const screenFormularios = document.getElementById('screen-formularios');
+    const screenDatosPersonales = document.getElementById('screen-datos-personales');
 
     const customModal = document.getElementById('custom-modal');
     const modalTitle = document.getElementById('modal-title');
@@ -219,7 +220,7 @@ const iniciarAppCaaitba = () => {
     const linkRecuperar = document.getElementById('link-recuperar');
     const linkNuevoUsuario = document.getElementById('link-nuevo-usuario');
     const linkConsultarLegajo = document.getElementById('link-consultar-legajo');
-    
+
     const btnBackRecuperar = document.getElementById('btn-back-recuperar');
     const btnBackNuevoUsuario = document.getElementById('btn-back-nuevo-usuario');
     const btnBackConsultarLegajo = document.getElementById('btn-back-consultar-legajo');
@@ -715,6 +716,34 @@ const iniciarAppCaaitba = () => {
             }
         });
     });
+
+    const btnDatosPersonales = document.getElementById('btn-datos-personales');
+    const btnBackDatos = document.getElementById('btn-back-datos');
+    const datosPersonalesForm = document.getElementById('datos-personales-form');
+
+    if (btnDatosPersonales && screenDatosPersonales) {
+        btnDatosPersonales.addEventListener('click', () => {
+            screenHome.classList.remove('active');
+            screenDatosPersonales.classList.add('active');
+        });
+    }
+
+    if (btnBackDatos && screenDatosPersonales) {
+        btnBackDatos.addEventListener('click', () => {
+            screenDatosPersonales.classList.remove('active');
+            screenHome.classList.add('active');
+        });
+    }
+
+    if (datosPersonalesForm) {
+        datosPersonalesForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            mostrarModal('Sus datos personales han sido actualizados correctamente.', () => {
+                screenDatosPersonales.classList.remove('active');
+                screenHome.classList.add('active');
+            });
+        });
+    }
 };
 
 if (document.readyState === 'loading') {

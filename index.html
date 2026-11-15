@@ -176,13 +176,13 @@
                     <div class="form-group">
                         <label for="input-interes">Interés ($)</label>
                         <input type="number" id="input-interes" step="0.01" readonly required>
-                        <small class="helper-text">Interés establecido automáticamente por CAAITBA.</small>
+                        <small class="helper-text">Interés establecido automáticamente</small>
                     </div>
 
                     <div class="form-group">
                         <label for="input-valor-final">Valor Final ($)</label>
                         <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" readonly required>
-                        <small class="helper-text">Se calcula automáticamente sumando Importe e Interés.</small>
+                        <small class="helper-text">Importe e Interés.</small>
                     </div>
 
                     <div class="form-group">
@@ -211,9 +211,10 @@
                         <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
                             <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
-                            <option value="Obra Pública / Privada">Obra Pública / Privada</option>
+                            <option value="Financiaciones">Financiaciones</option>
+                            <option value="Obra Pública">Obra Pública</option>
+                            <option value="Obra Privada">Obra Privada</option>
                             <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
-                            <option value="Atención al Público">Atención al Público</option>
                             <option value="Tesorería">Tesorería</option>
                             <option value="Legales">Legales</option>
                         </select>
@@ -239,6 +240,10 @@
                             <option value="11:00">11:00</option>
                             <option value="11:30">11:30</option>
                             <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:00">14:00</option>
                         </select>
                     </div>
 
@@ -297,6 +302,8 @@
                             <label for="consulta-tema">Elija un Tema:</label>
                             <select id="consulta-tema" required>
                                 <option value="">-SELECCIONE UN TEMA-</option>
+                                <option value="Legales">Legales</option>
+                                <option value="Tesorería">Tesorería</option>
                                 <option value="C.M.A.O. / Eximiciones">C.M.A.O. / Eximiciones</option>
                                 <option value="Deuda de Contratos">Deuda de Contratos</option>
                                 <option value="Eximición Vivienda Propia">Eximición Vivienda Propia</option>

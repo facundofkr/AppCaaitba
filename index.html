@@ -148,12 +148,12 @@
             </header>
 
             <div class="menu-buttons-container">
-                <button id="btn-deuda" class="btn-caaitba" type="button">Situación del Afiliado</button>
                 <button id="btn-datos-personales" class="btn-caaitba" type="button">Datos Personales</button>
+                <button id="btn-deuda" class="btn-caaitba" type="button">Situación del Afiliado</button>
                 <button id="btn-consultas" class="btn-caaitba" type="button">Consultas Online</button>
                 <button id="btn-turnos" class="btn-caaitba" type="button">Turnos Online</button>
                 <button id="btn-cmao" class="btn-caaitba" type="button">Boleta C.M.A.O.</button>
-            </div>
+                </div>
         </main>
 
         <section id="screen-cmao" class="screen">
@@ -177,13 +177,13 @@
                     <div class="form-group">
                         <label for="input-interes">Interés ($)</label>
                         <input type="number" id="input-interes" step="0.01" readonly required>
-                        <small class="helper-text">Interés establecido automáticamente</small>
+                        <small class="helper-text">Interés establecido automáticamente por CAAITBA.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="input-valor-final">Valor Final ($)</label>
                         <input type="number" id="input-valor-final" placeholder="0.00" step="0.01" readonly required>
-                        <small class="helper-text">Importe e Interés.</small>
+                        <small class="helper-text">Se calcula automáticamente sumando Importe e Interés.</small>
                     </div>
 
                     <div class="form-group">
@@ -211,10 +211,9 @@
                     <div class="form-group">
                         <label for="tipo-atencion">Tipo de atención:</label>
                         <select id="tipo-atencion" required>
-                            <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
                             <option value="Financiaciones">Financiaciones</option>
-                            <option value="Obra Pública">Obra Pública</option>
-                            <option value="Obra Privada">Obra Privada</option>
+                            <option value="CMAO / Eximiciones">CMAO / Eximiciones</option>
+                            <option value="Obra Pública / Privada">Obra Pública / Privada</option>
                             <option value="Jubilaciones y Beneficios">Jubilaciones y Beneficios</option>
                             <option value="Tesorería">Tesorería</option>
                             <option value="Legales">Legales</option>
@@ -224,9 +223,9 @@
                     <div class="form-group">
                         <label for="seleccione-fecha">Seleccione Fecha:</label>
                         <select id="seleccione-fecha" required>
-                            <option value="2026-10-21">Miércoles - 21/10/2026</option>
-                            <option value="2026-10-22">Jueves - 22/10/2026</option>
-                            <option value="2026-10-23">Viernes - 23/10/2026</option>
+                            <option value="2026-10-21">Miércoles - 21/11/2026</option>
+                            <option value="2026-10-22">Jueves - 22/11/2026</option>
+                            <option value="2026-10-23">Viernes - 23/11/2026</option>
                         </select>
                     </div>
 
@@ -285,7 +284,7 @@
                 </div>
 
                 <div class="comprobante-actions">
-                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE PDF</button>
+                    <button id="btn-descargar-turno" class="btn-caaitba btn-generate" type="button">DESCARGAR COMPROBANTE</button>
                 </div>
             </div>
         </section>
@@ -303,8 +302,6 @@
                             <label for="consulta-tema">Elija un Tema:</label>
                             <select id="consulta-tema" required>
                                 <option value="">-SELECCIONE UN TEMA-</option>
-                                <option value="Legales">Legales</option>
-                                <option value="Tesorería">Tesorería</option>
                                 <option value="C.M.A.O. / Eximiciones">C.M.A.O. / Eximiciones</option>
                                 <option value="Deuda de Contratos">Deuda de Contratos</option>
                                 <option value="Eximición Vivienda Propia">Eximición Vivienda Propia</option>
@@ -802,8 +799,9 @@
                     </table>
                 </div>
             </div>
-            </section>
-            <section id="screen-datos-personales" class="screen">
+        </section>
+
+        <section id="screen-datos-personales" class="screen">
             <div class="form-card datos-card">
                 <div class="form-header">
                     <button id="btn-back-datos" class="btn-back" type="button">INICIO</button>
@@ -843,33 +841,45 @@
 
                     <div class="form-group">
                         <label for="datos-celular">N° Celular</label>
-                        <input type="tel" id="datos-celular" value="221-4567890" placeholder="Ej: 221-1234567" required>
+                        <div class="input-editable-row">
+                            <input type="tel" id="datos-celular" value="221-4567890" placeholder="Ej: 221-1234567" readonly required>
+                            <button type="button" class="btn-editar-campo" data-target="datos-celular">Editar</button>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="datos-domicilio">Domicilio</label>
-                        <input type="text" id="datos-domicilio" value="Calle 48 N° 695, La Plata" placeholder="Calle, número y localidad" required>
+                        <div class="input-editable-row">
+                            <input type="text" id="datos-domicilio" value="Calle 48 N° 695, La Plata" placeholder="Calle, número y localidad" readonly required>
+                            <button type="button" class="btn-editar-campo" data-target="datos-domicilio">Editar</button>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="datos-domicilio-alt">Domicilio Alt. <span class="label-opcional">(Opcional)</span></label>
-                        <input type="text" id="datos-domicilio-alt" placeholder="Domicilio alternativo o estudio">
+                        <div class="input-editable-row">
+                            <input type="text" id="datos-domicilio-alt" placeholder="Domicilio alternativo o estudio" readonly>
+                            <button type="button" class="btn-editar-campo" data-target="datos-domicilio-alt">Editar</button>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="datos-mail">Mail</label>
-                        <input type="email" id="datos-mail" value="afiliado@caaitba.org.ar" placeholder="correo@ejemplo.com" required>
+                        <div class="input-editable-row">
+                            <input type="email" id="datos-mail" value="afiliado@caaitba.org.ar" placeholder="correo@ejemplo.com" readonly required>
+                            <button type="button" class="btn-editar-campo" data-target="datos-mail">Editar</button>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="datos-mail-alt">Mail Alt. <span class="label-opcional">(Opcional)</span></label>
-                        <input type="email" id="datos-mail-alt" placeholder="correo.alternativo@ejemplo.com">
+                        <div class="input-editable-row">
+                            <input type="email" id="datos-mail-alt" placeholder="Se recomienda Gmail" readonly>
+                            <button type="button" class="btn-editar-campo" data-target="datos-mail-alt">Editar</button>
+                        </div>
                     </div>
-
-                    <button type="submit" class="btn-caaitba btn-generate">GUARDAR CAMBIOS</button>
                 </form>
             </div>
-        </section>
         </section>
 
         <footer class="app-footer">
@@ -960,7 +970,7 @@
                 </div>
             </div>
 
-            <p class="boleta-legal">CAAITBA Autogestión</p>
+            <p class="boleta-legal">Comprobante digital unificado — CAAITBA Autogestión</p>
         </div>
     </div>
 

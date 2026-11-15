@@ -190,40 +190,6 @@
             margin-bottom: 5px;
         }
 
-        .datos-bloque-fijo {
-        background: linear-gradient(180deg, rgba(255, 252, 248, 0.72) 0%, rgba(248, 232, 216, 0.52) 100%);
-        border: 1px solid #d4a984;
-        border-bottom: 3px solid #9e6d44;
-        border-radius: 8px;
-        padding: 12px 12px 2px;
-        margin-bottom: 14px;
-        box-shadow: $sombra-bloque;
-    }
-
-    .form-row-2col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .form-row-3col {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr 1fr;
-        gap: 8px;
-    }
-
-    .datos-divider {
-        border: none;
-        border-top: 1px dashed #c97539;
-        margin: 6px 0 14px;
-    }
-
-    .label-opcional {
-        font-weight: 500;
-        font-size: 0.78rem;
-        color: #7a5230;
-    }
-
         input,
         select,
         textarea {
@@ -262,6 +228,85 @@
             font-size: 0.78rem;
             color: #5c3a21;
             margin-top: 4px;
+        }
+    }
+
+    .datos-bloque-fijo {
+        background: linear-gradient(180deg, rgba(255, 252, 248, 0.72) 0%, rgba(248, 232, 216, 0.52) 100%);
+        border: 1px solid #d4a984;
+        border-bottom: 3px solid #9e6d44;
+        border-radius: 8px;
+        padding: 12px 12px 2px;
+        margin-bottom: 14px;
+        box-shadow: $sombra-bloque;
+    }
+
+    .form-row-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-row-3col {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    .datos-divider {
+        border: none;
+        border-top: 1px dashed #c97539;
+        margin: 6px 0 14px;
+    }
+
+    .label-opcional {
+        font-weight: 500;
+        font-size: 0.78rem;
+        color: #7a5230;
+    }
+
+    .input-editable-row {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        width: 100%;
+
+        input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .btn-editar-campo {
+            background: linear-gradient(180deg, #b8581e 0%, #a64b15 100%);
+            color: #ffffff;
+            font-family: $font-botones;
+            font-size: 0.78rem;
+            font-weight: 700;
+            min-width: 78px;
+            padding: 0 14px;
+            border: none;
+            border-bottom: 3px solid #6e2e09;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(85, 32, 5, 0.2);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+            transition: transform 0.1s ease, filter 0.2s ease, background 0.2s ease;
+            flex-shrink: 0;
+
+            &.modo-guardar {
+                background: linear-gradient(180deg, #1f7a39 0%, #145928 100%);
+                border-bottom-color: #0c3818;
+            }
+
+            &:hover {
+                filter: brightness(1.06);
+            }
+
+            &:active {
+                transform: translateY(2px);
+                border-bottom-width: 1px;
+            }
         }
     }
 

@@ -735,13 +735,37 @@ const iniciarAppCaaitba = () => {
         });
     }
 
+    document.querySelectorAll('.btn-editar-campo').forEach((boton) => {
+        boton.addEventListener('click', () => {
+            const targetId = boton.getAttribute('data-target');
+            const inputCampo = document.getElementById(targetId);
+            if (!inputCampo) return;
+
+            if (inputCampo.hasAttribute('readonly')) {
+                inputCampo.removeAttribute('readonly');
+                boton.textContent = 'Guardar';
+                boton.classList.add('modo-guardar');
+                inputCampo.focus();
+                const largo = inputCampo.value.length;
+                if (typeof inputCampo.setSelectionRange === 'function' && inputCampo.type !== 'email') {
+                    inputCampo.setSelectionRange(largo, largo);
+                }
+            } else {
+                if (!inputCampo.checkValidity()) {
+                    inputCampo.reportValidity();
+                    return;
+                }
+                inputCampo.setAttribute('readonly', 'readonly');
+                boton.textContent = 'Editar';
+                boton.classList.remove('modo-guardar');
+                mostrarModal('El dato fue actualizado correctamente.');
+            }
+        });
+    });
+
     if (datosPersonalesForm) {
         datosPersonalesForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            mostrarModal('Sus datos personales han sido actualizados correctamente.', () => {
-                screenDatosPersonales.classList.remove('active');
-                screenHome.classList.add('active');
-            });
         });
     }
 };
